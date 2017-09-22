@@ -53,8 +53,12 @@ nav .mai_menu_desktop {
 }
 
 /* Signup, Login */
-.mai_signup {
+.mai-signup-wrapper {
     height: calc(100vh - var(--height-nav));
+}
+
+.mai-signup {
+    background-color: white; 
 }
 
 h1.brand-logo { 
@@ -63,24 +67,30 @@ h1.brand-logo {
     letter-spacing: 0.01em;
 }
 
-#form_signup label, #form_signup button {
+.input-field {
+    margin-top   : 0.6em;
+    margin-bottom: 0.6em;
+}
+
+#form_signup label {
     font-size: 0.85em;
 }
 
-#form_signup i {
-    font-size: 1.5em;
+#form_signup button {
+    font-size: 0.85em;
+    width    : 100%;
 }
 
 .mai_separator-1 {
-    height: 0.5em;
+    height: 0.4em;
 }
 
 .mai_separator-2 {
-    height: 1.5em;
+    height: 1.2em;
 }
 
 .mai_separator-3 {
-    height: 2.5em;
+    height: 2em;
 }
 
 
@@ -97,6 +107,4 @@ h1.brand-logo {
         height     : var(--height-nav);
         line-height: var(--height-nav);
     }
-
-    .mai_signup {}
 }

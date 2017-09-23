@@ -10,7 +10,9 @@
 
 ## GitHub Demos
 [index.html](https://ijlee2.github.io/Mai/)
+
 [user.html](https://ijlee2.github.io/Mai/user.html)
+
 [story.html](https://ijlee2.github.io/Mai/story.html)
 
 

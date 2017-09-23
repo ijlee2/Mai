@@ -6,6 +6,10 @@
 *****************************************************************************
 *****************************************************************************/
 :root {
+    /* Define fonts */
+    --font-main     : "Nunito", sans-serif;
+    --font-highlight: "Leckerli One", cursive;
+
     /* Define heights */
     --height-nav: 40px;
 
@@ -20,9 +24,10 @@
 }
 
 html {
-    font-family: "Nunito", sans-serif;
+    font-family: var(--font-main);
     font-size  : 20px;
 }
+
 
 /* Navbar */
 /* Source for changing the height: https://stackoverflow.com/questions/35552708/is-materialize-navbar-height-adjustment-possible */
@@ -41,8 +46,8 @@ nav .button-collapse i {
     line-height: var(--height-nav);
 }
 
-nav .brand-logo { 
-    font-family   : "Leckerli One", cursive;
+nav .brand-logo {
+    font-family   : var(--font-highlight);
     font-size     : 1.05em;
     height        : 1.4em;
     letter-spacing: 0.04em;
@@ -63,6 +68,7 @@ nav #mai-menu-desktop li:last-child {
     margin-right: 1em;
 }
 
+
 /* Signup, Login */
 .mai-signup-wrapper {
     height: calc(100vh - var(--height-nav));
@@ -73,7 +79,7 @@ nav #mai-menu-desktop li:last-child {
 }
 
 h1.brand-logo { 
-    font-family   : "Leckerli One", cursive;
+    font-family   : var(--font-highlight);
     font-size     : 2.8em;
     height        : 1.4em;
     letter-spacing: 0.01em;
@@ -88,11 +94,11 @@ h1.brand-logo img {
     margin-bottom: 0.6em;
 }
 
-#form_signup label {
+#mai-form-signup label {
     font-size: 0.85em;
 }
 
-#form_signup button {
+#mai-form-signup button {
     font-size: 0.85em;
     width    : 100%;
 }
@@ -107,6 +113,22 @@ h1.brand-logo img {
 
 .mai-separator-3 {
     height: 2em;
+}
+
+
+/* User, Story */
+#mai-user-stats {
+    font-size: 1.2em;
+}
+
+#mai-fullname {
+    font-family   : var(--font-highlight);
+    font-size     : 2.1em;
+    letter-spacing: 0.01em;
+}
+
+#mai-numPosts, #mai-numFollowers, #mai-numFollowing {
+    font-size: 1.2em;
 }
 
 

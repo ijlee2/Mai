@@ -6,6 +6,9 @@
         <meta name="description" content="Mai">
         <meta name="author" content="John Absher, David Gutierrez, Jason Joachim, Isaac J. Lee">
         <title>Mai</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="images/mai.png">
         
         <!-- Import fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -45,15 +48,32 @@
 
         <div class="container">
             <div class="row">
-                <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="https://i.pinimg.com/736x/b3/48/4c/b3484c816ba990b5ff29e5cd2299497f--wise-words-wise-sayings.jpg">
-                            <span class="card-title">Card Title</span>
+                <div class="col xl6 offset-xl3">
+                    <div class="row valign-wrapper">
+                        <!-- User image -->
+                        <div class="col s3">
+                            <img src="images/user_image.jpg" class="responsive-img circle" alt="user image">
                         </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                        
+                        <!-- User stats -->
+                        <div class="col s9">
+                            <div class="row" id="mai-user-stats">
+                                <div class="col s12 center-align">
+                                    <span id="mai-fullname">Isaac Lee</span>
+                                </div>
+
+                                <div class="col s4 center-align grey-text text-lighten-1">
+                                    <span class="black-text" id="mai-numPosts">931</span><br>posts
+                                </div>
+                                
+                                <div class="col s4 center-align grey-text text-lighten-1">
+                                    <span class="black-text" id="mai-numFollowers">509</span><br>followers
+                                </div>
+
+                                <div class="col s4 center-align grey-text text-lighten-1">
+                                    <span class="black-text" id="mai-numFollowing">460</span><br>following
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

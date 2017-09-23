@@ -127,13 +127,15 @@ h1.brand-logo img {
     font-size: 1.2em;
 }
 
-#mai-fullname {
+#mai-user-stats #mai-fullname {
     font-family   : var(--font-highlight);
     font-size     : 2.1em;
     letter-spacing: 0.01em;
 }
 
-#mai-numStories, #mai-numFollowers, #mai-numFollowing {
+#mai-user-stats #mai-numStories,
+#mai-user-stats #mai-numFollowers,
+#mai-user-stats #mai-numFollowing {
     font-size: 1.2em;
 }
 

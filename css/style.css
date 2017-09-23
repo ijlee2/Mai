@@ -128,8 +128,4 @@ h1.brand-logo {
 
 /* Mobile */
 @media all and (max-width: 600px), all and (max-device-width: 600px) {
-    html {
-        font-size: 18px;
-        font-size: 3vw;
-    }
 }

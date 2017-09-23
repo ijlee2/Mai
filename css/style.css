@@ -134,8 +134,8 @@ h1.brand-logo img {
 }
 
 #mai-user-stats #mai-numStories,
-#mai-user-stats #mai-numFollowers,
-#mai-user-stats #mai-numFollowing {
+#mai-user-stats #mai-numReading,
+#mai-user-stats #mai-numReaders {
     font-size: 1.2em;
 }
 

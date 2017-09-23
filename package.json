@@ -1,0 +1,29 @@
+{
+  "name": "mai",
+  "version": "1.0.0",
+  "description": "Everyone has a story to share.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.9",
+    "mysql2": "^1.4.2",
+    "path": "^0.12.7",
+    "sequelize": "^4.10.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ijlee2/Mai.git"
+  },
+  "author": "John Absher, David Gutierrez, Jason Joachim, Isaac Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ijlee2/Mai/issues"
+  },
+  "homepage": "https://github.com/ijlee2/Mai#readme"
+}

@@ -69,6 +69,12 @@ nav #mai-menu-desktop li:last-child {
 }
 
 
+/* Footer */
+.footer-copyright {
+    font-size: 0.75em;
+}
+
+
 /* Signup, Login */
 .mai-signup-wrapper {
     height: calc(100vh - var(--height-nav));

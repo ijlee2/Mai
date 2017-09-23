@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const user = sequelize.define("writer", {
+    const writers = sequelize.define("writer", {
        "user_id": {
             "type"     : DataTypes.INTEGER,
             "allowNull": false,
@@ -15,5 +15,5 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    return writer;
+    return writers;
 }

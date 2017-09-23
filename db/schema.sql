@@ -29,6 +29,7 @@ CREATE TABLE photos (
     id      INT NOT NULL AUTO_INCREMENT,
     url     VARCHAR(100) NOT NULL,
     caption TEXT,
+    date DATETIME NOT NULL,
 
     PRIMARY KEY (id)
 );

@@ -1,9 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
-    const user = sequelize.define("user", {
+    const users = sequelize.define("user", {
         "fullname": {
             "type"     : DataTypes.STRING,
             "allowNull": false,
             "validate" : {
+
             }
         },
 
@@ -30,7 +31,8 @@ module.exports = function(sequelize, DataTypes) {
             "validate" : {
             }
         },
-       "photo_url": {
+
+        "photo_url": {
             "type"     : DataTypes.STRING,
             "allowNull": false,
             "validate" : {
@@ -39,10 +41,10 @@ module.exports = function(sequelize, DataTypes) {
         },
         
         "flagged": {
-            "type"     : DataTypes.BOOLEAN,
-            "defaultvalue": false,
+            "type"        : DataTypes.BOOLEAN,
+            "defaultValue": false,
         }
     });
 
-    return user;
+    return users;
 }

@@ -1,9 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
-    const user = sequelize.define("reader", {
+    const readers = sequelize.define("reader", {
        "user_id": {
-            "type"     : DataTypes.INTEGER,
-            "allowNull": false,
-            "validate" : {
+            "type"      : DataTypes.INTEGER,
+            "references": {
+                "model": users,
+                "key"  : "id"
+            },
+            "allowNull" : false,
+            "validate"  : {
             }
         },
         

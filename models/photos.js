@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const user = sequelize.define("photo", {
+    const photos = sequelize.define("photo", {
        "photo_url": {
             "type"     : DataTypes.STRING,
             "allowNull": false,
@@ -16,5 +16,5 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    return photo;
+    return photos;
 }

@@ -50,7 +50,7 @@
             <div class="row mai-signup-wrapper valign-wrapper">
                 <div class="col s10 offset-s1 m8 offset-m2 l6 offset-l4 xl4 offset-xl5">
                     <h1 class="brand-logo"><img class="responsive-img" src="images/mai.png" alt="Mai logo"></img>Mai</h1>
-                    <p>Sign up to see stories from your friends.</p>
+                    <p>Sign up to read stories from your friends.</p>
 
                     <div class="mai-separator-1"></div>
 
@@ -82,7 +82,36 @@
 
                     <div class="mai-separator-3"></div>
 
-                    <p>Have an account? <a href="#">Log in<a>.</p>
+                    <a href="javascript:displayLogin();">Have an account? Log in<a>.
+                </div>
+            </div>
+
+            <div class="row mai-login-wrapper valign-wrapper">
+                <div class="col s10 offset-s1 m8 offset-m2 l6 offset-l4 xl4 offset-xl5">
+                    <h1 class="brand-logo black-text"><img class="responsive-img" src="images/mai.png" alt="Mai logo"></img>Mai</h1>
+                    <p class="black-text">Everyone has a story to share.</p>
+
+                    <div class="mai-separator-1"></div>
+
+                    <form id="mai-form-login">
+                        <div class="input-field">
+                            <input id="mai-username" type="text" class="validate">
+                            <label for="mai-username" class="blue-grey-text text-darken-2">Username</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="mai-password" type="password" class="validate">
+                            <label for="mai-password" class="blue-grey-text text-darken-2">Password</label>
+                        </div>
+
+                        <div class="mai-separator-2"></div>
+
+                        <button class="btn-large waves-effect waves-light" type="submit" name="action">Log in</button>
+                    </form>
+
+                    <div class="mai-separator-3"></div>
+
+                    <a href="javascript:displaySignup();">Don't have an account? Sign up<a>.
                 </div>
             </div>
         </div>
@@ -121,6 +150,16 @@
         
         <!-- Custom JavaScript -->
         <script type="text/javascript">
+            function displayLogin() {
+                $(".mai-signup-wrapper").fadeOut(200);
+                $(".mai-login-wrapper").fadeIn(1000);
+            }
+
+            function displaySignup() {
+                $(".mai-login-wrapper").fadeOut(200);
+                $(".mai-signup-wrapper").fadeIn(1000);
+            }
+
             $("#mai-form-signup").submit(event => {
                 event.preventDefault();
 
@@ -135,6 +174,8 @@
             });
 
             $(document).ready(function() {
+                displaySignup();
+
                 // Navbar for mobile
                 $(".button-collapse").sideNav();
             });

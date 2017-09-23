@@ -13,14 +13,10 @@
     /* Define heights */
     --height-nav: 40px;
 
-    /* Define color scheme */
-    --color-background    : #f0f2f0;
-    --color-light-brown   : #ebd9a3;
-    --color-light-blue    : #78b6ed;
-    --color-dark-blue     : #3773a8;
-    --color-text          : #202020;
-    --color-text-contrast : #f9f6e3;
-    --color-text-highlight: #ff6600;
+    /* Define color scheme (TODO: Delete this if not used later) */
+    /*
+    --color-background: #f0f2f0;
+    */
 }
 
 html {
@@ -76,12 +72,8 @@ nav #mai-menu-desktop li:last-child {
 
 
 /* Signup, Login */
-.mai-signup-wrapper {
+.mai-signup-wrapper, .mai-login-wrapper {
     height: calc(100vh - var(--height-nav));
-}
-
-.mai-signup {
-    background-color: white; 
 }
 
 h1.brand-logo { 
@@ -100,11 +92,11 @@ h1.brand-logo img {
     margin-bottom: 0.6em;
 }
 
-#mai-form-signup label {
+#mai-form-signup label, #mai-form-login label {
     font-size: 0.85em;
 }
 
-#mai-form-signup button {
+#mai-form-signup button, #mai-form-login button {
     font-size: 0.85em;
     width    : 100%;
 }

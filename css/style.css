@@ -45,11 +45,16 @@ nav .brand-logo {
     font-family   : "Leckerli One", cursive;
     font-size     : 1.4em;
     letter-spacing: 0.04em;
+    margin-left   : 1em;
 }
 
-nav .mai_menu_desktop {
+nav .mai-menu-desktop-items {
     font-size     : 0.75em;
     letter-spacing: 0.01em;
+}
+
+nav #mai-menu-desktop li:last-child {
+    margin-right: 1em;
 }
 
 /* Signup, Login */
@@ -102,9 +107,29 @@ h1.brand-logo {
     
 *****************************************************************************
 *****************************************************************************/
+/* Tablet and larger */
 @media only screen and (min-width: 601px) {
     nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
         height     : var(--height-nav);
         line-height: var(--height-nav);
+    }
+}
+
+/* Desktop */
+@media all and (max-width: 1200px), all and (max-device-width: 1200px) {
+}
+
+/* Tablet */
+@media all and (max-width: 992px), all and (max-device-width: 992px) {
+    nav .brand-logo {
+        margin-left: 0;
+    }
+}
+
+/* Mobile */
+@media all and (max-width: 600px), all and (max-device-width: 600px) {
+    html {
+        font-size: 18px;
+        font-size: 3vw;
     }
 }

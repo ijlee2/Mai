@@ -43,9 +43,15 @@ nav .button-collapse i {
 
 nav .brand-logo { 
     font-family   : "Leckerli One", cursive;
-    font-size     : 1.4em;
+    font-size     : 1.05em;
+    height        : 1.4em;
     letter-spacing: 0.04em;
+    top           : 0.15em;
     margin-left   : 1em;
+}
+
+nav .brand-logo img {
+    height: 100%;
 }
 
 nav .mai-menu-desktop-items {
@@ -69,7 +75,12 @@ nav #mai-menu-desktop li:last-child {
 h1.brand-logo { 
     font-family   : "Leckerli One", cursive;
     font-size     : 2.8em;
+    height        : 1.4em;
     letter-spacing: 0.01em;
+}
+
+h1.brand-logo img {
+    height: 100%;
 }
 
 .input-field {

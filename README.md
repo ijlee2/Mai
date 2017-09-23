@@ -9,7 +9,7 @@
 
 
 ## GitHub Demos
-[Mai (w/o Handlebars)](https://ijlee2.github.io/Mai/)
+[Mai (w/o Handlebars)](https://ijlee2.github.io/Mai/public/index.html)
 
 
 ## Technologies Used

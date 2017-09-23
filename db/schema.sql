@@ -8,9 +8,9 @@ CREATE TABLE users (
     fullname  VARCHAR(200) NOT NULL,
     email     VARCHAR(255) NOT NULL UNIQUE,
     username  VARCHAR(40)  NOT NULL UNIQUE,
-    hash      VARCHAR(512) NOT NULL,
+    hash      VARCHAR(512) /* NOT NULL */,
 
-    photo_url VARCHAR(100) DEFAULT "",
+    photo_url TEXT,
     flagged   BOOLEAN DEFAULT false,
 
     PRIMARY KEY (id)
@@ -19,7 +19,7 @@ CREATE TABLE users (
 -- Create stories
 CREATE TABLE stories (
     id  INT NOT NULL AUTO_INCREMENT,
-    url VARCHAR(100) NOT NULL,
+    url TEXT NOT NULL,
 
     PRIMARY KEY (id)
 );
@@ -27,7 +27,7 @@ CREATE TABLE stories (
 -- Create photos
 CREATE TABLE photos (
     id      INT NOT NULL AUTO_INCREMENT,
-    url     VARCHAR(100) NOT NULL,
+    url     TEXT NOT NULL,
     caption TEXT,
 
     PRIMARY KEY (id)

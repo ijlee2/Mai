@@ -51,7 +51,7 @@
 
             <div class="row">
                 <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
-                    <div class="card">
+                    <div class="card" id="card0">
                         <div class="card-image">
                             <img src="https://i.pinimg.com/736x/b3/48/4c/b3484c816ba990b5ff29e5cd2299497f--wise-words-wise-sayings.jpg">
                             <span class="card-title">Card Title</span>
@@ -68,7 +68,7 @@
 
             <div class="row">
                 <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
-                    <div class="card">
+                    <div class="card" id="card1">
                         <div class="card-image">
                             <img src="https://i.pinimg.com/736x/b6/d4/8b/b6d48b00d132a940e17dc57ae959a748--being-comfortable-quotes-inspirational-hiking-quotes.jpg">
                             <span class="card-title">Card Title</span>
@@ -85,7 +85,7 @@
 
             <div class="row">
                 <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
-                    <div class="card">
+                    <div class="card" id="card2">
                         <div class="card-image">
                             <img src="https://i.pinimg.com/736x/de/f3/51/def35127fc73da5d7ab7d2f1f6fd0da0--quotes-about-changing-yourself-quote-about-being-yourself.jpg">
                             <span class="card-title">Card Title</span>
@@ -135,24 +135,27 @@
         
         <!-- Custom JavaScript -->
         <script type="text/javascript">
-            // Box-Mueller transform
-            // Source: https://stackoverflow.com/questions/25582882/javascript-math-random-normal-distribution-gaussian-bell-curve
-            function randn() {
-                let a = 0, b = 0;
+            // Display photos as we scroll the page
+            const options_scroll = [];
+            const numCards       = $(".card").length;
+            
+            for (let i = 1; i < numCards; i++) {
+                const selector = `#card${i}`;
 
-                while (a === 0) a = Math.random();
-                while (b === 0) b = Math.random();
+                // Hide the card initially
+                $(selector).css({"visibility": "hidden"});
 
-                return Math.sqrt(-2 * Math.log(a)) * Math.cos(2 * b * Math.PI);
+                options_scroll.push({
+                    "selector": selector,
+                    "offset"  : Math.round($(selector).height() / 2),
+                    "callback": element => {
+                        $(element).css({"visibility": "visible"});
+                        Materialize.fadeInImage($(element));
+                    }
+                });
             }
 
-            $(".card").each(function() {
-                const theta = Math.round(30 * randn()) / 10;
-
-                $(this).css({
-                    "transform": `rotate(${theta}deg)`
-                });
-            });
+            Materialize.scrollFire(options_scroll);
 
             $(document).ready(function() {
                 // Navbar for mobile

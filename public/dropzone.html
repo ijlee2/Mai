@@ -47,7 +47,11 @@
         </nav>
 
         <div class="container">
-
+            <form class="dropzone" id="upload-widget" action="/upload" method="POST">
+                <div class="fallback">
+                    <input name="file" type="file">
+                </div>
+            </form>
         </div>
 
         <footer class="page-footer grey darken-4">
@@ -121,7 +125,7 @@
                     };
                 }       
             };
-            
+
             $(document).ready(function() {
                 // Navbar for mobile
                 $(".button-collapse").sideNav();

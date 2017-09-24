@@ -54,8 +54,8 @@ app.use(methodOverride("_method"));
 // Set controllers
 const directory_controllers = path.join(__dirname, "controllers");
 
-// Talk to the API router
-require(path.join(directory_controllers, "mai_controller.js"))(app);
+// Talk to Mai controller
+app.use("/", require(path.join(directory_controllers, "mai_controller.js")));
 
 
 

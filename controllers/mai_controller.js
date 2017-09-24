@@ -1,7 +1,12 @@
+// http://google.github.io/google-api-nodejs-client/22.1.0/vision.html
+
 // Import packages
 const express = require("express");
-const cors    = require("cors");
+const google  = require("googleapis");
+const vision  = google.vision("v1");
 const path    = require("path");
+
+const API_KEY = "AIzaSyAOUOWY4CD2V3DL-5Fl5UHTZAhw_9b1tgs";
 
 // Create an instance of Router
 const router = express.Router();
@@ -35,8 +40,29 @@ router.get("/", (req, res) => {
     res.sendFile("index.html");
 });
 
-router.get("/google", (req, res) => {
-    res.sendFile("google_vision.html");
+router.get("/vision", (req, res) => {
+    const request = {
+        "resource": {
+            "image": {
+                "source": {"imageUri": url}
+            },
+            "features": [
+                {
+                    "type"      : "FACE_DETECTION",
+                    "maxResults": 1
+                }
+            ]
+        },
+
+        "key": API_KEY
+    }
+
+    vision.images.annotate(request, function (error, results) {
+        if (error) throw error;
+
+        console.log(JSON.stringify(results, null, 2));
+
+    });
 });
 
 

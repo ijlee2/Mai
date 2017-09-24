@@ -1,5 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
-    const users = sequelize.define("user", {
+    const User = sequelize.define("User", {
+        "id": {
+            "type"        : DataTypes.UUID,
+            "defaultValue": DataTypes.UUIDV4,
+            "allowNull"   : false,
+            "primaryKey"  : true
+        },
+        
         "fullname": {
             "type"     : DataTypes.STRING(100),
             "allowNull": false,
@@ -53,11 +60,6 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         
-        "alias": {
-            "type"     : DataTypes.STRING(512),
-            "allowNull": false,
-        },
-        
         "hash": {
             "type"     : DataTypes.STRING(512),
             "allowNull": false,
@@ -79,7 +81,14 @@ module.exports = function(sequelize, DataTypes) {
             "defaultValue": false,
         }
 
-    }, {"underscored": true});
+    }, {
+        "associate": function(models) {
+            User.hasMany(models.Story);
 
-    return users;
+        },
+
+        "underscored": true,
+    });
+
+    return User;
 }

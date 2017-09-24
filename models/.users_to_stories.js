@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
        "user_id": {
             "type"      : DataTypes.INTEGER,
             "references": {
-                "model": users,
+                "model": sequelize.users,
                 "key"  : "id"
             },
             "allowNull" : false
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
         "story_id": {
             "type"      : DataTypes.INTEGER,
             "references": {
-                "model": stories,
+                "model": sequelize.stories,
                 "key"  : "id"
             },
             "allowNull" : false

@@ -1,5 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
-    const photos = sequelize.define("photo", {
+    const Photo = sequelize.define("Photo", {
+        "id": {
+            "type"        : DataTypes.UUID,
+            "defaultValue": DataTypes.UUIDV4,
+            "allowNull"   : false,
+            "primaryKey"  : true
+        },
+        
        "url": {
             "type"     : DataTypes.STRING,
             "allowNull": false,
@@ -20,18 +27,17 @@ module.exports = function(sequelize, DataTypes) {
                     "msg" : "Please enter a valid date string."
                 }
             }
-        },
-        
-        "caption_id": {
-            "type"      : DataTypes.INTEGER,
-            "references": {
-                "model": captions,
-                "key"  : "id"
-            },
-            "allowNull" : false
         }
 
-    }, {"underscored": true});
+    }, {
+        "associate": function(models) {
+            Photo.belongsTo(models.Story);
+            Photo.hasOne(models.Caption);
 
-    return photos;
+        },
+        
+        "underscored": true,
+    });
+
+    return Photo;
 }

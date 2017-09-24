@@ -1,5 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
-    const stories = sequelize.define("story", {
+    const Story = sequelize.define("Story", {
+        "id": {
+            "type"        : DataTypes.UUID,
+            "defaultValue": DataTypes.UUIDV4,
+            "allowNull"   : false,
+            "primaryKey"  : true
+        },
+        
         "url": {
             "type"     : DataTypes.STRING,
             "allowNull": false,
@@ -11,7 +18,15 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
 
-    }, {"underscored": true});
+    }, {
+        "associate": function(models) {
+            Story.belongsTo(models.User);
+            Story.hasMany(models.Photo);
 
-    return stories;
+        },
+        
+        "underscored": true,
+    });
+
+    return Story;
 }

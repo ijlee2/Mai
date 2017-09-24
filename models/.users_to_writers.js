@@ -1,18 +1,18 @@
 module.exports = function(sequelize, DataTypes) {
-    const users_to_readers = sequelize.define("users_to_reader", {
+    const users_to_writers = sequelize.define("users_to_writer", {
        "user_id": {
             "type"      : DataTypes.INTEGER,
             "references": {
-                "model": users,
+                "model": sequelize.users,
                 "key"  : "id"
-            },
+            },           
             "allowNull" : false
         },
         
-        "reader_id": {
+        "writer_id": {
             "type"      : DataTypes.INTEGER,
             "references": {
-                "model": users,
+                "model": sequelize.users,
                 "key"  : "id"
             },
             "allowNull" : false
@@ -20,5 +20,5 @@ module.exports = function(sequelize, DataTypes) {
 
     }, {"underscored": true});
 
-    return users_to_readers;
+    return users_to_writers;
 }

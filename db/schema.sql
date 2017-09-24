@@ -8,8 +8,6 @@ CREATE TABLE users (
     fullname    VARCHAR(100) NOT NULL,
     email       VARCHAR(100) NOT NULL UNIQUE,
     username    VARCHAR(32)  NOT NULL UNIQUE,
-    
-    alias       VARCHAR(512) NOT NULL,
     hash        VARCHAR(512) NOT NULL,
 
     profile_url VARCHAR(256) DEFAULT "",
@@ -28,8 +26,8 @@ CREATE TABLE stories (
 
 -- Create captions
 CREATE TABLE captions (
-    id      INT NOT NULL AUTO_INCREMENT,
-    caption TEXT NOT NULL,
+    id   INT NOT NULL AUTO_INCREMENT,
+    text TEXT NOT NULL,
 
     PRIMARY KEY (id)
 );

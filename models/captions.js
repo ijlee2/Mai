@@ -1,6 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
-    const captions = sequelize.define("caption", {
-        "caption": {
+    const Caption = sequelize.define("Caption", {
+        "id": {
+            "type"        : DataTypes.UUID,
+            "defaultValue": DataTypes.UUIDV4,
+            "allowNull"   : false,
+            "primaryKey"  : true
+        },
+        
+        "text": {
             "type"     : DataTypes.TEXT,
             "allowNull": false,
             "validate" : {
@@ -11,7 +18,14 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
 
-    }, {"underscored": true});
+    }, {
+        "associate": function(models) {
+            Caption.belongsToMany(models.Photo);
 
-    return captions;
+        },
+        
+        "underscored": true,
+    });
+
+    return Caption;
 }

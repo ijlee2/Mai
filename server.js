@@ -48,6 +48,7 @@ app.set("view engine", "handlebars");
     
 *****************************************************************************
 *****************************************************************************/
+// Source: https://stackoverflow.com/questions/18310394/no-access-control-allow-origin-node-apache-port-issue
 // Add headers
 app.use(function(req, res, next) {
     // Website you wish to allow to connect

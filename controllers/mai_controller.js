@@ -1,5 +1,6 @@
 // Import packages
 const express = require("express");
+const cors    = require("cors");
 const path    = require("path");
 
 // Create an instance of Router
@@ -34,7 +35,7 @@ router.get("/", (req, res) => {
     res.sendFile("index.html");
 });
 
-router.get("/google", (req, res) => {
+router.get("/google", cors(), (req, res, next) => {
     res.sendFile("google_vision.html");
 });
 

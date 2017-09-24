@@ -46,8 +46,8 @@ router.get("/vision", (req, res) => {
         }),
 
         "features": [
-            new vision.Feature("FACE_DETECTION", 1);
-            new vision.Feature("LABEL_DETECTION", 1);
+            new vision.Feature("FACE_DETECTION", 1),
+            new vision.Feature("LABEL_DETECTION", 1)
         ]
     });
 

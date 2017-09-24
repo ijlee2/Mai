@@ -5,12 +5,12 @@ USE mai_db;
 -- Create users
 CREATE TABLE users (
     id        INT NOT NULL AUTO_INCREMENT,
-    fullname  VARCHAR(200) NOT NULL,
-    email     VARCHAR(255) NOT NULL UNIQUE,
-    username  VARCHAR(40)  NOT NULL UNIQUE,
-    hash      VARCHAR(512) /* NOT NULL */,
+    fullname  VARCHAR(100) NOT NULL,
+    email     VARCHAR(100) NOT NULL UNIQUE,
+    username  VARCHAR(20)  NOT NULL UNIQUE,
+    hash      VARCHAR(512) NOT NULL,
 
-    photo_url TEXT,
+    photo_url VARCHAR(100) DEFAULT "",
     flagged   BOOLEAN DEFAULT false,
 
     PRIMARY KEY (id)
@@ -19,7 +19,7 @@ CREATE TABLE users (
 -- Create stories
 CREATE TABLE stories (
     id  INT NOT NULL AUTO_INCREMENT,
-    url TEXT NOT NULL,
+    url VARCHAR(100) NOT NULL,
 
     PRIMARY KEY (id)
 );
@@ -27,7 +27,7 @@ CREATE TABLE stories (
 -- Create photos
 CREATE TABLE photos (
     id      INT NOT NULL AUTO_INCREMENT,
-    url     TEXT NOT NULL,
+    url     VARCHAR(100) NOT NULL,
     caption TEXT,
     date DATETIME NOT NULL,
 

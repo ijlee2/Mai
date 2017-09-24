@@ -4,7 +4,8 @@ module.exports = function(sequelize, DataTypes) {
             "type"     : DataTypes.STRING,
             "allowNull": false,
             "validate" : {
-
+                "is"   : /^[a-z-]+$/i,
+                "len"  : [2, 100]
             }
         },
 
@@ -13,7 +14,8 @@ module.exports = function(sequelize, DataTypes) {
             "allowNull"  : false,
             "validate"   : {
                 "isEmail": true,
-                "unique" : true
+                "unique" : true,
+                "len"    : [2, 100]
             }
         },
 
@@ -21,7 +23,9 @@ module.exports = function(sequelize, DataTypes) {
             "type"     : DataTypes.STRING,
             "allowNull": false,
             "validate" : {
-                "unique": true
+                "unique": true,
+                "isAlphanumeric": true,
+                "len"           : [2, 20]
             }
         },
         
@@ -29,6 +33,8 @@ module.exports = function(sequelize, DataTypes) {
             "type"     : DataTypes.STRING,
             "allowNull": false,
             "validate" : {
+                "isAlphanumeric" : true,
+                "len" : [6, 512]
             }
         },
 
@@ -36,7 +42,9 @@ module.exports = function(sequelize, DataTypes) {
             "type"     : DataTypes.STRING,
             "allowNull": false,
             "validate" : {
-                "isURL": true
+                "isURL": true,
+                "len"  : [2, 100]
+
             }
         },
         

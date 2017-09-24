@@ -50,6 +50,7 @@ app.set("view engine", "handlebars");
 *****************************************************************************/
 // Source: https://stackoverflow.com/questions/18310394/no-access-control-allow-origin-node-apache-port-issue
 // Add headers
+/*
 app.use(function(req, res, next) {
     // Website you wish to allow to connect
     res.setHeader("Access-Control-Allow-Origin", "https://vision.googleapis.com/v1/images:annotate");
@@ -67,6 +68,7 @@ app.use(function(req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+*/
 
 // Override POST methods to handle PATCH and DELETE
 app.use(methodOverride("_method"));

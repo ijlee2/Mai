@@ -20,18 +20,25 @@ const router = express.Router();
     
 *****************************************************************************
 *****************************************************************************/
+// index.html
 router.get("/", (req, res) => {
     res.render("index", {
         "code-javascript": "assets/javascript/index.js"
     });
 });
 
-router.get("/about-mai", (req, res) => {
-    res.render("about-mai");
+// meet-mai.html
+router.get("/meet-mai", (req, res) => {
+    res.render("meet-mai", {
+        "code-javascript": "assets/javascript/meet-mai.js"
+    });
 });
 
-router.get("/about-devs", (req, res) => {
-    res.render("about-devs");
+// meet-mai-devs.html
+router.get("/meet-mai-devs", (req, res) => {
+    res.render("meet-mai-devs", {
+        "code-javascript": "assets/javascript/meet-mai-devs.js"
+    });
 });
 
 module.exports = router;

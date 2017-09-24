@@ -9,10 +9,8 @@ Everyone has a story to tell. Hear them out.
 - [Isaac Lee](https://www.linkedin.com/in/ijlee2/)
 
 
-## GitHub Demos
-[Mai (on Heroku)](https://mai-app.herokuapp.com/)
-
-[Mai (w/o Handlebars)](https://ijlee2.github.io/Mai/public/index.html)
+## Official Site
+[Mai](https://mai-app.herokuapp.com/)
 
 
 ## Technologies Used

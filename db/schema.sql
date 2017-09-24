@@ -34,6 +34,14 @@ CREATE TABLE photos (
     PRIMARY KEY (id)
 );
 
+-- Create texts
+CREATE TABLE texts (
+    id      INT NOT NULL AUTO_INCREMENT,
+    caption TEXT,
+
+    PRIMARY KEY (id)
+);
+
 -- Create writers (following)
 CREATE TABLE writers (
     id        INT NOT NULL AUTO_INCREMENT,

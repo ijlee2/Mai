@@ -59,4 +59,8 @@ router.get("/vision", (req, res) => {
     });
 });
 
+router.get("/dropzone", (req, res) => {
+    res.sendFile("dropzone.html");
+});
+
 module.exports = router;

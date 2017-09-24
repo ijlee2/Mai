@@ -35,7 +35,7 @@ router.get("/", (req, res) => {
     res.sendFile("index.html");
 });
 
-router.get("/google", cors(), (req, res, next) => {
+router.get("/google", (req, res) => {
     res.sendFile("google_vision.html");
 });
 

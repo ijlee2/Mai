@@ -44,7 +44,7 @@ router.get("/vision", (req, res) => {
     const request = {
         "resource": {
             "image": {
-                "source": {"imageUri": url}
+                "source": {"imageUri": "https://goo.gl/8UNYmG"}
             },
             "features": [
                 {

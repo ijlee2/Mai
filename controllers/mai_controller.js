@@ -4,7 +4,7 @@ const vision  = require("node-cloud-vision-api-comoc");
 const path    = require("path");
 
 // Authenticate to Google Cloud
-vision.init({"auth": "AIzaSyAdisiH71lCbJafp0pRK-75-UjsMz5bMXA"});
+vision.init({"auth": "AIzaSyDac5vMeEApkYZaE09R4bFhAWxjJtwyQoU"});
 
 // Create an instance of Router
 const router = express.Router();

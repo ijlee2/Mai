@@ -1,4 +1,5 @@
 # Mai
+Everyone has a story to share.
 
 
 ## Team Members
@@ -9,15 +10,13 @@
 
 
 ## GitHub Demos
+[Mai (on Heroku)](https://mai-app.herokuapp.com/)
 [Mai (w/o Handlebars)](https://ijlee2.github.io/Mai/public/index.html)
 
 
 ## Technologies Used
-- [x] HTML5, CSS3, Materialize, Handlebars
+- [x] HTML5, CSS3, Materialize, ES7, jQuery, Handlebars.js
 
-- [x] ES7, jQuery, Node, Express, MySQL, Sequelize
+- [x] Node.js, Express.js, MySQL, Sequelize.js
 
-- [x] Google APIs
-
-
-## API Demos
+- [x] Google Vision

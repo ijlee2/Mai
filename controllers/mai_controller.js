@@ -42,12 +42,11 @@ router.get("/vision", (req, res) => {
     // Source: https://github.com/comoc/node-cloud-vision-api
     const request = new vision.Request({
         "image": new vision.Image({
-            "url": "https://goo.gl/8UNYmG"
+            "url": "http://www.ox.ac.uk/sites/files/oxford/styles/ow_medium_feature/public/field/field_image_main/friends_main.jpg?itok=Wmh9VQWO"
         }),
 
         "features": [
-            new vision.Feature("FACE_DETECTION", 1),
-            new vision.Feature("LABEL_DETECTION", 1)
+            new vision.Feature("FACE_DETECTION", 1)
         ]
     });
 

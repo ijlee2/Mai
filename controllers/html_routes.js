@@ -34,10 +34,10 @@ router.get("/meet-mai", (req, res) => {
     });
 });
 
-// meet-mai-devs.html
-router.get("/meet-mai-devs", (req, res) => {
-    res.render("meet-mai-devs", {
-        "code-javascript": "assets/javascript/meet-mai-devs.js"
+// meet-mai-team.html
+router.get("/meet-mai-team", (req, res) => {
+    res.render("meet-mai-team", {
+        "code-javascript": "assets/javascript/meet-mai-team.js"
     });
 });
 

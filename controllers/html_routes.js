@@ -22,7 +22,7 @@ const router = express.Router();
 *****************************************************************************/
 router.get("/", (req, res) => {
     res.render("index", {
-        "code-javascript": "assets/javascript/app21.js"
+        "code-javascript": "assets/javascript/index.js"
     });
 });
 

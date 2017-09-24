@@ -25,3 +25,5 @@ router.get("/about-mai", (req, res) => {
 router.get("/about-devs", (req, res) => {
     res.render("about-devs");
 });
+
+module.exports = router;

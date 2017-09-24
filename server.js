@@ -55,11 +55,11 @@ app.use(methodOverride("_method"));
 
 // Set routers
 const router_html = require(path.join(__dirname, "controllers", "html_routes.js"));
-const router_api  = require(path.join(__dirname, "controllers", "api_routes.js"));
+//const router_api  = require(path.join(__dirname, "controllers", "api_routes.js"));
 
 // Talk to routers
 app.use("/", router_html);
-app.use("/api", router_api);
+//app.use("/api", router_api);
 
 
 
@@ -70,6 +70,6 @@ app.use("/api", router_api);
     
 *****************************************************************************
 *****************************************************************************/
-mai_db.sequelize.sync({"force": true}).then(function() {
+//mai_db.sequelize.sync({"force": true}).then(function() {
     app.listen(PORT, () => console.log(`App listening on ${PORT}.`));
-});
+//});

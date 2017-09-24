@@ -1,5 +1,5 @@
 $("#button_signup").click(event => {
-    $.get("/");
+    window.location = "/";
 });
 
 $(document).ready(function() {

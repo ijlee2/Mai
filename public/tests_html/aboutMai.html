@@ -8,17 +8,17 @@
         <title>Mai</title>
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="assets/images/mai.png">
+        <link rel="icon" type="image/png" href="../assets/images/mai.png">
         
         <!-- Import fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One|Nunito" rel="stylesheet">
 
         <!-- Import materialize.css -->
-        <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen,projection">
+        <link type="text/css" rel="stylesheet" href="../assets/css/materialize.min.css" media="screen,projection">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
         <!-- Let browser know website is optimized for mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
         <!-- Navbar -->
         <nav>
             <div class="nav-wrapper grey darken-4">
-                <a href="index.html" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
+                <a href="index.html" class="brand-logo"><img class="responsive-img" src="../assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
                 <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 
                 <ul class="right hide-on-med-and-down" id="mai-menu-desktop">
@@ -51,58 +51,32 @@
         </nav>
 
         <div class="container">
-            <div class="mai-separator-3"></div>
+            <div class="row mai-about-mai-wrapper valign-wrapper">
+                <div class="col s10 offset-s1 m8 offset-m2 l7 offset-l4 xl5 offset-xl4">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <h1 class="mai-attacher-1">Mai Story</h1>
 
-            <div class="row">
-                <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
-                    <div class="card" id="card0">
-                        <div class="card-image">
-                            <img src="https://i.pinimg.com/736x/b3/48/4c/b3484c816ba990b5ff29e5cd2299497f--wise-words-wise-sayings.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <p>For social media storytellers like you, who work hard to create engaging content each day (<em>mai-nichi</em>), I am here to help!</p>
 
-            <div class="mai-separator-1"></div>
+                            <p>I use <strong>Google Cloud Vision</strong> and <strong>Google Cloud Natural Language</strong> to write a narrative that matches your photos and personality.</p>
 
-            <div class="row">
-                <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
-                    <div class="card" id="card1">
-                        <div class="card-image">
-                            <img src="https://i.pinimg.com/736x/b6/d4/8b/b6d48b00d132a940e17dc57ae959a748--being-comfortable-quotes-inspirational-hiking-quotes.jpg">
-                            <span class="card-title">Card Title</span>
+                            <p>Let's start telling your story today!</p>
+
+                            <div class="mai-separator-2"></div>
                         </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+
+                        <div class="col s10 offset-s1">
+                            <button class="btn-large waves-effect waves-light" type="button" id="button_signup">Sign up</button>
+                            
+                            <div class="mai-separator-2"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="mai-separator-1"></div>
-
-            <div class="row">
-                <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
-                    <div class="card" id="card2">
-                        <div class="card-image">
-                            <img src="https://i.pinimg.com/736x/de/f3/51/def35127fc73da5d7ab7d2f1f6fd0da0--quotes-about-changing-yourself-quote-about-being-yourself.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mai-separator-3"></div>
+            <!-- Video -->
+            <video class="cover_video" src="../assets/videos/cinema_paradiso.mp4" autoplay loop></video>
         </div>
 
         <footer class="page-footer grey darken-4">
@@ -118,7 +92,8 @@
                             <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
                             <li><a class="grey-text text-lighten-3" href="user.html">User</a></li>
                             <li><a class="grey-text text-lighten-3" href="story.html">Story</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#">Your Dev Team</a></li>
+                            <li><a class="grey-text text-lighten-3" href="aboutMai.html">Meet Mai</a></li>
+                            <li><a class="grey-text text-lighten-3" href="aboutDevs.html">Meet Dev Team</a></li>
                         </ul>
                     </div>
                 </div>
@@ -135,31 +110,13 @@
 
         <!-- Import jQuery before materialize.js -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="assets/javascript/materialize.min.js"></script>
+        <script type="text/javascript" src="../assets/javascript/materialize.min.js"></script>
         
         <!-- Custom JavaScript -->
         <script type="text/javascript">
-            // Display photos as we scroll the page
-            const options_scroll = [];
-            const numCards       = $(".card").length;
-            
-            for (let i = 1; i < numCards; i++) {
-                const selector = `#card${i}`;
-
-                // Hide the card initially
-                $(selector).css({"visibility": "hidden"});
-
-                options_scroll.push({
-                    "selector": selector,
-                    "offset"  : Math.round($(selector).height() / 2),
-                    "callback": element => {
-                        $(element).css({"visibility": "visible"});
-                        Materialize.fadeInImage($(element));
-                    }
-                });
-            }
-
-            Materialize.scrollFire(options_scroll);
+            $("#button_signup").click(event => {
+                window.location = "index.html";
+            });
 
             $(document).ready(function() {
                 // Navbar for mobile

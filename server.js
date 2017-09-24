@@ -66,6 +66,6 @@ app.use("/", require(path.join(directory_controllers, "mai_controller.js")));
     
 *****************************************************************************
 *****************************************************************************/
-db.sequelize.sync().then(function() {
+//db.sequelize.sync().then(function() {
     app.listen(PORT, () => console.log(`App listening on ${PORT}.`));
-});
+//});

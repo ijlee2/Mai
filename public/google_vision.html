@@ -87,7 +87,7 @@
             const userPicUrl = "https://goo.gl/8UNYmG";
             
             const apiKey = "AIzaSyAOUOWY4CD2V3DL-5Fl5UHTZAhw_9b1tgs";
-            const url    = `https://vision.googleapis.com/v1/images:annotate?key=${apiKey}`;
+            const url    = `https://vision.googleapis.com/v1/images:annotate`;
             
             const data = {
                 "requests": [
@@ -116,7 +116,7 @@
                 "url"        : url,
                 "contentType": "application/json",
                 "data"       : JSON.stringify(data),
-                "processData": false,
+                "headers"    : {"key": apiKey},
 
                 "success": function(results) {
                     console.log(results);

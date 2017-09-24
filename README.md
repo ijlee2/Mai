@@ -1,5 +1,5 @@
 # Mai
-Everyone has a story to tell. Hear them out.
+[Everyone has a story to tell. Hear them out.](https://mai-app.herokuapp.com/)
 
 
 ## Team Members
@@ -7,10 +7,6 @@ Everyone has a story to tell. Hear them out.
 - [David Gutierrez](https://www.linkedin.com/in/david-gutierrez-979a4a148/)
 - [Jason Joachim](https://www.linkedin.com/in/jasonjoachim/)
 - [Isaac Lee](https://www.linkedin.com/in/ijlee2/)
-
-
-## Official Site
-[Mai](https://mai-app.herokuapp.com/)
 
 
 ## Technologies Used

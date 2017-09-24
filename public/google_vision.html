@@ -84,12 +84,11 @@
         
         <!-- Custom JavaScript -->
         <script type="text/javascript">
-            const userPicUrl = "http://d2118lkw40i39g.cloudfront.net/wp-content/uploads/2017/02/o-FRIENDS-BRAIN-facebook.jpg";
+            const userPicUrl = "https://goo.gl/8UNYmG";
             
             const apiKey = "AIzaSyAOUOWY4CD2V3DL-5Fl5UHTZAhw_9b1tgs";
             const url    = `https://vision.googleapis.com/v1/images:annotate?key=${apiKey}`;
-            console.log(url);
-
+            
             const data = {
                 "requests": [
                     {
@@ -113,28 +112,26 @@
             }, "json");
             */
             $.ajax({
-                "method": "POST",
-                "url": url,
-                // "dataType": "json",
-                "data": JSON.stringify(data),
-                // "headers": {
+                "method"     : "POST",
+                "url"        : url,
                 "contentType": "application/json",
-                // },
+                "data"       : JSON.stringify(data),
+                "processData": false,
 
                 "success": function(results) {
                     console.log(results);
-                }
+                },
 
-                // "error": function(jqXHR, textStatus, error) {
-                //     console.error(`Error: ${textStatus} ${error}`);
-                // }
+                "error": function(results, textStatus, error) {
+                    console.error(`Error: ${textStatus} ${error}`);
+                }
             });
             
         
-            // $(document).ready(function() {
-            //     // Navbar for mobile
-            //     $(".button-collapse").sideNav();
-            // });
+            $(document).ready(function() {
+                // Navbar for mobile
+                $(".button-collapse").sideNav();
+            });
         </script>
     </body>
 </html>

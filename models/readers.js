@@ -13,6 +13,10 @@ module.exports = function(sequelize, DataTypes) {
         
         "reader_id": {
             "type"     : DataTypes.INTEGER,
+            "references": {
+                "model": users,
+                "key"  : "id"
+            },
             "allowNull": false,
             "validate" : {
             }

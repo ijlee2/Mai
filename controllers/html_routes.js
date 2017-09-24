@@ -21,7 +21,9 @@ const router = express.Router();
 *****************************************************************************
 *****************************************************************************/
 router.get("/", (req, res) => {
-    res.render("index");
+    res.render("index", {
+        "code-javascript": "assets/javascript/app21.js"
+    });
 });
 
 router.get("/about-mai", (req, res) => {

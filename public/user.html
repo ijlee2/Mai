@@ -8,29 +8,29 @@
         <title>Mai</title>
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="images/mai.png">
+        <link rel="icon" type="image/png" href="assets/images/mai.png">
         
         <!-- Import fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One|Nunito" rel="stylesheet">
 
         <!-- Import materialize.css -->
-        <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen,projection">
 
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
         <!-- Let browser know website is optimized for mobile -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body class="blue-grey lighten-5">
         <!-- Navbar -->
         <nav>
-                <div class="nav-wrapper grey darken-4">
-                    <a href="index.html" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo"></img>Mai</a>
-                    <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                    
-                    <ul class="right hide-on-med-and-down" id="mai-menu-desktop">
+            <div class="nav-wrapper grey darken-4">
+                <a href="index.html" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
+                <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                
+                <ul class="right hide-on-med-and-down" id="mai-menu-desktop">
                     <li><a class="mai-menu-desktop-items" href="index.html">Home</a></li>
                     <li><a class="mai-menu-desktop-items" href="user.html">User</a></li>
                     <li><a class="mai-menu-desktop-items" href="story.html">Story</a></li>
@@ -46,72 +46,67 @@
                     <li><a class="mai-menu-mobile-items" href="settings.html">Settings</a></li>
                     <li><a class="mai-menu-mobile-items" href="aboutMai.html">Meet Mai</a></li>
                     <li><a class="mai-menu-mobile-items" href="aboutDevs.html">Meet Devs</a></li>
-                    </ul>
-                </div>
-            </nav>
-
-        <!-- End NavBar -->
+                </ul>
+            </div>
+        </nav>
 
         <div class="container">
+            <div class="mai-separator-3"></div>
+            
+            <div class="row">
+                <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
+                    <div class="row valign-wrapper">
+                        <!-- User photo -->
+                        <div class="col s3" id="mai-user-photo">
+                            <img src="assets/images/user_photo.jpg" class="responsive-img circle" alt="user photo">
+                        </div>
+                        
+                        <!-- User stats -->
+                        <div class="col s9">
+                            <div class="row" id="mai-user-stats">
+                                <div class="col s12 center-align">
+                                    <span id="mai-fullname">Isaac Lee</span><span class="new badge blue-grey darken-2 pulse">3</span>
+                                </div>
 
-        <!-- Begin Form-1 Updating names (non-password settings) -->
-        <form id="mai-form-accountUpdate">
+                                <div class="col s4 center-align grey-text text-lighten-1">
+                                    <span class="black-text" id="mai-numStories">931</span><br>stories
+                                </div>
 
-            <!-- name change -->
+                                <div class="col s4 center-align grey-text text-lighten-1">
+                                    <span class="black-text" id="mai-numWriters">460</span><br>writers
+                                </div>
+                                
+                                <div class="col s4 center-align grey-text text-lighten-1">
+                                    <span class="black-text" id="mai-numReaders">509</span><br>readers
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="input-field">
-                    <label for="mai-changeName" class="blue-grey-text text-darken-2">Update Your Full Name:</label>
-                    <br>
-                    <input id="mai-changeName" type="text" class="validate" placeholder="Jane Smith">
+                    <div class="mai-separator-2"></div>
+
+                    <div class="row">
+                        <!-- User stories -->
+                        <div class="col s12" id="mai-user-stories">
+                            <div class="row">
+                                <div class="col s6">
+                                    <a href="#"><img class="responsive-img z-depth-1 hoverable" src="https://i.pinimg.com/736x/b3/48/4c/b3484c816ba990b5ff29e5cd2299497f--wise-words-wise-sayings.jpg"></a>
+                                </div>
+                                <div class="col s6">
+                                    <a href="#"><img class="responsive-img z-depth-1 hoverable" src="https://i.pinimg.com/736x/b6/d4/8b/b6d48b00d132a940e17dc57ae959a748--being-comfortable-quotes-inspirational-hiking-quotes.jpg"></a>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s6">
+                                    <a href="#"><img class="responsive-img z-depth-1 hoverable" src="https://i.pinimg.com/736x/de/f3/51/def35127fc73da5d7ab7d2f1f6fd0da0--quotes-about-changing-yourself-quote-about-being-yourself.jpg"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- username change -->
-
-            <div class="input-field">
-                    <label for="mai-changeUsername" class="blue-grey-text text-darken-2">Update Your User Name</label>
-                    <br>
-                    <input id="mai-changeUsername" type="text" class="validate" placeholder="jane_austin">  
-            </div>
-
-            <!--  email change --> 
-            <div class="input-field">
-                <label for="mai-changeEmail" class="blue-grey-text text-darken-2">Update Email Address:</label>
-                <br>
-                <input id="mai-changeEmail" type="text" class="validate" placeholder="janeaustin@gmail.com">
-            </div>
-    
-            <button class="btn-large waves-effect waves-light" type="submit" name="action">UPDATE ACCOUNT</button>
-        </form>
-
-        <!-- End Form-1 -->
-
-        <div class="mai-separator-2"></div>
-
-        <!-- Begin Form-2 Updating password -->
-
-        <form id="mai-form-passwordUpdate">
-                
-            <div class="input-field">
-                <label for="mai-changePassword" class="blue-grey-text text-darken-2">Update Your Password:</label>
-                <br>
-                <input id="mai-changePassword" type="text" class="validate" placeholder="Current Password">
-
-                <input id="mai-changePassword" type="text" class="validate" placeholder="New Password">
-            </div>
-
-            <button class="btn-large waves-effect waves-light" type="submit" name="action">UPDATE PASSWORD</button>
-        </form>
-
-        <!-- End of Form-2 -->
-
-        <div class="mai-separator-2"></div>
-        <!-- Begin Form-3 "Delete Account" button" -->
-        <form id="mai-form-delete">
-            <button class="btn-large waves-effect waves-light" type="submit" name="action">DELETE MAI ACCOUNT</button>
-        </form>
-
         </div>
-        <!-- End of "Delete Account" button -->
 
         <footer class="page-footer grey darken-4">
             <div class="container">
@@ -126,7 +121,6 @@
                             <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
                             <li><a class="grey-text text-lighten-3" href="user.html">User</a></li>
                             <li><a class="grey-text text-lighten-3" href="story.html">Story</a></li>
-                            <li><a class="grey-text text-lighten-3" href="settings.html">Account Settings</a></li>
                             <li><a class="grey-text text-lighten-3" href="#">Your Dev Team</a></li>
                         </ul>
                     </div>
@@ -144,7 +138,7 @@
 
         <!-- Import jQuery before materialize.js -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/materialize.min.js"></script>
         
         <!-- Custom JavaScript -->
         <script type="text/javascript">

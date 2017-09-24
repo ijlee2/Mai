@@ -55,7 +55,7 @@ app.use(methodOverride("_method"));
 
 // Set routers
 const router_html = require(path.join(__dirname, "controllers", "html_routes.js"));
-const router_api  = require(path.join(__dirname, "controllers", "api_routes.js"));
+//const router_api  = require(path.join(__dirname, "controllers", "api_routes.js"));
 
 // Talk to routers
 app.use("/", router_html);

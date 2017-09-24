@@ -2,11 +2,11 @@
 
 // Import packages
 const express = require("express");
-const google  = require("googleapis");
-const vision  = google.vision("v1");
+//const google  = require("googleapis");
 const path    = require("path");
 
-const API_KEY = "AIzaSyAdisiH71lCbJafp0pRK-75-UjsMz5bMXA";
+const vision  = require("node-cloud-vision-api-comoc");
+vision.init({"auth": "AIzaSyAdisiH71lCbJafp0pRK-75-UjsMz5bMXA"});
 
 // Create an instance of Router
 const router = express.Router();
@@ -41,27 +41,19 @@ router.get("/", (req, res) => {
 });
 
 router.get("/vision", (req, res) => {
-    const request = {
-        "resource": {
-            "image": {
-                "source": {"imageUri": "https://goo.gl/8UNYmG"}
-            },
-            "features": [
-                {
-                    "type"      : "FACE_DETECTION",
-                    "maxResults": 1
-                }
-            ]
-        },
+    const request = new vision.Request({
+        "image"   : new vision.Image({"url": "https://goo.gl/8UNYmG"}),
+        "features": [
+            new vision.Feature("FACE_DETECTION", 1)
+        ]
+    });
 
-        "key": API_KEY
-    }
-
-    vision.images.annotate(request, function (error, results) {
-        if (error) throw error;
-
+    vision.annotate(request).then(results => {
         console.log(JSON.stringify(results, null, 2));
 
+    }, error => {
+        console.log("error: " + error);
+        
     });
 });
 

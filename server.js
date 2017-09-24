@@ -12,7 +12,7 @@ const methodOverride = require("method-override");
 const bodyParser     = require("body-parser");
 
 // Get our models
-const db = require(path.join(__dirname, "models"));
+//const db = require(path.join(__dirname, "models"));
 
 const app  = express();
 const PORT = process.env.PORT || 3000;

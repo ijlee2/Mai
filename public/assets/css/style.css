@@ -22,8 +22,22 @@ html {
     font-size  : 20px;
 }
 
+strong {
+    font-weight: bold;
+}
+
 
 /* Vertical separators */
+.clearfix::after {
+    content: "" !important;
+    display: block !important;
+    clear  : both !important;
+}
+
+.mai-attacher-1 {
+    margin-bottom: 0;
+}
+
 .mai-separator-1 {
     height: 0.4em;
 }
@@ -84,15 +98,19 @@ nav #mai-menu-desktop li:last-child {
 
 
 /* Signup, Login */
-.mai-signup-wrapper, .mai-login-wrapper {
+.mai-signup-wrapper,
+.mai-login-wrapper,
+.mai-about-mai-wrapper {
     height: calc(100vh - 1.5*var(--height-nav));
 }
 
-.mai-signup-wrapper > *, .mai-login-wrapper > * {
+.mai-signup-wrapper > *,
+.mai-login-wrapper > *,
+.mai-about-mai-wrapper > * {
     background-color: var(--color-white-transparent);
 }
 
-h1.brand-logo { 
+h1 { 
     font-family   : var(--font-highlight);
     font-size     : 2.8em;
     height        : 1.4em;
@@ -130,6 +148,13 @@ h1.brand-logo img {
     transform : translate(-50%, -50%);
     object-fit: cover;
     z-index   : -1;
+}
+
+
+/* About Mai */
+#button_signup {
+    font-size: 0.85em;
+    width    : 100%;
 }
 
 

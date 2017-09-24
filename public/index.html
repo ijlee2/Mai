@@ -55,11 +55,11 @@
                 <div class="col s10 offset-s1 m8 offset-m2 l7 offset-l4 xl5 offset-xl4">
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <h1 class="brand-logo"><img class="responsive-img" src="assets/images/mai.png" alt="Mai logo"></img>Mai</h1>
+                            <h1 class="mai-attacher-1 brand-logo"><img class="responsive-img" src="assets/images/mai.png" alt="Mai logo"></img>Mai</h1>
                             <p>Everyone has a story to share.</p>
+                        </div>
 
-                            <div class="mai-separator-1"></div>
-
+                        <div class="col s10 offset-s1">
                             <form id="mai-form-signup">
                                 <div class="input-field">
                                     <input id="mai-fullname" type="text" class="validate">
@@ -83,14 +83,16 @@
 
                                 <div class="mai-separator-2"></div>
 
-                                <button class="btn-large waves-effect waves-light" type="submit" name="action">Sign up</button>
+                                <button class="btn-large waves-effect waves-light" type="submit" name="button_signup">Sign up</button>
                             </form>
 
-                            <div class="mai-separator-3"></div>
+                            <div class="mai-separator-2"></div>
+                        </div>
 
+                        <div class="col s10 offset-s1">
                             <a href="javascript:displayLogin();">Have an account? Log in</a>.
 
-                            <div class="mai-separator-2"></div>
+                            <div class="mai-separator-3"></div>
                         </div>
                     </div>
                 </div>
@@ -100,11 +102,11 @@
                 <div class="col s10 offset-s1 m8 offset-m2 l7 offset-l4 xl5 offset-xl4">
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <h1 class="brand-logo black-text"><img class="responsive-img" src="assets/images/mai.png" alt="Mai logo"></img>Mai</h1>
+                            <h1 class="mai-attacher-1 brand-logo black-text"><img class="responsive-img" src="assets/images/mai.png" alt="Mai logo"></img>Mai</h1>
                             <p class="black-text">Hear them out.</p>
+                        </div>
 
-                            <div class="mai-separator-1"></div>
-
+                        <div class="col s10 offset-s1">
                             <form id="mai-form-login">
                                 <div class="input-field">
                                     <input id="mai-username" type="text" class="validate">
@@ -118,14 +120,16 @@
 
                                 <div class="mai-separator-2"></div>
 
-                                <button class="btn-large waves-effect waves-light" type="submit" name="action">Log in</button>
+                                <button class="btn-large waves-effect waves-light" type="submit" name="button_login">Log in</button>
                             </form>
 
-                            <div class="mai-separator-3"></div>
+                            <div class="mai-separator-2"></div>
+                        </div>
 
+                        <div class="col s10 offset-s1">
                             <a href="javascript:displaySignup();">Don't have an account? Sign up</a>.
 
-                            <div class="mai-separator-2"></div>
+                            <div class="mai-separator-3"></div>
                         </div>
                     </div>
                 </div>
@@ -188,8 +192,6 @@
                     "username": $("#mai-username").val().trim(),
                     "password": $("#mai-password").val().trim()
                 };
-
-                console.log(data);
             });
 
             $(document).ready(function() {

@@ -8,6 +8,8 @@ CREATE TABLE users (
     fullname  VARCHAR(100) NOT NULL,
     email     VARCHAR(100) NOT NULL UNIQUE,
     username  VARCHAR(20)  NOT NULL UNIQUE,
+    
+    alias     VARCHAR(512) NOT NULL,
     hash      VARCHAR(512) NOT NULL,
 
     photo_url VARCHAR(100) DEFAULT "",
@@ -24,22 +26,23 @@ CREATE TABLE stories (
     PRIMARY KEY (id)
 );
 
--- Create photos
-CREATE TABLE photos (
-    id      INT NOT NULL AUTO_INCREMENT,
-    url     VARCHAR(100) NOT NULL,
-    caption TEXT,
-    date DATETIME NOT NULL,
-
-    PRIMARY KEY (id)
-);
-
 -- Create texts
 CREATE TABLE texts (
     id      INT NOT NULL AUTO_INCREMENT,
     caption TEXT,
 
     PRIMARY KEY (id)
+);
+
+-- Create photos
+CREATE TABLE photos (
+    id      INT NOT NULL AUTO_INCREMENT,
+    url     VARCHAR(100) NOT NULL,
+    date    DATETIME NOT NULL,
+    text_id INT NOT NULL,
+
+    PRIMARY KEY (id),
+    FOREIGN KEY (text_id) REFERENCES texts(id)
 );
 
 -- Create writers (following)

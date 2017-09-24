@@ -27,9 +27,9 @@ CREATE TABLE stories (
 -- Create photos (one-to-one)
 CREATE TABLE photos (
     id         INT NOT NULL AUTO_INCREMENT,
-    url        VARCHAR(100) NOT NULL,
+    url        VARCHAR(256) NOT NULL,
     caption    TEXT NOT NULL,
-    time_taken DATETIME NOT NULL,
+    time_taken DATETIME,
 
     PRIMARY KEY (id)
 );

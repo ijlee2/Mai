@@ -1,15 +1,15 @@
 /* TODO: Seed 10 users */
-INSERT INTO users (fullname, email, username) VALUES
-("John Absher", "john.absher@example.com", "jabsher"),
-("David Gutierrez", "david.gutierrez@example.com", "dgutierrez")
-("Jay Rockefeller", "jarrock@example.com", "jayrock"),
-("Jack Absher", "jackabsher@example.com", "jkabsher"),
-("James Absher", "jamesabsher@example.com","jmsabsher"),
-("Robert Absher", "robertabsher@example.com","robabsher"),
-("Laura Absher"), "lauraabsher@example.com", "lauraabsher"),
-("Eric Gutierrez", "ericg@example.com", "ericg"),
-("Aaron Gutierrez", "aarong@example.com", "aarong"),
-("Paul Gutierrez", "paul@example.com", "paulg");
+INSERT INTO users (fullname, email, username, hash) VALUES
+("John Absher"    , "john.absher@example.com"    , "jabsher"    , "abc"),
+("David Gutierrez", "david.gutierrez@example.com", "dgutierrez" , "abc"),
+("Jay Rockefeller", "jarrock@example.com"        , "jayrock"    , "abc"),
+("Jack Absher"    , "jackabsher@example.com"     , "jkabsher"   , "abc"),
+("James Absher"   , "jamesabsher@example.com"    , "jmsabsher"  , "abc"),
+("Robert Absher"  , "robertabsher@example.com"   , "robabsher"  , "abc"),
+("Laura Absher"   , "lauraabsher@example.com"    , "lauraabsher", "abc"),
+("Eric Gutierrez" , "ericg@example.com"          , "ericg"      , "abc"),
+("Aaron Gutierrez", "aarong@example.com"         , "aarong"     , "abc"),
+("Paul Gutierrez" , "paul@example.com"           , "paulg"      , "abc");
 
 
 /* TODO: Seed 20 photos */

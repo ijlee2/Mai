@@ -52,7 +52,7 @@ router.get("/vision", (req, res) => {
     });
 
     vision.annotate(request).then(results => {
-        console.log(JSON.stringify(results.responses));
+        res.send(results.responses);
 
     }, error => {
         console.log("error: " + error);

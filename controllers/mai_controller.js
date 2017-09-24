@@ -6,7 +6,7 @@ const google  = require("googleapis");
 const vision  = google.vision("v1");
 const path    = require("path");
 
-const API_KEY = "AIzaSyAOUOWY4CD2V3DL-5Fl5UHTZAhw_9b1tgs";
+const API_KEY = "AIzaSyAdisiH71lCbJafp0pRK-75-UjsMz5bMXA";
 
 // Create an instance of Router
 const router = express.Router();

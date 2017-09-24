@@ -53,11 +53,13 @@ app.set("view engine", "handlebars");
 // Override POST methods to handle PATCH and DELETE
 app.use(methodOverride("_method"));
 
-// Set controllers
-const directory_controllers = path.join(__dirname, "controllers");
+// Set routers
+const router_html = require(path.join(__dirname, "controllers", "html_routes.js"));
+const router_api  = require(path.join(__dirname, "controllers", "api_routes.js"));
 
-// Talk to Mai controller
-app.use("/", require(path.join(directory_controllers, "mai_controller.js")));
+// Talk to routers
+app.use("/", router_html);
+app.use("/api", router_api);
 
 
 

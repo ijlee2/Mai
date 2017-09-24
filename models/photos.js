@@ -18,6 +18,17 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         
+        "caption": {
+            "type"     : DataTypes.TEXT,
+            "allowNull": false,
+            "validate" : {
+                "notEmpty": {
+                    "args": true,
+                    "msg" : "Please enter a caption."
+                }
+            }
+        },
+        
         "time_taken": {
             "type"     : DataTypes.DATE,
             "allowNull": false,
@@ -32,7 +43,6 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         "associate": function(models) {
             Photo.belongsTo(models.Story);
-            Photo.hasOne(models.Caption);
 
         },
         

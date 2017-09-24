@@ -24,23 +24,14 @@ CREATE TABLE stories (
     PRIMARY KEY (id)
 );
 
--- Create captions
-CREATE TABLE captions (
-    id   INT NOT NULL AUTO_INCREMENT,
-    text TEXT NOT NULL,
-
-    PRIMARY KEY (id)
-);
-
 -- Create photos (one-to-one)
 CREATE TABLE photos (
     id         INT NOT NULL AUTO_INCREMENT,
     url        VARCHAR(100) NOT NULL,
+    caption    TEXT NOT NULL,
     time_taken DATETIME NOT NULL,
-    caption_id INT NOT NULL,
 
-    PRIMARY KEY (id),
-    FOREIGN KEY (caption_id) REFERENCES captions(id)
+    PRIMARY KEY (id)
 );
 
 -- Find people that a user follows (one-to-many)

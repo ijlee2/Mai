@@ -26,7 +26,7 @@ CREATE TABLE stories (
     PRIMARY KEY (id)
 );
 
--- Create texts
+-- Create captions
 CREATE TABLE captions (
     id      INT NOT NULL AUTO_INCREMENT,
     caption TEXT NOT NULL,

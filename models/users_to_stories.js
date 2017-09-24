@@ -17,7 +17,8 @@ module.exports = function(sequelize, DataTypes) {
             },
             "allowNull" : false
         }
-    });
+
+    }, {"underscored": true});
 
     return users_to_stories;
 }

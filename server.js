@@ -5,6 +5,7 @@
     
 *****************************************************************************
 *****************************************************************************/
+// Import packages
 const express        = require("express");
 const exphbs         = require("express-handlebars");
 const path           = require("path");
@@ -12,8 +13,9 @@ const methodOverride = require("method-override");
 const bodyParser     = require("body-parser");
 
 // Get our models
-//const db = require(path.join(__dirname, "models"));
+const mai_db = require(path.join(__dirname, "models"));
 
+// Use express
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
@@ -66,6 +68,6 @@ app.use("/", require(path.join(directory_controllers, "mai_controller.js")));
     
 *****************************************************************************
 *****************************************************************************/
-//db.sequelize.sync().then(function() {
+mai_db.sequelize.sync({"force": true}).then(function() {
     app.listen(PORT, () => console.log(`App listening on ${PORT}.`));
-//});
+});

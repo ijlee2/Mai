@@ -1,13 +1,16 @@
 module.exports = function(sequelize, DataTypes) {
-    const user = sequelize.define("story", {
+    const stories = sequelize.define("story", {
         "url": {
             "type"     : DataTypes.STRING,
             "allowNull": false,
             "validate" : {
-                "isURL": true
+                "isURL": {
+                    "args": true,
+                    "msg" : "Please enter a valid url."
+                }
             }
-        },
+        }
     });
 
-    return story;
+    return stories;
 }

@@ -1,27 +1,23 @@
 module.exports = function(sequelize, DataTypes) {
-    const readers = sequelize.define("reader", {
+    const users_to_writers = sequelize.define("users_to_writer", {
        "user_id": {
             "type"      : DataTypes.INTEGER,
             "references": {
                 "model": users,
                 "key"  : "id"
-            },
-            "allowNull" : false,
-            "validate"  : {
-            }
+            },           
+            "allowNull" : false
         },
         
-        "reader_id": {
-            "type"     : DataTypes.INTEGER,
+        "writer_id": {
+            "type"      : DataTypes.INTEGER,
             "references": {
                 "model": users,
                 "key"  : "id"
             },
-            "allowNull": false,
-            "validate" : {
-            }
+            "allowNull" : false
         }
     });
 
-    return reader;
+    return users_to_writers;
 }

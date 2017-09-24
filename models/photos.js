@@ -1,18 +1,34 @@
 module.exports = function(sequelize, DataTypes) {
     const photos = sequelize.define("photo", {
-       "photo_url": {
+       "url": {
             "type"     : DataTypes.STRING,
             "allowNull": false,
             "validate" : {
-                "isURL": true
+                "isURL": {
+                    "args": true,
+                    "msg" : "Please enter a valid url."
+                }
             }
         },
         
-        "caption": {
-            "type"     : DataTypes.TEXT,
+        "time_taken": {
+            "type"     : DataTypes.DATE,
             "allowNull": false,
             "validate" : {
+                "isDate": {
+                    "args": true,
+                    "msg" : "Please enter a valid date string."
+                }
             }
+        },
+        
+        "caption_id": {
+            "type"      : DataTypes.INTEGER,
+            "references": {
+                "model": captions,
+                "key"  : "id"
+            },
+            "allowNull" : false
         }
     });
 

@@ -1,50 +1,76 @@
 module.exports = function(sequelize, DataTypes) {
     const users = sequelize.define("user", {
         "fullname": {
-            "type"     : DataTypes.STRING,
+            "type"     : DataTypes.STRING(100),
             "allowNull": false,
             "validate" : {
-                "is"   : /^[a-z-]+$/i,
-                "len"  : [2, 100]
+                "is": {
+                    "args": /^[a-z-]+$/i,
+                    "msg" : "Only letters and hyphens are allowed."
+                },
+                "len": {
+                    "args": [1, 100],
+                    "msg" : "Your name cannot exceed 100 characters."
+                }
             }
         },
 
         "email": {
-            "type"       : DataTypes.STRING,
-            "allowNull"  : false,
-            "validate"   : {
-                "isEmail": true,
-                "unique" : true,
-                "len"    : [2, 100]
+            "type"     : DataTypes.STRING(100),
+            "allowNull": false,
+            "validate" : {
+                "isEmail": {
+                    "args": true,
+                    "msg" : "Please enter a valid email."
+                },
+                "unique": {
+                    "args": true,
+                    "msg" : "The email is already taken."
+                },
+                "len": {
+                    "args": [1, 100],
+                    "msg": "Your email cannot exceed 100 characters."
+                }
             }
         },
 
         "username": {
-            "type"     : DataTypes.STRING,
+            "type"     : DataTypes.STRING(32),
             "allowNull": false,
             "validate" : {
-                "unique": true,
-                "isAlphanumeric": true,
-                "len"           : [2, 20]
+                "isAlphanumeric": {
+                    "args": true,
+                    "msg" : "Only letters and numbers are allowed."
+                },
+                "unique": {
+                    "args": true,
+                    "msg" : "The username is already taken."
+                },
+                "len": {
+                    "args": [6, 32],
+                    "msg" : "The username must have between 6 and 32 characters."
+                }
             }
         },
         
-        "hash": {
-            "type"     : DataTypes.STRING,
+        "alias": {
+            "type"     : DataTypes.STRING(512),
             "allowNull": false,
-            "validate" : {
-                "isAlphanumeric" : true,
-                "len" : [6, 512]
-            }
+        },
+        
+        "hash": {
+            "type"     : DataTypes.STRING(512),
+            "allowNull": false,
         },
 
-        "photo_url": {
+        "profile_url": {
             "type"     : DataTypes.STRING,
             "allowNull": false,
             "validate" : {
-                "isURL": true,
-                "len"  : [2, 100]
-
+                "isURL": {
+                    "args": true,
+                    "msg" : "Please enter a valid url."
+                }
             }
         },
         

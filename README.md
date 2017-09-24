@@ -1,5 +1,5 @@
 # Mai
-Everyone has a story to share. Hear them out.
+Everyone has a story to tell. Hear them out.
 
 
 ## Team Members

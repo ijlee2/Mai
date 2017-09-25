@@ -176,12 +176,12 @@ h1.brand-logo img {
 
 /* Meet Mai Team */
 .carousel {
-    height: 72vh;
+    height: 64vh;
 }
 
 .carousel-item {
-    width:  36% !important;
-    top  : -36% !important;
+    width:  33% !important;
+    top  : -30% !important;
 }
 
 

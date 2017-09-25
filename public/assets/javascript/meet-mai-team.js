@@ -5,7 +5,7 @@ $(document).ready(function() {
     // Carousel settings
     $(".carousel").carousel({
         "duration": 120,
-        "dist"    : -60,
+        "dist"    : -40,
         "shift"   : 80
     });
 });

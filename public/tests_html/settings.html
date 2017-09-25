@@ -9,7 +9,7 @@
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="../assets/images/mai.png">
-        
+
         <!-- Import fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One|Nunito" rel="stylesheet">
@@ -29,7 +29,7 @@
             <div class="nav-wrapper grey darken-4">
                 <a href="index.html" class="brand-logo"><img class="responsive-img" src="../assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
                 <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                
+
                 <ul id="dropdown-about-us" class="dropdown-content">
                     <li><a href="meet-mai.html">Meet Mai</a></li>
                     <li><a href="meet-mai-team.html">Meet Mai Team</a></li>
@@ -42,7 +42,7 @@
                     <li><a class="mai-menu-desktop-items" href="settings.html">Settings</a></li>
                     <li><a class="mai-menu-desktop-items dropdown-button" href="#" data-activates="dropdown-about-us">About Us<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
-                
+
                 <ul class="side-nav" id="mai-menu-mobile">
                     <li><a class="mai-menu-mobile-items" href="index.html">Home</a></li>
                     <li><a class="mai-menu-mobile-items" href="user.html">User</a></li>
@@ -54,10 +54,12 @@
                 </ul>
             </div>
         </nav>
+            <div class="">
 
-        <div class="container">
+            </div>
+        <!--<div class="container">-->
             <!-- Update name, username, email -->
-            <form id="mai-form-accountUpdate">
+            <!-- <form id="mai-form-accountUpdate">
                 <div class="input-field">
                     <label for="mai-changeName" class="blue-grey-text text-darken-2">Update Your Full Name:</label>
                     <input id="mai-changeName" type="text" class="validate" placeholder="Jane Smith">
@@ -76,28 +78,28 @@
                 <button class="btn-large waves-effect waves-light" type="submit" name="action">Update</button>
             </form>
 
-            <div class="mai-separator-2"></div>
+            <div class="mai-separator-2"></div> -->
 
             <!-- Password -->
-            <form id="mai-form-passwordUpdate">
+            <!-- <form id="mai-form-passwordUpdate">
                 <div class="input-field">
                     <label for="mai-changePassword" class="blue-grey-text text-darken-2">Update Your Password:</label>
-                    
+
                     <!-- TODO: Fix id names -->
-                    <input id="mai-changePassword" type="text" class="validate" placeholder="Current Password">
+                    <!-- <input id="mai-changePassword" type="text" class="validate" placeholder="Current Password">
                     <input id="mai-changePassword" type="text" class="validate" placeholder="New Password">
                 </div>
 
                 <button class="btn-large waves-effect waves-light" type="submit" name="action">Update</button>
             </form>
 
-            <div class="mai-separator-2"></div>
+            <div class="mai-separator-2"></div>  -->
 
             <!-- Delete accoutn -->
-            <form id="mai-form-delete">
+            <!-- <form id="mai-form-delete">
                 <button class="btn-large waves-effect waves-light" type="submit" name="action">Delete Mai account</button>
             </form>
-        </div>
+        </div> -->
 
         <footer class="page-footer grey darken-4">
             <div class="container">
@@ -130,10 +132,11 @@
 
         <!-- Import jQuery before materialize.js -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        
+        <script type="text/javascript" src="../assets/javascript/materialize.min.js"></script>
+
         <!-- Custom JavaScript -->
         <script type="text/javascript">
+
             $(document).ready(function() {
                 // Dropdown menu
                 $(".dropdown-button").dropdown();

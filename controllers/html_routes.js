@@ -69,6 +69,13 @@ router.get("/meet-mai-team", (req, res) => {
     });
 });
 
+router.get("/compose", (req, res) => {
+    res.render("compose", {
+        "custom-css"       : ["style"],
+        "custom-javascript": ["compose"]
+    });
+});
+
 router.get("/upload", (req, res, next) => {
     res.render("upload", {
         "custom-css"       : ["style"],

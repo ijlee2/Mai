@@ -57,6 +57,34 @@ router.post("/signup", (req, res) => {
     });
 });
 
+ // PUT route for updating account info NOTE: John is editing this at this moment and will remove this comment after editing.
+ app.put("/api/updateAccount", function(req, res) {
+    db.Post.update(req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+};
+
+// PUT route for updating password NOTE: John is editing this at this moment and will remove this comment after editing.
+app.put("/api/updateAccount", function(req, res) {
+    db.Post.update(req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+};
+
 router.post("/login", (req, res) => {
     function callback(results) {
         res.redirect("/");

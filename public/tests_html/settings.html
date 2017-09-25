@@ -54,52 +54,73 @@
                 </ul>
             </div>
         </nav>
-            <div class="">
+        <div class=“container”>
+          <div class=“mai-separator-3"> </div>
 
+            <div class=“row”>
+               <div class=“col s12 l6"> 
+            <div class=“row”>
+                <!-- Update name, username, email -->
+                <div class=“col s10 offset-s1">
+                  <form id=“mai-form-accountUpdate” action="POST">
+                      <div class=“input-field”>
+                          <label for=“mai-changeName” class=“blue-grey-text text-darken-2">Update Your Full Name:</label>
+                          <input id=“mai-changeName” type=“text” class=“validate” placeholder=“Jane Smith”>
+                      </div>
+
+                     <div class=“input-field”>
+                          <label for=“mai-changeUsername” class=“blue-grey-text text-darken-2”>Update Your User Name</label>
+                          <input id=“mai-changeUsername” type=“text” class=“validate” placeholder=“jane_austin”>
+                      </div>
+
+                     <div class=“input-field”>
+                          <label for=“mai-changeEmail” class=“blue-grey-text text-darken-2">Update Email Address:</label>
+                          <input id=“mai-changeEmail” type=“text” class=“validate” placeholder=“janeaustin@gmail.com”>
+                      </div>
+
+                     <button class=“btn-large waves-effect waves-light” type=“submit” name=“action”>Update</button>
+                  </form>
+                </div>
+              </div>
+
+             <div class=“mai-separator-3"></div>
             </div>
-        <!--<div class="container">-->
-            <!-- Update name, username, email -->
-            <!-- <form id="mai-form-accountUpdate">
-                <div class="input-field">
-                    <label for="mai-changeName" class="blue-grey-text text-darken-2">Update Your Full Name:</label>
-                    <input id="mai-changeName" type="text" class="validate" placeholder="Jane Smith">
+
+           <div class=“col s12 l6”>
+              <div class=“row”>
+                <div class=“col s10 offset-s1”>
+                  <!-- Password -->
+                  <form id=“mai-form-passwordUpdate”>
+                      <div class=“input-field”>
+                          <label for=“mai-changePassword” class=“blue-grey-text text-darken-2”>Update Your Password:</label>
+
+                         <!-- TODO: Fix id names -->
+                         <input name=“currentPassword” id=“mai-changePassword” type=“text” class=“validate” placeholder=“Current Password”>
+                          <input name=“newPassword” type=“text” class=“validate” placeholder=“New Password”>
+                      </div>
+
+                     <button class=“btn-large waves-effect waves-light” type=“submit” name=“action”>Update</button>
+                  </form>
                 </div>
+              </div>
 
-                <div class="input-field">
-                    <label for="mai-changeUsername" class="blue-grey-text text-darken-2">Update Your User Name</label>
-                    <input id="mai-changeUsername" type="text" class="validate" placeholder="jane_austin">
+             <div class=“mai-separator-3"> </div>
+              <div class=“divider grey darken-4”> </div>
+              <div class=“mai-separator-3"></div>
+
+             <div class=“row”>
+                <div class=“col s10 offset-s1">
+                  <!-- Delete accoutn -->
+                  <form id=“mai-form-delete”>
+                      <button class=“btn-large waves-effect waves-light red darken-2" type=“submit” name=“action”>Delete Mai Account</button>
+                  </form>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <div class="input-field">
-                    <label for="mai-changeEmail" class="blue-grey-text text-darken-2">Update Email Address:</label>
-                    <input id="mai-changeEmail" type="text" class="validate" placeholder="janeaustin@gmail.com">
-                </div>
-
-                <button class="btn-large waves-effect waves-light" type="submit" name="action">Update</button>
-            </form>
-
-            <div class="mai-separator-2"></div> -->
-
-            <!-- Password -->
-            <!-- <form id="mai-form-passwordUpdate">
-                <div class="input-field">
-                    <label for="mai-changePassword" class="blue-grey-text text-darken-2">Update Your Password:</label>
-
-                    <!-- TODO: Fix id names -->
-                    <!-- <input id="mai-changePassword" type="text" class="validate" placeholder="Current Password">
-                    <input id="mai-changePassword" type="text" class="validate" placeholder="New Password">
-                </div>
-
-                <button class="btn-large waves-effect waves-light" type="submit" name="action">Update</button>
-            </form>
-
-            <div class="mai-separator-2"></div>  -->
-
-            <!-- Delete accoutn -->
-            <!-- <form id="mai-form-delete">
-                <button class="btn-large waves-effect waves-light" type="submit" name="action">Delete Mai account</button>
-            </form>
-        </div> -->
+         <div class=“mai-separator-2”></div>
+        </div>
 
         <footer class="page-footer grey darken-4">
             <div class="container">

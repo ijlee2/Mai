@@ -22,37 +22,50 @@ const router = express.Router();
 *****************************************************************************/
 router.get("/", (req, res) => {
     res.render("index", {
-        "code-javascript": "assets/javascript/index.js"
+        "custom-css"       : ["style"],
+        "custom-javascript": ["index"]
     });
 });
 
 router.get("/user", (req, res) => {
     res.render("user", {
-        "code-javascript": "assets/javascript/user.js"
+        "custom-css"       : ["style"],
+        "custom-javascript": ["user"]
     });
 });
 
 router.get("/story", (req, res) => {
     res.render("story", {
-        "code-javascript": "assets/javascript/story.js"
+        "custom-css"       : ["style"],
+        "custom-javascript": ["story"]
     });
 });
 
 router.get("/settings", (req, res) => {
     res.render("settings", {
-        "code-javascript": "assets/javascript/settings.js"
+        "custom-css"       : ["style"],
+        "custom-javascript": ["settings"]
     });
 });
 
 router.get("/meet-mai", (req, res) => {
     res.render("meet-mai", {
-        "code-javascript": "assets/javascript/meet-mai.js"
+        "custom-css"       : ["style"],
+        "custom-javascript": ["meet-mai"]
     });
 });
 
 router.get("/meet-mai-team", (req, res) => {
     res.render("meet-mai-team", {
-        "code-javascript": "assets/javascript/meet-mai-team.js"
+        "custom-css"       : ["style"],
+        "custom-javascript": ["meet-mai-team"]
+    });
+});
+
+router.get("/upload", (req, res, next) => {
+    res.render("upload", {
+        "custom-css"       : ["style"],
+        "custom-javascript": ["upload", "dropzone/dropzone"]
     });
 });
 

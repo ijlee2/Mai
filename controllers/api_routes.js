@@ -3,6 +3,15 @@ const express = require("express");
 const path    = require("path");
 const bcrypt  = require("bcrypt");
 
+
+
+// Import packages for Dropzone
+const multer = require("multer");
+const upload = multer({"dest": "uploads"});
+const sizeOf = require("image-size");
+
+
+
 // Create an instance of Router
 const router = express.Router();
 
@@ -68,6 +77,26 @@ router.post("/login", (req, res) => {
     }).then(callback);
 });
 
+router.post("/upload-image", upload.single("file"), (req, res, next) => {
+    if (!req.file.mimetype.startsWith("image/")) {
+        return res.status(422).json({
+            "error": "The uploaded file must be an image."
+        });
+    }
+
+    const dimensions = sizeOf(req.file.path);
+
+    if ((dimensions.width < 200) || (dimensions.height < 200)) {
+        return res.status(422).json({
+            "error": "The image must be at least 200 x 200px."
+        });
+    }
+
+    return res.status(200).send(req.file);
+});
+
+
+
 router.get("/vision", (req, res) => {
     // Source: https://github.com/comoc/node-cloud-vision-api
     const request = new vision.Request({
@@ -87,10 +116,6 @@ router.get("/vision", (req, res) => {
         console.log("error: " + error);
 
     });
-});
-
-router.get("/dropzone", (req, res) => {
-    res.sendFile("dropzone.html");
 });
 
 module.exports = router;

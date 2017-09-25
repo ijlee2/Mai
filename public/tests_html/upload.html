@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One|Nunito" rel="stylesheet">
 
         <!-- Import Materialize -->
-        <link type="text/css" rel="stylesheet" href="../assets/css/materialize.min.css" media="screen,projection">
+        <link type="text/css" rel="stylesheet" href="../assets/css/materialize/materialize.min.css" media="screen,projection">
 
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
@@ -56,7 +56,7 @@
         </nav>
 
         <div class="container">
-            <form class="dropzone" id="upload-widget" action="/photo-upload" method="POST" enctype="multipart/form-data">
+            <form class="dropzone" id="upload-widget" action="/api/upload-photo" method="POST" enctype="multipart/form-data">
                 <div class="fallback">
                     <input name="file" type="file">
                 </div>
@@ -94,10 +94,10 @@
 
         <!-- Import jQuery before materialize.js -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="../assets/javascript/materialize.min.js"></script>
+        <script type="text/javascript" src="../assets/javascript/materialize/materialize.min.js"></script>
 
         <!-- Dropzone -->
-        <script type="text/javascript" src="../assets/javascript/dropzone.js"></script>
+        <script type="text/javascript" src="../assets/javascript/dropzone/dropzone.js"></script>
         
         <!-- Custom JavaScript -->
         <script type="text/javascript">

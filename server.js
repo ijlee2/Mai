@@ -12,9 +12,6 @@ const path           = require("path");
 const methodOverride = require("method-override");
 const bodyParser     = require("body-parser");
 
-// Get our models
-const mai_db = require(path.join(__dirname, "models"));
-
 // Use express
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -24,7 +21,19 @@ const PORT = process.env.PORT || 3000;
 /****************************************************************************
  ****************************************************************************
     
-    Set up views
+    Set models
+    
+*****************************************************************************
+*****************************************************************************/
+// Import our models
+const mai_db = require(path.join(__dirname, "models"));
+
+
+
+/****************************************************************************
+ ****************************************************************************
+    
+    Set views
     
 *****************************************************************************
 *****************************************************************************/
@@ -38,20 +47,27 @@ app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({"extended": false}));
 
 // Set handlebars
-app.engine("handlebars", exphbs({"defaultLayout": "main"}));
-app.set("view engine", "handlebars");
+app.engine(".hbs", exphbs({
+    "defaultLayout": "main",
+    "extname"      : ".hbs"
+}));
+
+app.set("view engine", ".hbs");
 
 
 
 /****************************************************************************
  ****************************************************************************
     
-    Set up routes
+    Set controllers
     
 *****************************************************************************
 *****************************************************************************/
 // Override POST methods to handle PATCH and DELETE
 app.use(methodOverride("_method"));
+
+// For Dropzone
+app.use(express.static( __dirname + "/bower_components"));
 
 // Set routers
 const router_html = require(path.join(__dirname, "controllers", "html_routes.js"));

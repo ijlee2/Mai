@@ -54,52 +54,80 @@
                 </ul>
             </div>
         </nav>
-            <div class="">
 
+        <div class="container">
+            <div class="mai-separator-3"></div>
+            
+            <h1 class="mai-attacher-1">Settings</h1>
+
+            <div class="row">
+                <!-- Left pane -->
+                <div class="col s12 l5">
+                    <h2>Update profile</h2>
+                    
+                    <div class="mai-separator-2"></div>
+
+                    <form action="/api/update-profile" method="POST">
+                        <div class="input-field">
+                            <label for="mai-fullname" class="blue-grey-text text-darken-2">Full name</label>
+                            <input type="text" name="fullname" id="mai-fullname" class="validate" placeholder="Jane Smith" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="mai-email" class="blue-grey-text text-darken-2">Email</label>
+                            <input type="text" name="email" id="mai-email" class="validate" placeholder="janeaustin@gmail.com" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="mai-username" class="blue-grey-text text-darken-2">Username</label>
+                            <input type="text" name="username" id="mai-username" class="validate" placeholder="jane_austin" required>
+                        </div>
+
+                        <div class="mai-separator-2"></div>
+
+                        <button type="submit" class="btn-large waves-effect waves-light" title="Click to update.">Update</button>
+                    </form>
+
+                    <div class="mai-separator-3"></div>
+                </div>
+                
+                <!-- Right pane -->
+                <div class="col s12 l5 offset-l1">
+                    <h2>Update password</h2>
+                    
+                    <div class="mai-separator-2"></div>
+
+                    <form action="/api/update-password" method="POST">
+                        <div class="input-field">
+                            <label for="mai-current-password" class="blue-grey-text text-darken-2">Current password</label>
+                            <input type="password" name="password_current" id="mai-current-password" class="validate" placeholder="********" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="mai-new-password" class="blue-grey-text text-darken-2">New password</label>
+                            <input type="password" name="password_new" id="mai-new-password" class="validate" placeholder="" required>
+                        </div>
+
+                        <div class="mai-separator-2"></div>
+
+                        <button type="submit" class="btn-large waves-effect waves-light" title="Click to update.">Update</button>
+                    </form>
+
+                    <div class="mai-separator-3"></div>
+                    
+                    <h2>Delete Mai account</h2>
+                    
+                    <div class="mai-separator-2"></div>
+                    
+                    <!-- TODO: Fix this path to use method-override -->
+                    <form action="/api/delete-account" method="POST">
+                        <button type="submit" class="btn-large waves-effect waves-light red darken-2" title="Click to update.">Delete Mai account</button>
+                    </form>
+                </div>
             </div>
-        <!--<div class="container">-->
-            <!-- Update name, username, email -->
-            <!-- <form id="mai-form-accountUpdate">
-                <div class="input-field">
-                    <label for="mai-changeName" class="blue-grey-text text-darken-2">Update Your Full Name:</label>
-                    <input id="mai-changeName" type="text" class="validate" placeholder="Jane Smith">
-                </div>
 
-                <div class="input-field">
-                    <label for="mai-changeUsername" class="blue-grey-text text-darken-2">Update Your User Name</label>
-                    <input id="mai-changeUsername" type="text" class="validate" placeholder="jane_austin">
-                </div>
-
-                <div class="input-field">
-                    <label for="mai-changeEmail" class="blue-grey-text text-darken-2">Update Email Address:</label>
-                    <input id="mai-changeEmail" type="text" class="validate" placeholder="janeaustin@gmail.com">
-                </div>
-
-                <button class="btn-large waves-effect waves-light" type="submit" name="action">Update</button>
-            </form>
-
-            <div class="mai-separator-2"></div> -->
-
-            <!-- Password -->
-            <!-- <form id="mai-form-passwordUpdate">
-                <div class="input-field">
-                    <label for="mai-changePassword" class="blue-grey-text text-darken-2">Update Your Password:</label>
-
-                    <!-- TODO: Fix id names -->
-                    <!-- <input id="mai-changePassword" type="text" class="validate" placeholder="Current Password">
-                    <input id="mai-changePassword" type="text" class="validate" placeholder="New Password">
-                </div>
-
-                <button class="btn-large waves-effect waves-light" type="submit" name="action">Update</button>
-            </form>
-
-            <div class="mai-separator-2"></div>  -->
-
-            <!-- Delete accoutn -->
-            <!-- <form id="mai-form-delete">
-                <button class="btn-large waves-effect waves-light" type="submit" name="action">Delete Mai account</button>
-            </form>
-        </div> -->
+            <div class="mai-separator-3"></div>
+        </div>
 
         <footer class="page-footer grey darken-4">
             <div class="container">
@@ -133,7 +161,7 @@
         <!-- Import jQuery before materialize.js -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="../assets/javascript/materialize/materialize.min.js"></script>
-
+        
         <!-- Custom JavaScript -->
         <script type="text/javascript">
             $(document).ready(function() {

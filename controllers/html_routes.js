@@ -26,6 +26,18 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/user", (req, res) => {
+    res.render("user", {
+        "code-javascript": "assets/javascript/user.js"
+    });
+});
+
+router.get("/story", (req, res) => {
+    res.render("story", {
+        "code-javascript": "assets/javascript/story.js"
+    });
+});
+
 router.get("/meet-mai", (req, res) => {
     res.render("meet-mai", {
         "code-javascript": "assets/javascript/meet-mai.js"

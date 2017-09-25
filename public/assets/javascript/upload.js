@@ -1,8 +1,8 @@
 Dropzone.options.uploadWidget = {
     "paramName"  : "file",
-    "maxFilesize": 2, // MB
-    "maxFiles"   : 3,
-    "dictDefaultMessage": "Drag an image here to upload, or click to select one",
+    "maxFilesize": 5, // MB
+    "maxFiles"   : 5,
+    "dictDefaultMessage": "Drag photos here to upload, or click to select them.",
     "headers": {
         // TODO: Create a random CSRF (Cross-Site Request Forgery) token for extra security measure
 //        "x-csrf-token": document.querySelectorAll("meta[name=csrf-token]")[0].getAttributeNode("content").value

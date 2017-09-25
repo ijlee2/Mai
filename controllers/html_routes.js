@@ -79,6 +79,7 @@ router.get("/compose", (req, res) => {
 router.get("/upload", (req, res, next) => {
     res.render("upload", {
         "custom-css"       : ["style"],
+        // We need to import Dropzone first
         "custom-javascript": ["dropzone/dropzone", "upload"]
     });
 });

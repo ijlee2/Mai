@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const Story = sequelize.define("Story", {
+    const Reader = sequelize.define("Reader", {
         "id": {
             "type"        : DataTypes.UUID,
             "defaultValue": DataTypes.UUIDV4,
@@ -7,13 +7,13 @@ module.exports = function(sequelize, DataTypes) {
             "primaryKey"  : true
         },
         
-        "url": {
-            "type"     : DataTypes.STRING,
+        "reader_id": {
+            "type"     : DataTypes.UUID,
             "allowNull": false,
             "validate" : {
-                "isURL": {
-                    "args": true,
-                    "msg" : "Please enter a valid url."
+                "isUUID": {
+                    "args": 4,
+                    "msg" : "Please enter a valid UUID."
                 }
             }
         }
@@ -21,10 +21,9 @@ module.exports = function(sequelize, DataTypes) {
     }, {"underscored": true});
 
     // Create associations
-    Story.associate = function(models) {
-        Story.belongsTo(models.Writer, {"onDelete": "CASCADE"});
-        Story.hasMany(models.Photo);
+    Reader.associate = function(models) {
+        Reader.belongsTo(models.Writer, {"onDelete": "CASCADE"});
     }
 
-    return Story;
+    return Reader;
 }

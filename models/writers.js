@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const User = sequelize.define("User", {
+    const Writer = sequelize.define("Writer", {
         "id": {
             "type"        : DataTypes.UUID,
             "defaultValue": DataTypes.UUIDV4,
@@ -77,9 +77,10 @@ module.exports = function(sequelize, DataTypes) {
     }, {"underscored": true});
 
     // Create associations
-    User.associate = function(models) {
-        User.hasMany(models.Story);
+    Writer.associate = function(models) {
+        Writer.hasMany(models.Story);
+        Writer.hasMany(models.Reader);
     }
 
-    return User;
+    return Writer;
 }

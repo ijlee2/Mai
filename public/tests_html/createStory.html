@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One|Nunito" rel="stylesheet">
 
         <!-- Import Materialize -->
-        <link type="text/css" rel="stylesheet" href="../assets/css/materialize.min.css" media="screen,projection">
+        <link type="text/css" rel="stylesheet" href="../assets/css/materialize/materialize.min.css" media="screen,projection">
 
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
@@ -56,6 +56,56 @@
         </nav>
 
         <div class="container">
+        <!-- inserted  another template below here-->
+    
+        <!-- <div class="row mai-signup-wrapper valign-wrapper">
+                <div class="col s10 offset-s1 m8 offset-m2 l7 offset-l4 xl5 offset-xl4">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <h1 class="brand-logo mai-attacher-1"><img class="responsive-img" src="../assets/images/mai.png" alt="Mai logo">Mai</h1>
+                            <p>Everyone has a story to tell.</p>
+                        </div>
+
+                        <div class="col s10 offset-s1">
+                            <form action="/api/signup" method="POST">
+                                <div class="input-field">
+                                    <input type="text" name="fullname" id="mai-fullname" class="validate" required>
+                                    <label for="mai-fullname" class="blue-grey-text text-darken-2">Full name</label>
+                                </div>
+
+                                <div class="input-field">
+                                    <input type="text" name="email" id="mai-email" class="validate" required>
+                                    <label for="mai-email" class="blue-grey-text text-darken-2">Email</label>
+                                </div>
+
+                                <div class="input-field">
+                                    <input type="text" name="username" id="mai-username" class="validate" required>
+                                    <label for="mai-username" class="blue-grey-text text-darken-2">Username</label>
+                                </div>
+
+                                <div class="input-field">
+                                    <input type="password" name="password" id="mai-password" class="validate" required>
+                                    <label for="mai-password" class="blue-grey-text text-darken-2">Password</label>
+                                </div>
+
+                                <div class="mai-separator-2"></div>
+
+                                <button type="submit" class="btn-large waves-effect waves-light" title="Click to sign up.">Sign up</button>
+                            </form>
+
+                            <div class="mai-separator-2"></div>
+                        </div>
+
+                        <div class="col s10 offset-s1">
+                            <a href="javascript:displayLogin();">Have an account? Log in</a>.
+
+                            <div class="mai-separator-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        
+        <!-- end of other insert  -->
 
             <div class="mai-separator-3"></div>
 
@@ -67,15 +117,17 @@
                         <div class="card-content"> 
                             <div class="input-field">
                                 <label for="newPic" class="blue-grey-text text-darken-2">Insert URL Of New Photo Here:</label>
+                                <br>
                                 <input type="text" name="newPicUrl" id="newPicUrl" class="validate" required>
                             </div>
                         <br>
                             <div>
-                                <img src="http://via.placeholder.com/450x350" alt="NewPhoto"><p>New Photo will populate here based on the URL in the form above</p>
+                                <img src="http://via.placeholder.com/450x350" alt="New Photo"><p>New Photo will populate here based on the URL in the form above</p>
                             </div>
                         <br>
                             <div class="input-field">
                                 <label for="newCaption" class="blue-grey-text text-darken-2">Enter Your Photo Caption Here:</label>
+                                <br>
                                 <input type="text" name="newPostCaption" id="newCaption" class="validate" required>
                             </div>
                            
@@ -89,7 +141,44 @@
                 </div>
             </div>
 
-           
+            <!-- <div class="mai-separator-1"></div>
+
+            <div class="row">
+                <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
+                    <div class="card" id="card1">
+                        <div class="card-image">
+                            <img src="https://i.pinimg.com/736x/b6/d4/8b/b6d48b00d132a940e17dc57ae959a748--being-comfortable-quotes-inspirational-hiking-quotes.jpg">
+                            <span class="card-title">Card Title</span>
+                        </div>
+
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mai-separator-1"></div>
+
+            <div class="row">
+                <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
+                    <div class="card" id="card2">
+                        <div class="card-image">
+                            <img src="https://i.pinimg.com/736x/de/f3/51/def35127fc73da5d7ab7d2f1f6fd0da0--quotes-about-changing-yourself-quote-about-being-yourself.jpg">
+                            <span class="card-title">Card Title</span>
+                        </div>
+                        
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mai-separator-3"></div>
+        </div> -->
 
         <footer class="page-footer grey darken-4">
             <div class="container">

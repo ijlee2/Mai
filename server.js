@@ -70,6 +70,6 @@ app.use("/api", router_api);
     
 *****************************************************************************
 *****************************************************************************/
-//mai_db.sequelize.sync({"force": true}).then(function() {
+mai_db.sequelize.sync({"force": true}).then(function() {
     app.listen(PORT, () => console.log(`App listening on ${PORT}.`));
-//});
+});

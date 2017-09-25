@@ -1,5 +1,6 @@
 {
     "//": [
+        "bcrypt                     : Hash user passwords",
         "body-parser                : Parse incoming request bodies in middlewares",
         "del                        : Delete files and folders",
         "express                    : Develop API using Express",
@@ -47,6 +48,7 @@
     ],
     "main": "server.js",
     "dependencies": {
+        "bcrypt": "^1.0.3",
         "body-parser": "^1.18.2",
         "del": "^3.0.0",
         "express": "^4.15.4",

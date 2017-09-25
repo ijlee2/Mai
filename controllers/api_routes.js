@@ -1,9 +1,13 @@
 // Import packages
 const express = require("express");
 const path    = require("path");
+const bcrypt  = require("bcrypt");
 
 // Create an instance of Router
 const router = express.Router();
+
+// Set bcrypt settings
+const saltRounds = 10;
 
 // Talk to the models
 const models = require(path.join(__dirname, "..", "models"));
@@ -25,11 +29,42 @@ vision.init({"auth": "AIzaSyDac5vMeEApkYZaE09R4bFhAWxjJtwyQoU"});
 *****************************************************************************
 *****************************************************************************/
 router.post("/signup", (req, res) => {
-    console.log(req.body);
+    function callback(results) {
+        console.log(results);
+        
+        res.redirect("/");
+    }
+
+    // Hash the user's password
+    bcrypt.hash(req.body.password, saltRounds, (error, hash) => {
+        User.create({
+            "fullname": req.body.fullname,
+            "email"   : req.body.email,
+            "username": req.body.username,
+            "hash"    : hash
+
+        }).then(callback);
+    });
 });
 
 router.post("/login", (req, res) => {
-    console.log(req.body);
+    function callback(results) {
+        res.redirect("/");
+    }
+
+    // Find the user's hash
+    User.findAll({
+        "attributes": ["hash"],
+        "where"     : {"username": req.body.username}
+
+    }).then(results => {
+        // Compare hashes to authenticate the user
+        bcrypt.compare(req.body.password, results[0].hash, (error, isMatch) => {
+            console.log((isMatch) ? "Welcome" : "Please check your username and password.");
+
+        });
+
+    }).then(callback);
 });
 
 router.get("/vision", (req, res) => {

@@ -12,8 +12,8 @@ module.exports = function(sequelize, DataTypes) {
             "allowNull": false,
             "validate" : {
                 "is": {
-                    "args": /^[a-z-]+$/i,
-                    "msg" : "Only letters and hyphens are allowed."
+                    "args": /^[a-z\s-']+$/i,
+                    "msg" : "Only letters, spaces, hyphens, and apostrophes are allowed."
                 },
                 "len": {
                     "args": [1, 100],
@@ -25,14 +25,11 @@ module.exports = function(sequelize, DataTypes) {
         "email": {
             "type"     : DataTypes.STRING(100),
             "allowNull": false,
+            "unique"   : true,
             "validate" : {
                 "isEmail": {
                     "args": true,
                     "msg" : "Please enter a valid email."
-                },
-                "unique": {
-                    "args": true,
-                    "msg" : "The email is already taken."
                 },
                 "len": {
                     "args": [1, 100],
@@ -44,32 +41,28 @@ module.exports = function(sequelize, DataTypes) {
         "username": {
             "type"     : DataTypes.STRING(32),
             "allowNull": false,
+            "unique"   : true,
             "validate" : {
-                "isAlphanumeric": {
-                    "args": true,
-                    "msg" : "Only letters and numbers are allowed."
-                },
-                "unique": {
-                    "args": true,
-                    "msg" : "The username is already taken."
+                "is": {
+                    "args": /^[a-z0-9.]+$/i,
+                    "msg" : "Only letters, numbers, and periods are allowed."
                 },
                 "len": {
-                    "args": [6, 32],
-                    "msg" : "The username must have between 6 and 32 characters."
+                    "args": [4, 32],
+                    "msg" : "The username must have between 4 and 32 characters."
                 }
             }
         },
         
         "hash": {
-            "type"     : DataTypes.STRING(512),
+            "type"     : DataTypes.STRING(60),
             "allowNull": false,
         },
 
         "profile_url": {
-            "type"     : DataTypes.STRING,
-            "allowNull": false,
-            "validate" : {
-                "isURL": {
+            "type"        : DataTypes.STRING,
+            "validate"    : {
+                "isURL"   : {
                     "args": true,
                     "msg" : "Please enter a valid url."
                 }

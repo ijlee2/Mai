@@ -74,14 +74,12 @@ module.exports = function(sequelize, DataTypes) {
             "defaultValue": false,
         }
 
-    }, {
-        "associate": function(models) {
-            User.hasMany(models.Story);
+    }, {"underscored": true});
 
-        },
-
-        "underscored": true,
-    });
+    // Create associations
+    User.associate = function(models) {
+        User.hasMany(models.Story);
+    }
 
     return User;
 }

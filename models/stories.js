@@ -18,15 +18,13 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
 
-    }, {
-        "associate": function(models) {
-            Story.belongsTo(models.User);
-            Story.hasMany(models.Photo);
+    }, {"underscored": true});
 
-        },
-        
-        "underscored": true,
-    });
+    // Create associations
+    Story.associate = function(models) {
+        Story.belongsTo(models.User, {"onDelete": "CASCADE"});
+        Story.hasMany(models.Photo);
+    }
 
     return Story;
 }

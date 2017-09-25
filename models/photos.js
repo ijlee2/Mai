@@ -40,14 +40,12 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
 
-    }, {
-        "associate": function(models) {
-            Photo.belongsTo(models.Story);
+    }, {"underscored": true});
 
-        },
-        
-        "underscored": true,
-    });
+    // Create associations
+    Photo.associate = function(models) {
+        Photo.belongsTo(models.Story, {"onDelete": "CASCADE"});
+    }
 
     return Photo;
 }

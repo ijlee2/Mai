@@ -25,7 +25,11 @@ vision.init({"auth": "AIzaSyDac5vMeEApkYZaE09R4bFhAWxjJtwyQoU"});
 *****************************************************************************
 *****************************************************************************/
 router.post("/signup", (req, res) => {
-    res.sendFile("index.html");
+    console.log(req.body);
+});
+
+router.post("/login", (req, res) => {
+    console.log(req.body);
 });
 
 router.get("/vision", (req, res) => {

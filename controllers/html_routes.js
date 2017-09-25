@@ -38,6 +38,12 @@ router.get("/story", (req, res) => {
     });
 });
 
+router.get("/settings", (req, res) => {
+    res.render("settings", {
+        "code-javascript": "assets/javascript/settings.js"
+    });
+});
+
 router.get("/meet-mai", (req, res) => {
     res.render("meet-mai", {
         "code-javascript": "assets/javascript/meet-mai.js"

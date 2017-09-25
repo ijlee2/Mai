@@ -11,9 +11,10 @@ const saltRounds = 10;
 
 // Talk to the models
 const models = require(path.join(__dirname, "..", "models"));
-const User   = models.User;
+const Writer = models.Writer;
 const Story  = models.Story;
 const Photo  = models.Photo;
+const Reader = models.Reader;
 
 // Authenticate to Google Cloud
 const vision = require("node-cloud-vision-api-comoc");
@@ -37,7 +38,7 @@ router.post("/signup", (req, res) => {
 
     // Hash the user's password
     bcrypt.hash(req.body.password, saltRounds, (error, hash) => {
-        User.create({
+        Writer.create({
             "fullname": req.body.fullname,
             "email"   : req.body.email,
             "username": req.body.username,
@@ -53,7 +54,7 @@ router.post("/login", (req, res) => {
     }
 
     // Find the user's hash
-    User.findAll({
+    Writer.findAll({
         "attributes": ["hash"],
         "where"     : {"username": req.body.username}
 

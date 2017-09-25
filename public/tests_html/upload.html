@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Everyone has a story to tell. Hear them out.">
         <meta name="author" content="John Absher, David Gutierrez, Jason Joachim, Isaac J. Lee">
+        <meta name="csrf-token" content="TODO_CREATE_A_RANDOM_TOKEN_HERE">
         <title>Mai</title>
 
         <!-- Favicon -->
@@ -56,7 +57,7 @@
         </nav>
 
         <div class="container">
-            <form class="dropzone" id="upload-widget" action="/api/upload-photo" method="POST" enctype="multipart/form-data">
+            <form class="dropzone" id="upload-widget" action="/api/upload-photos" method="POST" enctype="multipart/form-data">
                 <div class="fallback">
                     <input name="file" type="file">
                 </div>
@@ -107,7 +108,7 @@
                 "maxFiles"   : 3,
                 "dictDefaultMessage": "Drag an image here to upload, or click to select one",
                 "headers": {
-                    "x-csrf-token": document.querySelectorAll("meta[name=csrf-token]")[0].getAttributeNode("content").value,
+                    "x-csrf-token": document.querySelectorAll("meta[name=csrf-token]")[0].getAttributeNode("content").value
                 },
                 "acceptedFiles": "image/*",
 
@@ -118,7 +119,7 @@
                     });
 
                     this.on("thumbnail", function(file) {
-                        if (file.width < 640 || file.height < 480) {
+                        if (file.width < 200 || file.height < 200) {
                             file.rejectDimensions();
 
                         } else {
@@ -131,7 +132,7 @@
                 "accept": function(file, done) {
                     file.acceptDimensions = done;
                     file.rejectDimensions = function() {
-                        done("The image must be at least 640 x 480px");
+                        done("The image must be at least 200 x 200px.");
                     };
                 }       
             };

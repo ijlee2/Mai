@@ -77,7 +77,7 @@ router.post("/login", (req, res) => {
     }).then(callback);
 });
 
-router.post("/upload-image", upload.single("file"), (req, res, next) => {
+router.post("/upload-photos", upload.single("file"), (req, res, next) => {
     if (!req.file.mimetype.startsWith("image/")) {
         return res.status(422).json({
             "error": "The uploaded file must be an image."

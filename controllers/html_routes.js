@@ -65,7 +65,7 @@ router.get("/meet-mai-team", (req, res) => {
 router.get("/upload", (req, res, next) => {
     res.render("upload", {
         "custom-css"       : ["style"],
-        "custom-javascript": ["upload", "dropzone/dropzone"]
+        "custom-javascript": ["dropzone/dropzone", "upload"]
     });
 });
 

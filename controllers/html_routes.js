@@ -27,6 +27,13 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/writers", (req, res) => {
+    res.render("writers", {
+        "custom-css"       : ["style"],
+        "custom-javascript": ["writers"]
+    });
+});
+
 router.get("/user", (req, res) => {
     res.render("user", {
         "custom-css"       : ["style"],

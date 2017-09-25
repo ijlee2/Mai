@@ -186,6 +186,10 @@ h1.brand-logo img {
 
 
 /* User, Story */
+img.circle {
+    width: 100%;
+}
+
 #mai-user-stats {
     font-size: 1.2em;
 }

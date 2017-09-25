@@ -75,7 +75,7 @@ const router_api  = require(path.join(__dirname, "controllers", "api_routes.js")
 
 // Talk to routers
 app.use("/", router_html);
-app.use("/api", router_api);
+//app.use("/api", router_api);
 
 
 

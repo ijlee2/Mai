@@ -30,13 +30,17 @@
                 <a href="index.html" class="brand-logo"><img class="responsive-img" src="../assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
                 <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 
+                <ul id="dropdown-about-us" class="dropdown-content">
+                    <li><a href="meet-mai.html">Meet Mai</a></li>
+                    <li><a href="meet-mai-team.html">Meet Mai Team</a></li>
+                </ul>
+
                 <ul class="right hide-on-med-and-down" id="mai-menu-desktop">
                     <li><a class="mai-menu-desktop-items" href="index.html">Home</a></li>
                     <li><a class="mai-menu-desktop-items" href="user.html">User</a></li>
                     <li><a class="mai-menu-desktop-items" href="story.html">Story</a></li>
                     <li><a class="mai-menu-desktop-items" href="settings.html">Settings</a></li>
-                    <li><a class="mai-menu-desktop-items" href="meet-mai.html">Meet Mai</a></li>
-                    <li><a class="mai-menu-desktop-items" href="meet-mai-team.html">Meet Mai Team</a></li>
+                    <li><a class="mai-menu-desktop-items dropdown-button" href="#" data-activates="dropdown-about-us">About Us<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
                 
                 <ul class="side-nav" id="mai-menu-mobile">
@@ -44,6 +48,7 @@
                     <li><a class="mai-menu-mobile-items" href="user.html">User</a></li>
                     <li><a class="mai-menu-mobile-items" href="story.html">Story</a></li>
                     <li><a class="mai-menu-mobile-items" href="settings.html">Settings</a></li>
+                    <li class="divider"></li>
                     <li><a class="mai-menu-mobile-items" href="meet-mai.html">Meet Mai</a></li>
                     <li><a class="mai-menu-mobile-items" href="meet-mai-team.html">Meet Mai Team</a></li>
                 </ul>
@@ -119,6 +124,9 @@
             });
 
             $(document).ready(function() {
+                // Dropdown menu
+                $(".dropdown-button").dropdown();
+
                 // Navbar for mobile
                 $(".button-collapse").sideNav();
             });

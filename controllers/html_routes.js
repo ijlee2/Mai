@@ -21,7 +21,7 @@ const router = express.Router();
 *****************************************************************************
 *****************************************************************************/
 router.get("/", (req, res) => {
-//    console.log(req.cookies.id);
+    // Use req.cookies.id to get the id
     
     res.render("index", {
         "custom-css"       : ["style"],

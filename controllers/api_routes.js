@@ -98,11 +98,13 @@ router.post("/login", (req, res) => {
         // Compare hashes to verify the user
         bcrypt.compare(req.body.password, results[0].hash, (error, isMatch) => {
             if (isMatch) {
-                // Store the user id in their cookie
-                res.cookie("id", results[0].id, {
-                    "maxAge"  : 604800,
-                    "httpOnly": true
-                });
+                if (!req.cookies.cookieName) {
+                    // Create a cookie (expires in a week)
+                    res.cookie("id", results[0].id, {
+                        "maxAge"  : 604800,
+                        "httpOnly": true
+                    });
+                }
             }
 
             res.redirect("/");
@@ -198,10 +200,12 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
 });
 
 
-router.post("/edit", (req, res) => {
+router.post("/publish", (req, res) => {
     function callback(results) {
         // TODO: Redirect to story.hbs with the correct id
     }
+    
+    console.log(req.body.captions);
 
     // TODO: Store the photo url and caption in Photo table. (Randomly generate a caption for now.)
 

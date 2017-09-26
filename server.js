@@ -45,7 +45,9 @@ app.use(express.static(directory_public));
 // Set up Express to handle parsing data
 app.use(bodyParser.json());
 app.use(bodyParser.text());
-app.use(bodyParser.urlencoded({"extended": false}));
+
+// Set extended to true so that we can parse arrays of input fields (e.g. name="captions[0]")
+app.use(bodyParser.urlencoded({"extended": true}));
 
 // Set handlebars
 app.engine(".hbs", exphbs({
@@ -57,22 +59,6 @@ app.set("view engine", ".hbs");
 
 // Set cookie
 app.use(cookieParser());
-
-app.use(function(req, res, next) {
-    console.log(req.cookies);
-
-    // Create a cookie if it doesn't exist
-    if (!req.cookies.cookieName) {
-        // Cookie expires in a week
-        res.cookie("id", "", {
-            "maxAge"  : 604800,
-            "httpOnly": true
-        });
-    }
-
-    // Pass control to the next middleware
-    next();
-});
 
 
 

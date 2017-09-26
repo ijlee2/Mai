@@ -189,11 +189,12 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
         });
     }
 
-    return res.status(200).send(req.file);
+//    return res.status(200).send(req.file);
+    res.redirect("/edit");
 });
 
 
-router.post("/add-story", (req, res) => {
+router.post("/edit", (req, res) => {
     function callback(results) {
         // TODO: Redirect to story.hbs with the correct id
     }

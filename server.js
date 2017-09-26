@@ -70,13 +70,9 @@ app.use(methodOverride("_method"));
 const router_html = require(path.join(__dirname, "controllers", "html_routes.js"));
 const router_api  = require(path.join(__dirname, "controllers", "api_routes.js"));
 
-// For compose (TODO: merge router_api2.js with router_api.js later.)
-const router_api2 = require(path.join(__dirname, "controllers", "api_routes2.js"));
-
 // Talk to routers
 app.use("/", router_html);
 app.use("/api", router_api);
-app.use("/api2", router_api2);
 
 
 

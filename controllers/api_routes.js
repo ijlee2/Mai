@@ -1,22 +1,29 @@
+/****************************************************************************
+ ****************************************************************************
+    
+    Initialize
+    
+*****************************************************************************
+*****************************************************************************/
 // Import packages
 const express = require("express");
 const path    = require("path");
-const bcrypt  = require("bcrypt");
-
-
-
-// Import packages for Dropzone
-const multer = require("multer");
-const upload = multer({"dest": "uploads"});
-const sizeOf = require("image-size");
-
-
 
 // Create an instance of Router
 const router = express.Router();
 
-// Set bcrypt settings
-const saltRounds = 10;
+// Import bcrypt
+const bcrypt     = require("bcrypt");
+const saltRounds = 15;
+
+// Import Dropzone
+const multer = require("multer");
+const upload = multer({"dest": "uploads"});
+const sizeOf = require("image-size");
+
+// Import Google Cloud Vision
+const vision = require("node-cloud-vision-api-comoc");
+vision.init({"auth": "AIzaSyDac5vMeEApkYZaE09R4bFhAWxjJtwyQoU"});
 
 // Talk to the models
 const models = require(path.join(__dirname, "..", "models"));
@@ -25,16 +32,12 @@ const Story  = models.Story;
 const Photo  = models.Photo;
 const Reader = models.Reader;
 
-// Authenticate to Google Cloud
-const vision = require("node-cloud-vision-api-comoc");
-vision.init({"auth": "AIzaSyDac5vMeEApkYZaE09R4bFhAWxjJtwyQoU"});
-
 
 
 /****************************************************************************
  ****************************************************************************
     
-    Set up routes
+    Set up routes (related to accounts)
     
 *****************************************************************************
 *****************************************************************************/
@@ -45,7 +48,7 @@ router.post("/signup", (req, res) => {
         res.redirect("/");
     }
 
-    // Hash the user's password
+    // Salt and hash the user's password
     bcrypt.hash(req.body.password, saltRounds, (error, hash) => {
         Writer.create({
             "fullname": req.body.fullname,
@@ -56,6 +59,7 @@ router.post("/signup", (req, res) => {
         }).then(callback);
     });
 });
+
 
 router.post("/login", (req, res) => {
     function callback(results) {
@@ -68,7 +72,7 @@ router.post("/login", (req, res) => {
         "where"     : {"username": req.body.username}
 
     }).then(results => {
-        // Compare hashes to authenticate the user
+        // Compare hashes to verify the user
         bcrypt.compare(req.body.password, results[0].hash, (error, isMatch) => {
             console.log((isMatch) ? "Welcome" : "Please check your username and password.");
 
@@ -77,6 +81,72 @@ router.post("/login", (req, res) => {
     }).then(callback);
 });
 
+
+router.patch("/update-profile/:id", (req, res) => {
+    function callback(results) {
+        res.redirect("/profile");
+    }
+
+    Writer.update({
+        "fullname": req.body.fullname,
+        "email"   : req.body.email,
+        "username": req.body.username
+
+    }, {
+        "where": {"id" : req.params.id}
+
+    }).then(callback);
+});
+
+
+router.patch("/update-password/:id", (req, res) => {
+    function callback(results) {
+        res.redirect("/profile");
+    }
+
+    // Find the user's hash
+    Writer.findAll({
+        "attributes": ["hash"],
+        "where"     : {"id": req.params.id}
+
+    }).then(results => {
+        // Verify the user
+        bcrypt.compare(req.body.password_current, results[0].hash, (error, isMatch) => {
+            if (isMatch) {
+                // Salt and hash the new password
+                bcrypt.hash(req.body.password_new, saltRounds, (error, hash) => {
+                    Writer.update({hash}, {"where": {"id": req.params.id}});
+
+                });
+            }
+        });
+
+    }).then(callback);
+});
+
+
+router.delete("/delete-account/:id", (req, res) => {
+    function callback(results) {
+        // TODO: Reset cookie
+
+        res.redirect("/");
+    }
+
+    Writer.destroy({
+        "where": {"id": req.params.id}
+
+    }).then(callback);
+});
+
+
+
+/****************************************************************************
+ ****************************************************************************
+    
+    Set up routes (related to stories)
+    
+*****************************************************************************
+*****************************************************************************/
 router.post("/upload-photos", upload.single("file"), (req, res, next) => {
     if (!req.file.mimetype.startsWith("image/")) {
         return res.status(422).json({
@@ -94,6 +164,15 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
 
     return res.status(200).send(req.file);
 });
+
+
+router.post("/add-story", (req, res) => {
+    // TODO: Use req.body (and its objects) to create a story. For now,
+    // (1) Store the photo url and caption in Photo table.
+    // (2) Redirect to index.html if the query was a success.
+    
+});
+
 
 router.get("/vision", (req, res) => {
     // Source: https://github.com/comoc/node-cloud-vision-api
@@ -116,58 +195,5 @@ router.get("/vision", (req, res) => {
     });
 });
 
-router.patch("/update-profile/:id", (req, res) => {
-    function callback(results) {
-        res.redirect("/profile");
-    }
-
-    Writer.update({
-        "fullname": req.body.fullname,
-        "email"   : req.body.email,
-        "username": req.body.username
-
-    }, {
-        "where": {"id" : req.params.id}
-
-    }).then(callback);
-});
-
-router.patch("/update-password/:id", (req, res) => {
-    function callback(results) {
-        res.redirect("/profile");
-    }
-
-    // Find the user's hash
-    Writer.findAll({
-        "attributes": ["hash"],
-        "where"     : {"id": req.params.id}
-
-    }).then(results => {
-        // Authenticate the user
-        bcrypt.compare(req.body.password_current, results[0].hash, (error, isMatch) => {
-            if (isMatch) {
-                // Hash the new password
-                bcrypt.hash(req.body.password_new, saltRounds, (error, hash) => {
-                    Writer.update({hash}, {"where": {"id": req.params.id}});
-
-                });
-            }
-        });
-
-    }).then(callback);
-});
-
-router.delete("/delete-account/:id", (req, res) => {
-    function callback(results) {
-        // TODO: Delete cookie
-
-        res.redirect("/");
-    }
-
-    Writer.destroy({
-        "where": {"id": req.params.id}
-
-    }).then(callback);
-});
 
 module.exports = router;

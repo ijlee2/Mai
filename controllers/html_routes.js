@@ -37,9 +37,23 @@ router.get("/compose", (req, res) => {
 
 
 router.get("/story/:id?", (req, res) => {
-    // TODO: Get the user's story
+    const photos = [
+        {
+            "url"    : "https://i.pinimg.com/736x/b3/48/4c/b3484c816ba990b5ff29e5cd2299497f--wise-words-wise-sayings.jpg",
+            "caption": "Your best teacher is your last mistake."
+        },
+        {
+            "url": "https://i.pinimg.com/736x/b6/d4/8b/b6d48b00d132a940e17dc57ae959a748--being-comfortable-quotes-inspirational-hiking-quotes.jpg",
+            "caption": "Words to live and change your life by..."
+        },
+        {
+            "url": "https://i.pinimg.com/736x/de/f3/51/def35127fc73da5d7ab7d2f1f6fd0da0--quotes-about-changing-yourself-quote-about-being-yourself.jpg",
+            "caption": "Trying to change my perspective on things.."
+        }
+    ];
 
     res.render("story", {
+        photos,
         "custom-css"       : ["style"],
         "custom-javascript": ["story"]
     });

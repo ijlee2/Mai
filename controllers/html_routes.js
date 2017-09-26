@@ -36,7 +36,7 @@ router.get("/compose", (req, res) => {
 });
 
 
-router.get("/story/:id", (req, res) => {
+router.get("/story/:id?", (req, res) => {
     // TODO: Get the user's story
 
     res.render("story", {
@@ -56,7 +56,7 @@ router.get("/writers", (req, res) => {
 });
 
 
-router.get("/profile/:id", (req, res) => {
+router.get("/profile/:id?", (req, res) => {
     // TODO: Get the user's profile
 
     res.render("profile", {

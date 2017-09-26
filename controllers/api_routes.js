@@ -179,28 +179,7 @@ router.post("/add-story", (req, res) => {
 
     // TODO: Store the photo url and caption in Photo table. (Randomly generate a caption for now.)
 
-});
-
-
-/* Optional
-router.patch("/edit-story/:id", (req, res) => {
-    function callback(results) {
-        // TODO: Redirect to profile.hbs with the correct id
-    }
-
-    // TODO: Edit the story with the id
-    
-});
-*/
-
-
-router.delete("/delete-story/:id", (req, res) => {
-    function callback(results) {
-        // TODO: Redirect to profile.hbs with the correct id
-    }
-
-    // TODO: Delete the story with the id
-    
+    // TODO later: If storing was successful, call Google Vision next
 });
 
 
@@ -223,6 +202,28 @@ router.get("/vision", (req, res) => {
         console.log("error: " + error);
 
     });
+});
+
+
+/* Optional
+router.patch("/edit-story/:id", (req, res) => {
+    function callback(results) {
+        // TODO: Redirect to profile.hbs with the correct id
+    }
+
+    // TODO: Edit the story with the id
+    
+});
+*/
+
+
+router.delete("/delete-story/:id", (req, res) => {
+    function callback(results) {
+        // TODO: Redirect to profile.hbs with the correct id
+    }
+
+    // TODO: Delete the story with the id
+    
 });
 
 

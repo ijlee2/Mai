@@ -1,8 +1,8 @@
 /****************************************************************************
  ****************************************************************************
-    
+
     Initialize
-    
+
 *****************************************************************************
 *****************************************************************************/
 const express = require("express");
@@ -15,9 +15,9 @@ const router = express.Router();
 
 /****************************************************************************
  ****************************************************************************
-    
+
     Set up routes
-    
+
 *****************************************************************************
 *****************************************************************************/
 router.get("/", (req, res) => {
@@ -113,9 +113,15 @@ router.get("/profile/:id?", (req, res) => {
 
 
 router.get("/settings", (req, res) => {
-    // TODO: Display current values in settings
+    const writer = {
+        "id"      : "1",
+        "fullname": "David Gutierrez",
+        "email"   : "d.gutierrez@example.com",
+        "username": "d.gutierrez"
+    };
 
     res.render("settings", {
+        writer,
         "custom-css"       : ["style"],
         "custom-javascript": ["settings"]
     });
@@ -136,6 +142,7 @@ router.get("/meet-mai-team", (req, res) => {
         "custom-javascript": ["meet-mai-team"]
     });
 });
+
 
 
 module.exports = router;

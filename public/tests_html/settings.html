@@ -95,32 +95,36 @@
                 <div class="col s10 offset-s1 l6">
                     <div class="card">
                         <div class="card-content">
-                            <h2>Update profile</h2>
-                            
-                            <div class="mai-separator-2"></div>
+                            <div class="row">
+                                <div class="col s12 m10 offset-m1">
+                                    <h2>Update profile</h2>
+                                    
+                                    <div class="mai-separator-2"></div>
 
-                            <form action="/api/update-profile/INSERT_UUID_HERE?_method=PATCH" method="POST">
-                                <div class="input-field">
-                                    <label for="mai-fullname" class="blue-grey-text text-darken-2">Full name</label>
-                                    <input type="text" name="fullname" id="mai-fullname" class="validate" placeholder="Jane Smith" required>
+                                    <form action="/api/update-profile/INSERT_UUID_HERE?_method=PATCH" method="POST">
+                                        <div class="input-field">
+                                            <label for="mai-fullname" class="blue-grey-text text-darken-2">Full name</label>
+                                            <input type="text" name="fullname" id="mai-fullname" class="validate" placeholder="Jane Smith" required>
+                                        </div>
+
+                                        <div class="input-field">
+                                            <label for="mai-email" class="blue-grey-text text-darken-2">Email</label>
+                                            <input type="text" name="email" id="mai-email" class="validate" placeholder="janeaustin@gmail.com" required>
+                                        </div>
+
+                                        <div class="input-field">
+                                            <label for="mai-username" class="blue-grey-text text-darken-2">Username</label>
+                                            <input type="text" name="username" id="mai-username" class="validate" placeholder="jane_austin" required>
+                                        </div>
+
+                                        <div class="mai-separator-2"></div>
+
+                                        <button type="submit" class="btn-large waves-effect waves-light" title="Click to update.">Update</button>
+                                    </form>
+
+                                    <div class="mai-separator-3"></div>
                                 </div>
-
-                                <div class="input-field">
-                                    <label for="mai-email" class="blue-grey-text text-darken-2">Email</label>
-                                    <input type="text" name="email" id="mai-email" class="validate" placeholder="janeaustin@gmail.com" required>
-                                </div>
-
-                                <div class="input-field">
-                                    <label for="mai-username" class="blue-grey-text text-darken-2">Username</label>
-                                    <input type="text" name="username" id="mai-username" class="validate" placeholder="jane_austin" required>
-                                </div>
-
-                                <div class="mai-separator-2"></div>
-
-                                <button type="submit" class="btn-large waves-effect waves-light" title="Click to update.">Update</button>
-                            </form>
-
-                            <div class="mai-separator-3"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -129,41 +133,49 @@
                 <div class="col s10 offset-s1 l6">
                     <div class="card">
                         <div class="card-content">
-                            <h2>Update password</h2>
-                            
-                            <div class="mai-separator-2"></div>
+                            <div class="row">
+                                <div class="col s12 m10 offset-m1">
+                                    <h2>Update password</h2>
+                                    
+                                    <div class="mai-separator-2"></div>
 
-                            <form action="/api/update-password/INSERT_UUID_HERE?_method=PATCH" method="POST">
-                                <div class="input-field">
-                                    <label for="mai-current-password" class="blue-grey-text text-darken-2">Current password</label>
-                                    <input type="password" name="password_current" id="mai-current-password" class="validate" placeholder="********" required>
+                                    <form action="/api/update-password/INSERT_UUID_HERE?_method=PATCH" method="POST">
+                                        <div class="input-field">
+                                            <label for="mai-current-password" class="blue-grey-text text-darken-2">Current password</label>
+                                            <input type="password" name="password_current" id="mai-current-password" class="validate" placeholder="********" required>
+                                        </div>
+
+                                        <div class="input-field">
+                                            <label for="mai-new-password" class="blue-grey-text text-darken-2">New password</label>
+                                            <input type="password" name="password_new" id="mai-new-password" class="validate" placeholder="" required>
+                                        </div>
+
+                                        <div class="mai-separator-2"></div>
+
+                                        <button type="submit" class="btn-large waves-effect waves-light" title="Click to update.">Update</button>
+                                    </form>
+
+                                    <div class="mai-separator-3"></div>
                                 </div>
-
-                                <div class="input-field">
-                                    <label for="mai-new-password" class="blue-grey-text text-darken-2">New password</label>
-                                    <input type="password" name="password_new" id="mai-new-password" class="validate" placeholder="" required>
-                                </div>
-
-                                <div class="mai-separator-2"></div>
-
-                                <button type="submit" class="btn-large waves-effect waves-light" title="Click to update.">Update</button>
-                            </form>
-
-                            <div class="mai-separator-3"></div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-content">
-                            <h2>Delete Mai account</h2>
-                            
-                            <div class="mai-separator-2"></div>
-                            
-                            <form action="/api/delete-account/INSERT_UUID_HERE?_method=DELETE" method="POST">
-                                <button type="submit" class="btn-large waves-effect waves-light red darken-2" title="Click to delete Mai account.">Delete Mai account</button>
-                            </form>
+                            <div class="row">
+                                <div class="col s12 m10 offset-m1">
+                                    <h2>Delete Mai account</h2>
+                                    
+                                    <div class="mai-separator-3"></div>
+                                    
+                                    <form action="/api/delete-account/INSERT_UUID_HERE?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn-large waves-effect waves-light red darken-2" title="Click to delete Mai account.">Delete Mai account</button>
+                                    </form>
 
-                            <div class="mai-separator-3"></div>
+                                    <div class="mai-separator-3"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -122,11 +122,11 @@ nav #mai-menu-desktop li:last-child {
     margin-bottom: 0.6em;
 }
 
-form label {
+label {
     font-size: 0.85em !important;
 }
 
-form button {
+button {
     font-size: 0.85em !important;
     width    : 100%;
 }

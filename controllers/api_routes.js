@@ -140,7 +140,7 @@ router.patch("/update-password/:id", (req, res) => {
     // Find the user's hash
     Writer.findAll({
         "attributes": ["hash"],
-        "where"     : {"id": req.body.id}
+        "where"     : {"id": req.params.id}
 
     }).then(results => {
         // Authenticate the user
@@ -148,7 +148,7 @@ router.patch("/update-password/:id", (req, res) => {
             if (isMatch) {
                 // Hash the new password
                 bcrypt.hash(req.body.password_new, saltRounds, (error, hash) => {
-                    Writer.update({hash}, {"where": {"id": req.body.id}});
+                    Writer.update({hash}, {"where": {"id": req.params.id}});
 
                 });
             }

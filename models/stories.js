@@ -7,13 +7,13 @@ module.exports = function(sequelize, DataTypes) {
             "primaryKey"  : true
         },
         
-        "url": {
-            "type"     : DataTypes.STRING,
+        "title": {
+            "type"     : DataTypes.STRING(100),
             "allowNull": false,
             "validate" : {
-                "isURL": {
-                    "args": true,
-                    "msg" : "Please enter a valid url."
+                "len": {
+                    "args": [1, 100],
+                    "msg" : "Your title cannot exceed 100 characters."
                 }
             }
         }

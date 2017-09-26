@@ -18,6 +18,7 @@
         <link type="text/css" rel="stylesheet" href="../assets/css/materialize/materialize.min.css" media="screen,projection">
 
         <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="../assets/css/dropzone/dropzone.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
         <!-- Let browser know website is optimized for mobile -->
@@ -50,7 +51,6 @@
 
                     <!-- TODO: For testing only. Remove these links later. -->
                     <li class="grey darken-2"><a class="mai-menu-desktop-items" href="story.html">Story</a></li>
-                    <li class="grey darken-2"><a class="mai-menu-desktop-items" href="upload.html">Upload</a></li>
                 </ul>
                 
                 <!-- Mobile -->
@@ -78,7 +78,6 @@
 
                     <!-- TODO: For testing only. Remove these links later. -->
                     <li class="grey lighten-1"><a class="mai-menu-mobile-items" href="story.html">Story</a></li>
-                    <li class="grey lighten-1"><a class="mai-menu-mobile-items" href="upload.html">Upload</a></li>
                 </ul>
             </div>
         </nav>
@@ -95,29 +94,23 @@
             <div class="row">
                 <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
                     <div class="card">
-                        <div class="card-content"> 
-                            <form action="/api/add-story" method="POST">
+                        <div class="card-content">
+                            <form id="mai-form-upload-photos" class="dropzone" action="/api/upload-photos" method="POST" enctype="multipart/form-data">
+                                <div class="fallback">
+                                    <label for="mai-photos" class="blue-grey-text text-darken-2">Photos</label>
+                                    <input type="file" name="photos" id="mai-photos" multiple>
+                                </div>
+                            </form>
+
+                            <div class="mai-separator-3"></div>
+
+                            <form id="mai-form-compose" action="/api2/add-story" method="POST">
                                 <div class="input-field">
-                                    <label for="photo_url" class="blue-grey-text text-darken-2">Photo URL</label>
-                                    <input type="text" name="url" id="photo_url" class="validate" required>
+                                    <label for="mai-title" class="blue-grey-text text-darken-2">Title</label>
+                                    <input type="text" name="title" id="mai-title" class="validate" required>
                                 </div>
 
-                                <div class="mai-separator-2"></div>
-
-                                <div class="center-align">
-                                    <img class="responsive-img" src="http://via.placeholder.com/450x350" alt="UPLOADED PHOTO">
-
-                                    <p>Display the uploaded photo above.</p>
-                                </div>
-
-                                <div class="mai-separator-2"></div>
-
-                                <div class="input-field">
-                                    <label for="photo_caption" class="blue-grey-text text-darken-2">Photo caption</label>
-                                    <input type="text" name="caption" id="photo_caption" class="validate" required>
-                                </div>
-
-                                <div class="mai-separator-2"></div>
+                                <div class="mai-separator-3"></div>
 
                                 <button type="submit" class="btn-large waves-effect waves-light" title="Click to publish.">Publish</button>
                             </form>
@@ -165,7 +158,49 @@
         <script type="text/javascript" src="../assets/javascript/materialize/materialize.min.js"></script>
         
         <!-- Custom JavaScript -->
+        <script type="text/javascript" src="../assets/javascript/dropzone/dropzone.js"></script>
         <script type="text/javascript">
+            // Change the default message
+            Dropzone.prototype.defaultOptions.dictDefaultMessage = "Drop photos here to upload";
+
+            Dropzone.options.uploadWidget = {
+                "paramName"  : "file",
+                "maxFilesize": 5, // MB
+                "maxFiles"   : 5,
+                "dictDefaultMessage": "Drop photos here to upload",
+                "headers": {
+                    // TODO: Create a random CSRF (Cross-Site Request Forgery) token for extra security measure
+//                  "x-csrf-token": document.querySelectorAll("meta[name=csrf-token]")[0].getAttributeNode("content").value
+                    "x-csrf-token": "TODO_CREATE_A_RANDOM_TOKEN_HERE"
+                },
+                "acceptedFiles": "image/*",
+
+                "init": function() {
+                    this.on("success", (file, res) => {
+                        console.log(file);
+                        console.log(res);
+                    });
+
+                    this.on("thumbnail", file => {
+                        if (file.width < 200 || file.height < 200) {
+                            file.rejectDimensions();
+
+                        } else {
+                            file.acceptDimensions();
+
+                        }
+                    });
+                },
+
+                "accept": function(file, done) {
+                    file.acceptDimensions = done;
+                    
+                    file.rejectDimensions = function() {
+                        done("The image must be at least 200 x 200px.");
+                    };
+                }
+            };
+
             $(document).ready(function() {
                 // Dropdown menu
                 $(".dropdown-button").dropdown();

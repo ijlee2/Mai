@@ -18,6 +18,11 @@
 }
 
 
+/****************************************************************************
+    
+    Universal elements
+    
+*****************************************************************************/
 /* Window */
 html {
     font-family: var(--font-main);
@@ -27,7 +32,6 @@ html {
 .mai-mobile-page {
     display: none;
 }
-
 
 /* Fonts */
 h1 { 
@@ -44,7 +48,6 @@ h2 {
 strong {
     font-weight: bold;
 }
-
 
 /* Vertical separators */
 .clearfix::after {
@@ -68,7 +71,6 @@ strong {
 .mai-separator-3 {
     height: 2em;
 }
-
 
 /* Navbar */
 /* Source for changing the height: https://stackoverflow.com/questions/35552708/is-materialize-navbar-height-adjustment-possible */
@@ -109,40 +111,30 @@ nav #mai-menu-desktop li:last-child {
     margin-right: 1em;
 }
 
-
 /* Footer */
 .footer-copyright {
     font-size: 0.75em;
 }
 
-
-/* Signup, Login */
-.mai-signup-wrapper, .mai-login-wrapper {
-    height: calc(100vh - 1.5*var(--height-nav));
-}
-
-.mai-signup-wrapper > *, .mai-login-wrapper > * {
-    background-color: var(--color-white-transparent);
-}
-
-h1.brand-logo img {
-    height: 100%;
-}
-
+/* Form */
 .input-field {
     margin-top   : 0.6em;
     margin-bottom: 0.6em;
 }
 
-#mai-form-signup label, #mai-form-login label {
-    font-size: 0.85em;
+form label {
+    font-size: 0.85em !important;
 }
 
-#mai-form-signup button, #mai-form-login button {
-    font-size: 0.85em;
+form button {
+    font-size: 0.85em !important;
     width    : 100%;
 }
 
+/* Image */
+img.circle {
+    width: 100%;
+}
 
 /* Video */
 .cover_video {
@@ -159,37 +151,25 @@ h1.brand-logo img {
 }
 
 
-/* Meet Mai */
-.mai-about-mai-wrapper {
+/****************************************************************************
+    
+    Page-specific elements
+    
+*****************************************************************************/
+/* Signup, Login */
+.mai-signup-wrapper, .mai-login-wrapper {
     height: calc(100vh - 1.5*var(--height-nav));
 }
 
-.mai-about-mai-wrapper > * {
+.mai-signup-wrapper > *, .mai-login-wrapper > * {
     background-color: var(--color-white-transparent);
 }
 
-#button_signup {
-    font-size: 0.85em;
-    width    : 100%;
+h1.brand-logo img {
+    height: 100%;
 }
 
-
-/* Meet Mai Team */
-.carousel {
-    height: 64vh;
-}
-
-.carousel-item {
-    width:  33% !important;
-    top  : -30% !important;
-}
-
-
-/* User, Story */
-img.circle {
-    width: 100%;
-}
-
+/* Profile */
 #mai-user-stats {
     font-size: 1.2em;
 }
@@ -204,6 +184,25 @@ img.circle {
 #mai-user-stats #mai-numWriters,
 #mai-user-stats #mai-numReaders {
     font-size: 1.2em;
+}
+
+/* Meet Mai */
+.mai-about-mai-wrapper {
+    height: calc(100vh - 1.5*var(--height-nav));
+}
+
+.mai-about-mai-wrapper > * {
+    background-color: var(--color-white-transparent);
+}
+
+/* Meet Mai Team */
+.carousel {
+    height: 64vh;
+}
+
+.carousel-item {
+    width:  33% !important;
+    top  : -30% !important;
 }
 
 

@@ -71,16 +71,8 @@ router.get("/meet-mai-team", (req, res) => {
 
 router.get("/compose", (req, res) => {
     res.render("compose", {
-        "custom-css"       : ["style"],
-        "custom-javascript": ["compose"]
-    });
-});
-
-router.get("/upload", (req, res, next) => {
-    res.render("upload", {
-        "custom-css"       : ["style"],
-        // We need to import Dropzone first
-        "custom-javascript": ["dropzone/dropzone", "upload"]
+        "custom-css"       : ["dropzone/dropzone", "style"],
+        "custom-javascript": ["dropzone/dropzone", "compose"]
     });
 });
 

@@ -66,9 +66,6 @@ app.set("view engine", ".hbs");
 // Override POST methods to handle PATCH and DELETE
 app.use(methodOverride("_method"));
 
-// For Dropzone
-app.use(express.static( __dirname + "/bower_components"));
-
 // Set routers
 const router_html = require(path.join(__dirname, "controllers", "html_routes.js"));
 const router_api  = require(path.join(__dirname, "controllers", "api_routes.js"));
@@ -90,6 +87,6 @@ app.use("/api2", router_api2);
     
 *****************************************************************************
 *****************************************************************************/
-mai_db.sequelize.sync().then(function() {
+mai_db.sequelize.sync({"force": true}).then(function() {
     app.listen(PORT, () => console.log(`App listening on ${PORT}.`));
 });

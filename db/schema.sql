@@ -18,7 +18,7 @@ CREATE TABLE Writers (
 CREATE TABLE Stories (
     id        INT NOT NULL AUTO_INCREMENT,
     WriterID  INT NOT NULL,
-    url       VARCHAR(256) NOT NULL,
+    title     VARCHAR(256) NOT NULL,
 
     PRIMARY KEY (id),
     FOREIGN KEY (WriterID) REFERENCES Writers(id) ON DELETE CASCADE

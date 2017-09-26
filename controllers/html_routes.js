@@ -47,9 +47,17 @@ router.get("/story/:id?", (req, res) => {
 
 
 router.get("/writers", (req, res) => {
-    // TODO: Get all writers
+    const writers = [];
+
+    for (let i = 0; i < 6; i++) {
+        writers.push({
+            "fullname"   : "John Absheu",
+            "profile_url": "http://www.math.uni-frankfurt.de/~person/_4170854.jpg"
+        });
+    }
 
     res.render("writers", {
+        writers,
         "custom-css"       : ["style"],
         "custom-javascript": ["writers"]
     });

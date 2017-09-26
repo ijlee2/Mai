@@ -65,9 +65,33 @@ router.get("/writers", (req, res) => {
 
 
 router.get("/profile/:id?", (req, res) => {
-    // TODO: Get the user's profile
+    const stories = [
+        {
+            "id": "1",
+            "url": "https://i.pinimg.com/736x/b3/48/4c/b3484c816ba990b5ff29e5cd2299497f--wise-words-wise-sayings.jpg"
+        },
+        {
+            "id": "2",
+            "url": "http://www.mistymountaincampresort.com/images/at_4.jpg"
+        },
+        {
+            "id": "3",
+            "url": "http://www.texasmonthly.com/wp-content/uploads/2015/03/Wilhites-Road-Trip.jpg"
+        },
+    ];
+
+    const writer = {
+        "fullname"     : "Isaac Lee",
+        "profile_url"  : "assets/images/user_photo.jpg",
+        "numNewStories": 1,
+        "numStories"   : 3,
+        "numWriters"   : 6,
+        "numReaders"   : 4,
+        stories
+    };
 
     res.render("profile", {
+        writer,
         "custom-css"       : ["style"],
         "custom-javascript": ["profile"]
     });

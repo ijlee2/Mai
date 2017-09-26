@@ -55,6 +55,25 @@ app.engine(".hbs", exphbs({
 
 app.set("view engine", ".hbs");
 
+// Set cookie
+app.use(cookieParser());
+
+app.use(function(req, res, next) {
+    console.log(req.cookies);
+
+    // Create a cookie if it doesn't exist
+    if (!req.cookies.cookieName) {
+        // Cookie expires in a week
+        res.cookie("id", "", {
+            "maxAge"  : 604800,
+            "httpOnly": true,
+            "secure"  : true
+        });
+    }
+
+    next();
+});
+
 
 
 /****************************************************************************

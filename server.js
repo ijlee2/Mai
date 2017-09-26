@@ -11,6 +11,7 @@ const exphbs         = require("express-handlebars");
 const path           = require("path");
 const methodOverride = require("method-override");
 const bodyParser     = require("body-parser");
+const cookieParser   = require("cookie-parser");
 
 // Use express
 const app  = express();

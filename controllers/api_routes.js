@@ -243,11 +243,11 @@ router.delete("/delete-story/:id", (req, res) => {
         // TODO: Redirect to profile.hbs with the correct id
         res.redirect("/profile.hbs");
     }
+
     Story.destroy({
-      "where": req.params.id;
+        "where": {"id": req.params.id};
+
     }).then(callback);
-    // TODO: Delete the story with the id
-    
 });
 
 

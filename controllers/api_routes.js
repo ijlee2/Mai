@@ -1,8 +1,8 @@
 /****************************************************************************
  ****************************************************************************
-    
+
     Initialize
-    
+
 *****************************************************************************
 *****************************************************************************/
 // Import packages
@@ -63,15 +63,15 @@ const numCaptions = captions.length;
 
 /****************************************************************************
  ****************************************************************************
-    
+
     Set up routes (related to accounts)
-    
+
 *****************************************************************************
 *****************************************************************************/
 router.post("/signup", (req, res) => {
     function callback(results) {
         console.log(results);
-        
+
         res.redirect("/");
     }
 
@@ -169,9 +169,9 @@ router.delete("/delete-account/:id", (req, res) => {
 
 /****************************************************************************
  ****************************************************************************
-    
+
     Set up routes (related to stories)
-    
+
 *****************************************************************************
 *****************************************************************************/
 router.post("/upload-photos", upload.single("file"), (req, res, next) => {
@@ -233,7 +233,7 @@ router.patch("/edit-story/:id", (req, res) => {
     }
 
     // TODO: Edit the story with the id
-    
+
 });
 */
 
@@ -241,8 +241,11 @@ router.patch("/edit-story/:id", (req, res) => {
 router.delete("/delete-story/:id", (req, res) => {
     function callback(results) {
         // TODO: Redirect to profile.hbs with the correct id
+        res.redirect("/profile.hbs");
     }
-
+    Story.destroy({
+      "where": req.params.id;
+    }).then(callback);
     // TODO: Delete the story with the id
     
 });

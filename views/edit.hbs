@@ -10,13 +10,19 @@
             <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
                 <div class="card">
                     <div class="card-content">
-                        <div class="mai-separator-2"></div>
+                        <p>Photos here</p>
 
-                        <form id="mai-form-upload-photos" class="dropzone" action="/api/upload-photos" method="POST" enctype="multipart/form-data">
-                            <div class="fallback">
-                                <label for="mai-photos" class="blue-grey-text text-darken-2">Photos</label>
-                                <input type="file" name="photos" id="mai-photos" multiple>
+                        <div class="mai-separator-3"></div>
+
+                        <form id="mai-form-compose" action="/api/add-story" method="POST">
+                            <div class="input-field">
+                                <label for="mai-title" class="blue-grey-text text-darken-2">Title</label>
+                                <input type="text" name="title" id="mai-title" class="validate" required>
                             </div>
+
+                            <div class="mai-separator-3"></div>
+
+                            <button type="submit" class="btn-large waves-effect waves-light" title="Click to publish.">Publish</button>
                         </form>
 
                         <div class="mai-separator-2"></div>

@@ -36,6 +36,14 @@ router.get("/compose", (req, res) => {
 });
 
 
+router.get("/edit", (req, res) => {
+    res.render("edit", {
+        "custom-css"       : ["style"],
+        "custom-javascript": ["edit"]
+    });
+});
+
+
 router.get("/story/:id?", (req, res) => {
     const photos = [
         {

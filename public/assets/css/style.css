@@ -24,7 +24,7 @@
     
 *****************************************************************************/
 /* Window */
-html {
+body {
     font-family: var(--font-main);
     font-size  : 20px;
 }
@@ -239,11 +239,12 @@ h1.brand-logo img {
     nav .brand-logo {
         margin-left: 0;
     }
+    
+    .cover_video {
+        visibility: hidden;
+    }
 }
 
 /* Mobile */
 @media all and (max-width: 600px), all and (max-device-width: 600px) {
-    .cover_video {
-        visibility: hidden;
-    }
 }

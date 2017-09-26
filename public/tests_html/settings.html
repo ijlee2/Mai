@@ -99,7 +99,7 @@
                             
                             <div class="mai-separator-2"></div>
 
-                            <form action="/api/update-profile" method="POST">
+                            <form action="/api/update-profile/INSERT_UUID_HERE?_method=PATCH" method="POST">
                                 <div class="input-field">
                                     <label for="mai-fullname" class="blue-grey-text text-darken-2">Full name</label>
                                     <input type="text" name="fullname" id="mai-fullname" class="validate" placeholder="Jane Smith" required>
@@ -133,7 +133,7 @@
                             
                             <div class="mai-separator-2"></div>
 
-                            <form action="/api/update-password" method="POST">
+                            <form action="/api/update-password/INSERT_UUID_HERE?_method=PATCH" method="POST">
                                 <div class="input-field">
                                     <label for="mai-current-password" class="blue-grey-text text-darken-2">Current password</label>
                                     <input type="password" name="password_current" id="mai-current-password" class="validate" placeholder="********" required>
@@ -159,8 +159,7 @@
                             
                             <div class="mai-separator-2"></div>
                             
-                            <!-- TODO: Fix this path to use method-override -->
-                            <form action="/api/delete-account" method="POST">
+                            <form action="/api/delete-account/INSERT_UUID_HERE?_method=DELETE" method="POST">
                                 <button type="submit" class="btn-large waves-effect waves-light red darken-2" title="Click to delete Mai account.">Delete Mai account</button>
                             </form>
 

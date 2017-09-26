@@ -116,48 +116,58 @@ router.get("/vision", (req, res) => {
     });
 });
 
-// PUT route for updating account info (John: This put request worked, but I have not figured out how to connect the request to "this" user.)
-router.put("/update-profile", function(req, res) {
+router.patch("/update-profile/:id", (req, res) => {
+    function callback(results) {
+        res.redirect("/profile");
+    }
+
     Writer.update({
         "fullname": req.body.fullname,
         "email"   : req.body.email,
         "username": req.body.username
-    }, {
-        where: {
-          "id" : Writer.id
-        }
-      })
-    .then(function(updatedWriter) {
-      res.json(updatedWriter);
-    })
-  });
 
-// PUT route to update password (John: this works, but I haven't figured out how to include in the request the username of the current user. We need that in the parameters for the request to work.)
-router.put("/update-password/:username", function(req, res) {
-    bcrypt.hash(req.body.password_new, saltRounds, (error, hash) => {
-        Writer.update({
-            "hash": hash
-        }, {
-        where: {
-          "username" : req.params.username
-        }
-        }).then(function(){
-            console.log("password and hash updated")    
-        });
-    });
+    }, {
+        "where": {"id" : req.params.id}
+
+    }).then(callback);
 });
 
+router.patch("/update-password/:id", (req, res) => {
+    function callback(results) {
+        res.redirect("/profile");
+    }
 
-// DELETE route for deleting account (John: This works, but it is not restricted to only the current user deleting their own account.)
-router.delete("/delete-account/:username", function(req, res) {
+    // Find the user's hash
+    Writer.findAll({
+        "attributes": ["hash"],
+        "where"     : {"id": req.body.id}
+
+    }).then(results => {
+        // Authenticate the user
+        bcrypt.compare(req.body.password_current, results[0].hash, (error, isMatch) => {
+            if (isMatch) {
+                // Hash the new password
+                bcrypt.hash(req.body.password_new, saltRounds, (error, hash) => {
+                    Writer.update({hash}, {"where": {"id": req.body.id}});
+
+                });
+            }
+        });
+
+    }).then(callback);
+});
+
+router.delete("/delete-account/:id", (req, res) => {
+    function callback(results) {
+        // TODO: Delete cookie
+
+        res.redirect("/");
+    }
+
     Writer.destroy({
-      where: {
-        "username" : req.params.username
-      }
-    }).then(function() {
-      res.redirect("/");
-      console.log("Writer account deleted");
-    });
+        "where": {"id": req.params.id}
+
+    }).then(callback);
 });
 
 module.exports = router;

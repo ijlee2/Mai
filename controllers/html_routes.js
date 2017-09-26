@@ -36,7 +36,9 @@ router.get("/compose", (req, res) => {
 });
 
 
-router.get("/story", (req, res) => {
+router.get("/story/:id", (req, res) => {
+    // TODO: Get the user's story
+
     res.render("story", {
         "custom-css"       : ["style"],
         "custom-javascript": ["story"]
@@ -45,6 +47,8 @@ router.get("/story", (req, res) => {
 
 
 router.get("/writers", (req, res) => {
+    // TODO: Get all writers
+
     res.render("writers", {
         "custom-css"       : ["style"],
         "custom-javascript": ["writers"]
@@ -52,7 +56,9 @@ router.get("/writers", (req, res) => {
 });
 
 
-router.get("/profile", (req, res) => {
+router.get("/profile/:id", (req, res) => {
+    // TODO: Get the user's profile
+
     res.render("profile", {
         "custom-css"       : ["style"],
         "custom-javascript": ["profile"]
@@ -61,6 +67,8 @@ router.get("/profile", (req, res) => {
 
 
 router.get("/settings", (req, res) => {
+    // TODO: Display current values in settings
+
     res.render("settings", {
         "custom-css"       : ["style"],
         "custom-javascript": ["settings"]

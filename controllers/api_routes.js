@@ -32,6 +32,12 @@ const Story  = models.Story;
 const Photo  = models.Photo;
 const Reader = models.Reader;
 
+// Create captions ourselves for now (replace this with NLG later)
+const captions = [
+
+];
+
+const numCaptions = captions.length;
 
 
 /****************************************************************************
@@ -167,9 +173,33 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
 
 
 router.post("/add-story", (req, res) => {
-    // TODO: Use req.body (and its objects) to create a story. For now,
-    // (1) Store the photo url and caption in Photo table.
-    // (2) Redirect to index.html if the query was a success.
+    function callback(results) {
+        // TODO: Redirect to story.hbs with the correct id
+    }
+
+    // TODO: Store the photo url and caption in Photo table. (Randomly generate a caption for now.)
+
+});
+
+
+/* Optional
+router.patch("/edit-story/:id", (req, res) => {
+    function callback(results) {
+        // TODO: Redirect to profile.hbs with the correct id
+    }
+
+    // TODO: Edit the story with the id
+    
+});
+*/
+
+
+router.delete("/delete-story/:id", (req, res) => {
+    function callback(results) {
+        // TODO: Redirect to profile.hbs with the correct id
+    }
+
+    // TODO: Delete the story with the id
     
 });
 

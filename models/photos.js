@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
             "primaryKey"  : true
         },
         
-       "url": {
+        "url": {
             "type"     : DataTypes.STRING,
             "allowNull": false,
             "validate" : {
@@ -30,9 +30,8 @@ module.exports = function(sequelize, DataTypes) {
         },
         
         "time_taken": {
-            "type"     : DataTypes.DATE,
-            "allowNull": false,
-            "validate" : {
+            "type"    : DataTypes.DATE,
+            "validate": {
                 "isDate": {
                     "args": true,
                     "msg" : "Please enter a valid date string."

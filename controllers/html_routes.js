@@ -34,10 +34,10 @@ router.get("/writers", (req, res) => {
     });
 });
 
-router.get("/user", (req, res) => {
-    res.render("user", {
+router.get("/profile", (req, res) => {
+    res.render("profile", {
         "custom-css"       : ["style"],
-        "custom-javascript": ["user"]
+        "custom-javascript": ["profile"]
     });
 });
 

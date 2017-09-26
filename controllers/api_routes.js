@@ -89,23 +89,27 @@ router.post("/signup", (req, res) => {
 
 
 router.post("/login", (req, res) => {
-    function callback(results) {
-        res.redirect("/");
-    }
-
     // Find the user's hash
     Writer.findAll({
-        "attributes": ["hash"],
+        "attributes": ["id", "hash"],
         "where"     : {"username": req.body.username}
 
     }).then(results => {
         // Compare hashes to verify the user
         bcrypt.compare(req.body.password, results[0].hash, (error, isMatch) => {
-            console.log((isMatch) ? "Welcome" : "Please check your username and password.");
+            if (isMatch) {
+                // Store the user id in their cookie
+                res.cookie("id", results[0].id, {
+                    "maxAge"  : 604800,
+                    "httpOnly": true
+                });
+            }
+
+            res.redirect("/");
 
         });
 
-    }).then(callback);
+    });
 });
 
 

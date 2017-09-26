@@ -66,11 +66,11 @@ app.use(function(req, res, next) {
         // Cookie expires in a week
         res.cookie("id", "", {
             "maxAge"  : 604800,
-            "httpOnly": true,
-            "secure"  : true
+            "httpOnly": true
         });
     }
 
+    // Pass control to the next middleware
     next();
 });
 

@@ -245,7 +245,7 @@ router.delete("/delete-story/:id", (req, res) => {
     }
 
     Story.destroy({
-        "where": {"id": req.params.id};
+        "where": {"id": req.params.id}
 
     }).then(callback);
 });

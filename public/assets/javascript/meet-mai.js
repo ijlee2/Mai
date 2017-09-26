@@ -1,4 +1,4 @@
-$("#button_signup").click(event => {
+$("#button_home").click(event => {
     window.location = "/";
 });
 

@@ -178,7 +178,7 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
 });
 
 
-router.post("/publish", (req, res) => {
+router.post("/add-story", (req, res) => {
     function callback(results) {
         // TODO: Redirect to story.hbs with the correct id
 
@@ -204,6 +204,34 @@ router.post("/publish", (req, res) => {
 });
 
 
+router.patch("/edit-story-:id", (req, res) => {
+    function callback(results) {
+        // TODO: Redirect to story.hbs with the correct id
+        res.redirect("/story.hbs");
+    }
+    // TODO: Edit the story with the id
+    Story.update({
+        "title": req.body.title
+    }, {
+        "where" :{"id": req.params.id}
+    }).then(callback);
+
+});
+
+
+router.delete("/delete-story-:id", (req, res) => {
+    function callback(results) {
+        // TODO: Redirect to story.hbs with the correct id
+        res.redirect("/story.hbs");
+    }
+
+    Story.destroy({
+        "where": {"id": req.params.id}
+
+    }).then(callback);
+});
+
+
 router.get("/vision", (req, res) => {
     // Source: https://github.com/comoc/node-cloud-vision-api
     const request = new vision.Request({
@@ -223,31 +251,6 @@ router.get("/vision", (req, res) => {
         console.log("error: " + error);
 
     });
-});
-
-
-/* Optional
-router.patch("/edit-story/:id", (req, res) => {
-    function callback(results) {
-        // TODO: Redirect to profile.hbs with the correct id
-    }
-
-    // TODO: Edit the story with the id
-
-});
-*/
-
-
-router.delete("/delete-story/:id", (req, res) => {
-    function callback(results) {
-        // TODO: Redirect to profile.hbs with the correct id
-        res.redirect("/profile.hbs");
-    }
-
-    Story.destroy({
-        "where": {"id": req.params.id}
-
-    }).then(callback);
 });
 
 

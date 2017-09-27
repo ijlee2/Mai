@@ -1,4 +1,6 @@
+-- Match with production schema
 USE ocbusqsbzymg3amh;
+
 
 INSERT INTO Writers (id, fullname, email, username, hash, profile_url, flagged, created_at, updated_at) VALUES
 ("2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "John Absher"    , "john.absher@example.com"    , "john" , "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "", false, "2017-09-25 04:15:06", "2017-09-25 04:15:06"),

@@ -30,10 +30,18 @@ router.get("/", (req, res) => {
 });
 
 
+router.get("/upload-photos", (req, res) => {
+    res.render("upload-photos", {
+        "custom-css"       : ["dropzone/dropzone", "style"],
+        "custom-javascript": ["dropzone/dropzone", "upload-photos"]
+    });
+});
+
+
 router.get("/compose", (req, res) => {
     res.render("compose", {
-        "custom-css"       : ["dropzone/dropzone", "style"],
-        "custom-javascript": ["dropzone/dropzone", "compose"]
+        "custom-css"       : ["style"],
+        "custom-javascript": ["compose"]
     });
 });
 

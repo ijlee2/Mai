@@ -3,10 +3,10 @@ USE ocbusqsbzymg3amh;
 
 
 INSERT INTO Writers (id, fullname, email, username, hash, profile_url, flagged, created_at, updated_at) VALUES
-("2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "John Absher"    , "john.absher@example.com"    , "john" , "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "https://goo.gl/7g6AwU", false, "2017-09-25 04:15:06", "2017-09-25 04:15:06"),
-("7592aa72-3832-4b2d-9b8e-658dc21b277d", "David Gutierrez", "david.gutierrez@example.com", "david", "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "https://goo.gl/dFcx11", false, "2017-09-25 15:05:57", "2017-09-25 15:05:57"),
-("a5211e7d-8382-4221-b77a-824b051e2370", "Jason Joachim"  , "jason.joachim@example.com"  , "jason", "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "https://goo.gl/myorst", false, "2017-09-25 10:28:24", "2017-09-25 10:28:24"),
-("a696e28e-79b0-47ed-a9ce-d2e681665459", "Isaac Lee"      , "isaac.lee@example.com"      , "isaac", "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "https://goo.gl/cnQGa7", false, "2017-09-25 04:13:41", "2017-09-25 08:13:41");
+("2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "John Absher"    , "john.absher@example.com"    , "john" , "$2a$12$5ZWQzoBvw7yP9HwPH4Dgu.MILNr6kn.U0Syp1QC6ksV.Qh5QW3EKi", "https://goo.gl/7g6AwU", false, "2017-09-25 04:15:06", "2017-09-25 04:15:06"),
+("7592aa72-3832-4b2d-9b8e-658dc21b277d", "David Gutierrez", "david.gutierrez@example.com", "david", "$2a$12$5ZWQzoBvw7yP9HwPH4Dgu.MILNr6kn.U0Syp1QC6ksV.Qh5QW3EKi", "https://goo.gl/dFcx11", false, "2017-09-25 15:05:57", "2017-09-25 15:05:57"),
+("a5211e7d-8382-4221-b77a-824b051e2370", "Jason Joachim"  , "jason.joachim@example.com"  , "jason", "$2a$12$5ZWQzoBvw7yP9HwPH4Dgu.MILNr6kn.U0Syp1QC6ksV.Qh5QW3EKi", "https://goo.gl/myorst", false, "2017-09-25 10:28:24", "2017-09-25 10:28:24"),
+("a696e28e-79b0-47ed-a9ce-d2e681665459", "Isaac Lee"      , "isaac.lee@example.com"      , "isaac", "$2a$12$5ZWQzoBvw7yP9HwPH4Dgu.MILNr6kn.U0Syp1QC6ksV.Qh5QW3EKi", "https://goo.gl/cnQGa7", false, "2017-09-25 04:13:41", "2017-09-25 08:13:41");
 
 
 INSERT INTO Stories (id, title, created_at, updated_at, writer_id) VALUES
@@ -43,7 +43,7 @@ INSERT INTO Photos (id, url, caption, time_taken, created_at, updated_at, story_
 ("3e0235bd-8c33-4294-a476-2e94a677708a", "https://goo.gl/9p2qT2", "Teachers are treasures."                                 , "2017-09-26 15:10:57", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "1fb41095-a0c7-4764-bd78-3cf1234ec257"),
 ("bcca9dfb-2615-4ab2-945e-361e03f5ed3a", "https://goo.gl/uKWPCJ", "Words to live and change your life by..."                , "2017-09-26 15:21:04", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "1fb41095-a0c7-4764-bd78-3cf1234ec257"),
 ("20debdd9-946c-4a50-bb23-69bf6bca0d47", "https://goo.gl/tAeWUE", "Trying to change my perspective on things.."             , "2017-09-26 16:50:18", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "1fb41095-a0c7-4764-bd78-3cf1234ec257"),
-("ea09ead5-9b3c-40ad-bcd8-6713d62d0c9d", "https://goo.gl/Cg9SvX", "We all start as strangers."                              , "2017-09-26 18:13:36", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "1fb41095-a0c7-4764-bd78-3cf1234ec257"),
+("ea09ead5-9b3c-40ad-bcd8-6713d62d0c9d", "https://goo.gl/Cg9SvX", "Yeah!"                                                   , "2017-09-26 18:13:36", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "1fb41095-a0c7-4764-bd78-3cf1234ec257"),
 ("285364dc-294c-487f-8f41-7696e52a4f2e", "https://goo.gl/yCFoNu", "Feeling humble and blessed today. Best day of my life."  , "2017-09-26 19:40:22", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "1fb41095-a0c7-4764-bd78-3cf1234ec257"),
 ("4c787675-c84b-4385-a271-7710503ea02d", "https://goo.gl/XNqBGr", "Excited to see where I end up!"                          , "2017-08-30 12:11:06", "2017-09-26 20:30:12", "2017-09-26 20:30:12", "3f11625f-95b8-44b2-b6e8-d601c48eb35d"),
 ("fd51afcd-756e-4642-8e84-c5b37ac36dc4", "https://goo.gl/1uKufW", "Wish you were here."                                     , "2017-08-30 14:35:27", "2017-09-26 20:30:12", "2017-09-26 20:30:12", "3f11625f-95b8-44b2-b6e8-d601c48eb35d"),
@@ -65,7 +65,7 @@ INSERT INTO Photos (id, url, caption, time_taken, created_at, updated_at, story_
 ("dc3ffff4-8d77-4707-bdcc-ef28518ce2c9", "https://goo.gl/9p2qT2", "Teachers are treasures."                                 , "2017-09-26 15:10:57", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "c24530d6-7b65-44ca-8e43-5cd58e44c3e9"),
 ("f5665244-d3a3-4dee-acfc-7854bb36e960", "https://goo.gl/uKWPCJ", "Words to live and change your life by..."                , "2017-09-26 15:21:04", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "c24530d6-7b65-44ca-8e43-5cd58e44c3e9"),
 ("5463c64c-2989-4043-9047-fe6ba3cd475f", "https://goo.gl/tAeWUE", "Trying to change my perspective on things.."             , "2017-09-26 16:50:18", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "c24530d6-7b65-44ca-8e43-5cd58e44c3e9"),
-("60790f1b-f9d5-44e6-ad75-907a9901568b", "https://goo.gl/Cg9SvX", "We all start as strangers."                              , "2017-09-26 18:13:36", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "c24530d6-7b65-44ca-8e43-5cd58e44c3e9"),
+("60790f1b-f9d5-44e6-ad75-907a9901568b", "https://goo.gl/Cg9SvX", "Yeah!"                                                   , "2017-09-26 18:13:36", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "c24530d6-7b65-44ca-8e43-5cd58e44c3e9"),
 ("e2d192cc-89f6-438f-aa08-bb42e894afd3", "https://goo.gl/yCFoNu", "Feeling humble and blessed today. Best day of my life."  , "2017-09-26 19:40:22", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "c24530d6-7b65-44ca-8e43-5cd58e44c3e9"),
 ("02071b56-3360-47fa-b068-b406351448a5", "https://goo.gl/XNqBGr", "Excited to see where I end up!"                          , "2017-08-30 12:11:06", "2017-09-26 20:30:12", "2017-09-26 20:30:12", "d584af97-0c4b-463d-970f-32c2cdbe91d7"),
 ("33b5b1fb-ddb0-485d-b500-dd455abf4854", "https://goo.gl/1uKufW", "Wish you were here."                                     , "2017-08-30 14:35:27", "2017-09-26 20:30:12", "2017-09-26 20:30:12", "d584af97-0c4b-463d-970f-32c2cdbe91d7"),
@@ -87,7 +87,7 @@ INSERT INTO Photos (id, url, caption, time_taken, created_at, updated_at, story_
 ("ced55fe5-c1db-4ddd-ae0d-71d4c5d350e3", "https://goo.gl/9p2qT2", "Teachers are treasures."                                 , "2017-09-26 15:10:57", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "f2f62de0-7335-4360-a462-7071d37a1762"),
 ("20249d6d-39b2-40ca-9c18-310423af0640", "https://goo.gl/uKWPCJ", "Words to live and change your life by..."                , "2017-09-26 15:21:04", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "f2f62de0-7335-4360-a462-7071d37a1762"),
 ("b61026b4-f1be-4dea-9aa9-5a31ccb42279", "https://goo.gl/tAeWUE", "Trying to change my perspective on things.."             , "2017-09-26 16:50:18", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "f2f62de0-7335-4360-a462-7071d37a1762"),
-("8c7d9056-ea37-42c0-80c1-b63e65751c07", "https://goo.gl/Cg9SvX", "We all start as strangers."                              , "2017-09-26 18:13:36", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "f2f62de0-7335-4360-a462-7071d37a1762"),
+("8c7d9056-ea37-42c0-80c1-b63e65751c07", "https://goo.gl/Cg9SvX", "Yeah!"                                                   , "2017-09-26 18:13:36", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "f2f62de0-7335-4360-a462-7071d37a1762"),
 ("2b240aed-f321-4135-9e88-49ab6c65cf93", "https://goo.gl/yCFoNu", "Feeling humble and blessed today. Best day of my life."  , "2017-09-26 19:40:22", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "f2f62de0-7335-4360-a462-7071d37a1762"),
 ("fbe50bb3-0c19-4292-882f-a59a69133fa0", "https://goo.gl/XNqBGr", "Excited to see where I end up!"                          , "2017-08-30 12:11:06", "2017-09-26 20:30:12", "2017-09-26 20:30:12", "a9151086-364f-44ab-b29e-3a5d8f466c53"),
 ("aa7d6ad6-1240-4469-9652-1d661bee387a", "https://goo.gl/1uKufW", "Wish you were here."                                     , "2017-08-30 14:35:27", "2017-09-26 20:30:12", "2017-09-26 20:30:12", "a9151086-364f-44ab-b29e-3a5d8f466c53"),
@@ -109,7 +109,7 @@ INSERT INTO Photos (id, url, caption, time_taken, created_at, updated_at, story_
 ("c1bdd13d-f821-460c-9099-741ceaa77b82", "https://goo.gl/9p2qT2", "Teachers are treasures."                                 , "2017-09-26 15:10:57", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "dda19f0e-245e-4a79-af73-bd23ed983dd1"),
 ("1ffcb6db-d282-4dd7-8ec8-02b6911b877b", "https://goo.gl/uKWPCJ", "Words to live and change your life by..."                , "2017-09-26 15:21:04", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "dda19f0e-245e-4a79-af73-bd23ed983dd1"),
 ("4e1e53a9-1965-469a-ae79-97d725569ee3", "https://goo.gl/tAeWUE", "Trying to change my perspective on things.."             , "2017-09-26 16:50:18", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "dda19f0e-245e-4a79-af73-bd23ed983dd1"),
-("072644a5-f62e-4e09-9984-25d2e2e02505", "https://goo.gl/Cg9SvX", "We all start as strangers."                              , "2017-09-26 18:13:36", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "dda19f0e-245e-4a79-af73-bd23ed983dd1"),
+("072644a5-f62e-4e09-9984-25d2e2e02505", "https://goo.gl/Cg9SvX", "Yeah!"                                                   , "2017-09-26 18:13:36", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "dda19f0e-245e-4a79-af73-bd23ed983dd1"),
 ("1170d169-e7cd-4fb7-b489-1375c21492bf", "https://goo.gl/yCFoNu", "Feeling humble and blessed today. Best day of my life."  , "2017-09-26 19:40:22", "2017-09-27 11:29:47", "2017-09-27 11:29:47", "dda19f0e-245e-4a79-af73-bd23ed983dd1"),
 ("9190e0d7-d695-4517-9655-15ba3e4b54b0", "https://goo.gl/XNqBGr", "Excited to see where I end up!"                          , "2017-08-30 12:11:06", "2017-09-26 20:30:12", "2017-09-26 20:30:12", "0669cad1-c61f-45ae-9adc-7f74cc25875b"),
 ("a2678a5f-482d-429a-8bed-8aef3bb528d8", "https://goo.gl/1uKufW", "Wish you were here."                                     , "2017-08-30 14:35:27", "2017-09-26 20:30:12", "2017-09-26 20:30:12", "0669cad1-c61f-45ae-9adc-7f74cc25875b"),

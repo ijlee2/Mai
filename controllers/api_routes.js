@@ -14,7 +14,7 @@ const router = express.Router();
 
 // Import bcrypt
 const bcrypt     = require("bcrypt");
-const saltRounds = 15;
+const saltRounds = 12;
 
 // Import Dropzone
 const multer = require("multer");
@@ -32,7 +32,7 @@ const Story  = models.Story;
 const Photo  = models.Photo;
 const Reader = models.Reader;
 
-// Default photos
+// Default profile photos
 const default_profiles = [
     "https://goo.gl/7g6AwU",
     "https://goo.gl/dFcx11",
@@ -50,15 +50,15 @@ const default_profiles = [
 *****************************************************************************
 *****************************************************************************/
 router.post("/signup", (req, res) => {
-    function callback(results) {
+    function callback(result) {
         const options = {
-            "maxAge"  : 604800,
+            "expires" : new Date(Date.now() + 604800),
             "httpOnly": true
-//                        "secure"  : true
+//          "secure"  : true
         };
      
-        res.cookie("mai-id", results.id, options);
-        res.cookie("mai-fullname", results.fullname, options);
+        res.cookie("mai-id", result.id, options);
+        res.cookie("mai-fullname", result.fullname, options);
         res.redirect("/");
     }
 
@@ -88,12 +88,11 @@ router.post("/login", (req, res) => {
             if (isMatch) {
                 if (!req.cookies.cookieName) {
                     const options = {
-                        "maxAge"  : 604800,
+                        "expires" : new Date(Date.now() + 604800),
                         "httpOnly": true
-//                        "secure"  : true
+//                      "secure"  : true
                     };
 
-                    // TODO: Add secure flag for product
                     // Create cookies (expire in a week)
                     res.cookie("mai-id", results[0].id, options);
                     res.cookie("mai-fullname", results[0].fullname, options);
@@ -109,11 +108,11 @@ router.post("/login", (req, res) => {
 
 
 router.patch("/update-profile/:id", (req, res) => {
-    function callback(results) {
+    function callback(result) {
         // TODO: Update cookie for fullname
 
         // TODO: Pass values
-        res.redirect("/profile");
+        res.redirect("/settings");
     }
 
     Writer.update({
@@ -129,9 +128,9 @@ router.patch("/update-profile/:id", (req, res) => {
 
 
 router.patch("/update-password/:id", (req, res) => {
-    function callback(results) {
+    function callback(result) {
         // TODO: Pass values
-        res.redirect("/profile");
+        res.redirect("/settings");
     }
 
     // Find the user's hash
@@ -157,14 +156,8 @@ router.patch("/update-password/:id", (req, res) => {
 
 router.delete("/delete-account/:id", (req, res) => {
     function callback(results) {
-        const options = {
-            "maxAge"  : 604800,
-            "httpOnly": true
-//          "secure"  : true
-        };
-
-        res.cookies("mai-id", "", options);
-        res.cookies("mai-fullname", "", options);
+        res.clearCookie("mai-id");
+        res.clearCookie("mai-fullname");
         res.redirect("/");
     }
 
@@ -199,15 +192,16 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
     }
 
 //    return res.status(200).send(req.file);
-    res.redirect("/edit");
+    // TODO: send user to "add-story" page along with photo URLs
+    res.redirect("/add-story");
 });
 
 
 router.post("/add-story", (req, res) => {
     function callback(results) {
         // TODO later: If storing was successful, call Google Vision next
-        console.log(results[0]);
-
+        
+        // Redirect to story page
         res.redirect(`/story-${results[0].dataValues.story_id}`);
     }
 
@@ -235,22 +229,42 @@ router.post("/add-story", (req, res) => {
 
 router.patch("/edit-story-:id", (req, res) => {
     function callback(results) {
+        console.log("success?");
+
         // TODO: Redirect to story.hbs with the correct id
-        res.redirect("/story.hbs");
+ //       res.redirect("/story.hbs");
     }
-    // TODO: Edit the story with the id
+
+    // Update the title
     Story.update({
         "title": req.body.title
-    }, {
-        "where" :{"id": req.params.id}
-    }).then(callback);
 
+    }, {
+        "where": {"id": req.params.id}
+
+    // Update the captions (TODO: test and fix this)
+    }).then(result => {
+        function updateCaption(caption, i) {
+            return Photo.update({
+                "caption": caption
+
+            }, {
+                "where": {"id": req.body.ids[i]}
+
+            });
+        }
+
+        const updatesInParallel = req.body.captions.map(updateCaption);
+
+        return Promise.all([updatesInParallel]);
+
+    }).then(callback);
 });
 
 
 router.delete("/delete-story-:id", (req, res) => {
     function callback(results) {
-        res.redirect("/profile");
+        res.redirect("/");
     }
 
     Story.destroy({

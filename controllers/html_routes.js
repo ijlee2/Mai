@@ -28,6 +28,61 @@ const Reader = models.Reader;
 *****************************************************************************
 *****************************************************************************/
 router.get("/", (req, res) => {
+    // Display the home page if the user is not logged in
+    if (!req.cookies["mai-id"]) {
+        res.render("index", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["index"]
+        });
+
+    // Display their profile page if logged in
+    } else {
+        function callback(results) {
+            const stories = [];
+
+            for (let i = 0; i < results[0].Stories.length; i++) {
+                stories.push({
+                    "id"   : results[0].Stories[i].id,
+                    "title": results[0].Stories[i].title,
+                    "url"  : results[0].Stories[i].Photos[0].dataValues.url
+                });
+            }
+
+            // TODO: Calculate the number of stories, writers, and readers based on queries
+            const writer = {
+                "fullname"     : results[0].dataValues.fullname,
+                "profile_url"  : results[0].dataValues.profile_url,
+                "numNewStories": Math.floor(3 * Math.random()) + 1,
+                "numStories"   : 6,
+                "numWriters"   : Math.floor(100 * Math.random()) + 1,
+                "numReaders"   : Math.floor(100 * Math.random()) + 1,
+                stories
+            };
+
+            res.render("profile", {
+                "mai-id"           : req.cookies["mai-id"],
+                "mai-fullname"     : req.cookies["mai-fullname"],
+                "custom-css"       : ["style"],
+                "custom-javascript": ["index"],
+                "editable"         : true,
+                writer,
+            });
+        }
+
+        // Do a nested join
+        Writer.findAll({
+            "where"     : {"id": req.cookies["mai-id"]},
+            "attributes": ["fullname", "profile_url"],
+            "include"   : [{"model": Story, "include": [Photo]}]
+
+        }).then(callback);
+    }
+});
+
+
+router.get("/profile-:id", (req, res) => {
     if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
@@ -63,22 +118,23 @@ router.get("/", (req, res) => {
                 "mai-fullname"     : req.cookies["mai-fullname"],
                 "custom-css"       : ["style"],
                 "custom-javascript": ["index"],
+                "editable"         : (req.params.id === req.cookies["mai-id"]),
                 writer
             });
         }
 
         Writer.findAll({
-            "where"     : {"id": req.cookies["mai-id"]},
+            "where"     : {"id": req.params.id},
             "attributes": ["fullname", "profile_url"],
             "include"   : [{"model": Story, "include": [Photo]}]
 
         }).then(callback);
+
     }
 });
 
 
 router.get("/upload-photos", (req, res) => {
-    // Check that the user is logged in
     if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
@@ -88,6 +144,7 @@ router.get("/upload-photos", (req, res) => {
         });
 
     } else {
+        // Must include dropzone before calling upload-photos.js
         res.render("upload-photos", {
             "mai-id"           : req.cookies["mai-id"],
             "mai-fullname"     : req.cookies["mai-fullname"],
@@ -99,8 +156,7 @@ router.get("/upload-photos", (req, res) => {
 });
 
 
-router.get("/compose", (req, res) => {
-    // Check that the user is logged in
+router.get("/create-story", (req, res) => {
     if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
@@ -110,6 +166,7 @@ router.get("/compose", (req, res) => {
         });
 
     } else {
+        // TODO: Replace this array of photo URLs with the URLs from Amazon S3
         const photos = [
             {"url": "https://goo.gl/9p2qT2"},
             {"url": "https://goo.gl/uKWPCJ"},
@@ -129,30 +186,7 @@ router.get("/compose", (req, res) => {
 });
 
 
-router.get("/edit-:id", (req, res) => {
-    // Check that the user is logged in
-    if (!req.cookies["mai-id"]) {
-        res.render("index", {
-            "mai-id"           : req.cookies["mai-id"],
-            "mai-fullname"     : req.cookies["mai-fullname"],
-            "custom-css"       : ["style"],
-            "custom-javascript": ["index"]
-        });
-
-    } else {
-        res.render("edit", {
-            "mai-id"           : req.cookies["mai-id"],
-            "mai-fullname"     : req.cookies["mai-fullname"],
-            "custom-css"       : ["style"],
-            "custom-javascript": ["edit"]
-        });
-    }
-
-});
-
-
 router.get("/story-:id", (req, res) => {
-    // Check that the user is logged in
     if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
@@ -192,8 +226,28 @@ router.get("/story-:id", (req, res) => {
 });
 
 
+router.get("/edit-story:id", (req, res) => {
+    if (!req.cookies["mai-id"]) {
+        res.render("index", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["index"]
+        });
+
+    } else {
+        res.render("edit", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["edit"]
+        });
+
+    }
+});
+
+
 router.get("/writers", (req, res) => {
-    // Check that the user is logged in
     if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
@@ -224,58 +278,6 @@ router.get("/writers", (req, res) => {
         }
 
         Writer.findAll({}).then(callback);
-    }
-});
-
-
-router.get("/profile-:id", (req, res) => {
-    // Check that the user is logged in
-    if (!req.cookies["mai-id"]) {
-        res.render("index", {
-            "mai-id"           : req.cookies["mai-id"],
-            "mai-fullname"     : req.cookies["mai-fullname"],
-            "custom-css"       : ["style"],
-            "custom-javascript": ["index"]
-        });
-
-    } else {
-        function callback(results) {
-            const stories = [];
-
-            for (let i = 0; i < results[0].Stories.length; i++) {
-                stories.push({
-                    "id"   : results[0].Stories[i].id,
-                    "title": results[0].Stories[i].title,
-                    "url"  : results[0].Stories[i].Photos[0].dataValues.url
-                });
-            }
-
-            const writer = {
-                "fullname"     : results[0].dataValues.fullname,
-                "profile_url"  : results[0].dataValues.profile_url,
-                "numNewStories": Math.floor(3 * Math.random()) + 1,
-                "numStories"   : 6,
-                "numWriters"   : Math.floor(100 * Math.random()) + 1,
-                "numReaders"   : Math.floor(100 * Math.random()) + 1,
-                stories
-            };
-
-            res.render("profile", {
-                "mai-id"           : req.cookies["mai-id"],
-                "mai-fullname"     : req.cookies["mai-fullname"],
-                "custom-css"       : ["style"],
-                "custom-javascript": ["index"],
-                writer
-            });
-        }
-
-        Writer.findAll({
-            "where"     : {"id": req.params.id},
-            "attributes": ["fullname", "profile_url"],
-            "include"   : [{"model": Story, "include": [Photo]}]
-
-        }).then(callback);
-
     }
 });
 
@@ -314,6 +316,7 @@ router.get("/settings", (req, res) => {
         }).then(callback);
     }
 });
+
 
 router.get("/meet-mai", (req, res) => {
     res.render("meet-mai", {

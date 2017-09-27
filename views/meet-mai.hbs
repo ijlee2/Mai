@@ -14,7 +14,11 @@
                     </div>
 
                     <div class="col s10 offset-s1">
+                        {{#if mai-id}}
+                        <button type="button" class="btn-large waves-effect waves-light" id="button_compose" title="Click to write Mai story.">Write Mai Story</button>
+                        {{else}}
                         <button type="button" class="btn-large waves-effect waves-light" id="button_home" title="Click to sign up.">Sign up</button>
+                        {{/if}}
                         
                         <div class="mai-separator-3"></div>
                     </div>

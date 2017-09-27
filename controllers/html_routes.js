@@ -28,12 +28,47 @@ const Reader = models.Reader;
 *****************************************************************************
 *****************************************************************************/
 router.get("/", (req, res) => {
-    res.render("index", {
-        "mai-id"           : req.cookies["mai-id"],
-        "mai-fullname"     : req.cookies["mai-fullname"],
-        "custom-css"       : ["style"],
-        "custom-javascript": ["index"]
-    });
+    if (!req.cookies["mai-id"]) {
+        res.render("index", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["index"]
+        });
+
+    } else {
+        function callback(results) {
+            console.log(results[0].dataValues);
+            
+            const writer = {
+                "fullname"     : results[0].dataValues.fullname,
+                "profile_url"  : results[0].dataValues.profile_url,
+                "numNewStories": 1,
+                "numStories"   : 3,
+                "numWriters"   : 6,
+                "numReaders"   : 4,
+                "stories"      : results[0].dataValues.Stories
+            };
+
+//            console.log(writer);
+/*
+            res.render("profile", {
+                "mai-id"           : req.cookies["mai-id"],
+                "mai-fullname"     : req.cookies["mai-fullname"],
+                "custom-css"       : ["style"],
+                "custom-javascript": ["index"],
+                writer
+            });
+*/
+        }
+
+        Writer.findAll({
+            "where"     : {"id": req.cookies["mai-id"]},
+            "attributes": ["fullname", "profile_url"],
+            "include"   : [Story, Photo]
+
+        }).then(callback);
+    }
 });
 
 

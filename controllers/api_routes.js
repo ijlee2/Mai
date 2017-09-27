@@ -32,33 +32,6 @@ const Story  = models.Story;
 const Photo  = models.Photo;
 const Reader = models.Reader;
 
-// Create captions ourselves for now (replace this with NLG later)
-const captions = [
-    "Your best teacher is your last mistake.",
-    "Words to live and change your life by...",
-    "Trying to change my perspective on things..",
-    "Taking one step at a time and excited to see where I end up!",
-    "I'm not quite this good but can't wait until I am!",
-    "It's about to get very quiet at this table.",
-    "This is the best day ever!",
-    "Feeling high on this sunrise. Very blessed.",
-    "Electric nighttime algae in Australia. Loving it.",
-    "Morning coffee and stroll through NYC. Doing it right!",
-    "Venice. Right in the thick of it!",
-    "Lazy Sunday float. Get it.",
-    "Morning canoe trip. Worth waking up for!",
-    "We all start as strangers.",
-    "Grandma and Grampa hanging out with the boys :)",
-    "Feeling humble and blessed today. Best day of my life.",
-    "She said yes!!!!",
-    "Merry Christmas!",
-    "We all start as strangers. $friendsgiving",
-    "Gametime!",
-    "Wish you were here.",
-    "Just do it!"
-];
-
-const numCaptions = captions.length;
 
 
 /****************************************************************************

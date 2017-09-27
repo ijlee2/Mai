@@ -29,6 +29,7 @@ const Reader = models.Reader;
 *****************************************************************************/
 router.get("/", (req, res) => {
     res.render("index", {
+        "mai-id"           : req.cookies["mai-id"],
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["style"],
         "custom-javascript": ["index"]
@@ -38,6 +39,7 @@ router.get("/", (req, res) => {
 
 router.get("/upload-photos", (req, res) => {
     res.render("upload-photos", {
+        "mai-id"           : req.cookies["mai-id"],
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["dropzone/dropzone", "style"],
         "custom-javascript": ["dropzone/dropzone", "upload-photos"]
@@ -47,6 +49,7 @@ router.get("/upload-photos", (req, res) => {
 
 router.get("/compose", (req, res) => {
     res.render("compose", {
+        "mai-id"           : req.cookies["mai-id"],
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["style"],
         "custom-javascript": ["compose"]
@@ -56,6 +59,7 @@ router.get("/compose", (req, res) => {
 
 router.get("/edit-:id", (req, res) => {
     res.render("edit", {
+        "mai-id"           : req.cookies["mai-id"],
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["style"],
         "custom-javascript": ["edit"]
@@ -80,6 +84,7 @@ router.get("/story-:id", (req, res) => {
     ];
 
     res.render("story", {
+        "mai-id"           : req.cookies["mai-id"],
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["style"],
         "custom-javascript": ["story"],
@@ -101,6 +106,7 @@ router.get("/writers", (req, res) => {
     }
 
     res.render("writers", {
+        "mai-id"           : req.cookies["mai-id"],
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["style"],
         "custom-javascript": ["writers"],
@@ -136,6 +142,7 @@ router.get("/profile-:id", (req, res) => {
     };
 
     res.render("profile", {
+        "mai-id"           : req.cookies["mai-id"],
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["style"],
         "custom-javascript": ["profile"],
@@ -153,6 +160,7 @@ router.get("/settings", (req, res) => {
     };
 
     res.render("settings", {
+        "mai-id"           : req.cookies["mai-id"],
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["style"],
         "custom-javascript": ["settings"],
@@ -163,6 +171,7 @@ router.get("/settings", (req, res) => {
 
 router.get("/meet-mai", (req, res) => {
     res.render("meet-mai", {
+        "mai-id"           : req.cookies["mai-id"],
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["style"],
         "custom-javascript": ["meet-mai"]
@@ -172,6 +181,7 @@ router.get("/meet-mai", (req, res) => {
 
 router.get("/meet-mai-team", (req, res) => {
     res.render("meet-mai-team", {
+        "mai-id"           : req.cookies["mai-id"],
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["style"],
         "custom-javascript": ["meet-mai-team"]

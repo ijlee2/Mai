@@ -27,6 +27,7 @@
     </head>
     <body class="blue-grey lighten-5">
         <!-- Navbar -->
+        {{#if mai-id}}
         <nav>
             <div class="nav-wrapper grey darken-4">
                 <a href="/" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
@@ -49,9 +50,6 @@
                     <li class="green darken-2"><a class="mai-menu-desktop-items" href="/upload-photos">Compose</a></li>
                     <li><a class="mai-menu-desktop-items" href="/writers">Find Writers</a></li>
                     <li><a class="mai-menu-desktop-items dropdown-button" href="#" data-activates="mai-dropdown-writer">{{mai-fullname}}<i class="material-icons right">arrow_drop_down</i></a></li>
-
-                    <!-- TODO: For testing only. Remove these links later. -->
-                    <li class="grey darken-2"><a class="mai-menu-desktop-items" href="/story">Story</a></li>
                 </ul>
                 
                 <!-- Mobile -->
@@ -74,14 +72,31 @@
 
                     <li><a class="mai-menu-mobile-items" class="mai-menu-mobile-items" href="/meet-mai">Meet Mai</a></li>
                     <li><a class="mai-menu-mobile-items" href="/meet-mai-team">Meet Mai Team</a></li>
-
-                    <li class="divider"></li>
-
-                    <!-- TODO: For testing only. Remove these links later. -->
-                    <li class="grey lighten-1"><a class="mai-menu-mobile-items" href="/story">Story</a></li>
                 </ul>
             </div>
         </nav>
+        {{else}}
+        <nav>
+            <div class="nav-wrapper grey darken-4">
+                <a href="/" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
+                <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                
+                <!-- Desktop -->
+                <ul class="right hide-on-med-and-down" id="mai-menu-desktop">
+                    <li><a class="mai-menu-desktop-items" href="/">Home</a></li>
+                    <li><a href="/meet-mai">Meet Mai</a></li>
+                    <li><a href="/meet-mai-team">Meet Mai Team</a></li>
+                </ul>
+                
+                <!-- Mobile -->
+                <ul class="side-nav" id="mai-menu-mobile">
+                    <li><a class="mai-menu-mobile-items" href="/">Home</a></li>
+                    <li><a class="mai-menu-mobile-items" class="mai-menu-mobile-items" href="/meet-mai">Meet Mai</a></li>
+                    <li><a class="mai-menu-mobile-items" href="/meet-mai-team">Meet Mai Team</a></li>
+                </ul>
+            </div>
+        </nav>
+        {{/if}}
 
         <div class="container">
             {{{body}}}
@@ -98,8 +113,10 @@
                         <h5 class="white-text">Links</h5>
                         <ul>
                             <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
+                            {{#if mai-id}}
                             <li><a class="grey-text text-lighten-3" href="/compose">Compose</a></li>
                             <li><a class="grey-text text-lighten-3" href="/writers">Find Writers</a></li>
+                            {{/if}}
                             <li><a class="grey-text text-lighten-3" href="/meet-mai">Meet Mai</a></li>
                             <li><a class="grey-text text-lighten-3" href="/meet-mai-team">Meet Mai Team</a></li>
                         </ul>

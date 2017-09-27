@@ -1,3 +1,4 @@
+/* For reference only
 DROP DATABASE IF EXISTS mai_db;
 CREATE DATABASE mai_db;
 USE mai_db;
@@ -43,3 +44,4 @@ CREATE TABLE Readers (
     PRIMARY KEY (id),
     FOREIGN KEY (WriterID) REFERENCES Writers(id) ON DELETE CASCADE
 );
+*/

@@ -1,3 +1,5 @@
+USE ocbusqsbzymg3amh;
+
 INSERT INTO Writers (id, fullname, email, username, hash, profile_url, flagged, created_at, updated_at) VALUES
 ("2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "John Absher"    , "john.absher@example.com"    , "john" , "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "", false, "2017-09-25 04:15:06", "2017-09-25 04:15:06"),
 ("7592aa72-3832-4b2d-9b8e-658dc21b277d", "David Gutierrez", "david.gutierrez@example.com", "david", "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "", false, "2017-09-25 15:05:57", "2017-09-25 15:05:57"),
@@ -126,21 +128,21 @@ INSERT INTO Photos (id, url, caption, time_taken, created_at, updated_at, story_
 
 
 INSERT INTO Readers (id, reader_id, created_at, updated_at, writer_id) VALUES
-("df929932-11d6-432b-a463-dbf96f27b365", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
-("3d34ca74-4738-4e99-9298-efd4dbf9fc04", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "a5211e7d-8382-4221-b77a-824b051e2370"),
-("fa1e2f01-367d-4c66-93f3-aa6552e414d9", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "a696e28e-79b0-47ed-a9ce-d2e681665459"),
+("df929932-11d6-432b-a463-dbf96f27b365", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "2017-09-26 12:00:00", "2017-09-26 12:00:00", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
+("3d34ca74-4738-4e99-9298-efd4dbf9fc04", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "2017-09-26 12:00:03", "2017-09-26 12:00:03", "a5211e7d-8382-4221-b77a-824b051e2370"),
+("fa1e2f01-367d-4c66-93f3-aa6552e414d9", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "2017-09-26 12:00:07", "2017-09-26 12:00:07", "a696e28e-79b0-47ed-a9ce-d2e681665459"),
 
-("a790f6a8-d33f-47e5-a6b9-48923b436b92", "7592aa72-3832-4b2d-9b8e-658dc21b277d", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964"),
-("df59556f-b3be-4d85-bfc1-fdb84783a2b1", "7592aa72-3832-4b2d-9b8e-658dc21b277d", "a5211e7d-8382-4221-b77a-824b051e2370"),
-("bf58ccf3-c0c4-4d41-b811-32b076c3d394", "7592aa72-3832-4b2d-9b8e-658dc21b277d", "a696e28e-79b0-47ed-a9ce-d2e681665459"),
+("a790f6a8-d33f-47e5-a6b9-48923b436b92", "7592aa72-3832-4b2d-9b8e-658dc21b277d", "2017-09-26 13:00:00", "2017-09-26 13:00:00", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964"),
+("df59556f-b3be-4d85-bfc1-fdb84783a2b1", "7592aa72-3832-4b2d-9b8e-658dc21b277d", "2017-09-26 13:00:03", "2017-09-26 13:00:03", "a5211e7d-8382-4221-b77a-824b051e2370"),
+("bf58ccf3-c0c4-4d41-b811-32b076c3d394", "7592aa72-3832-4b2d-9b8e-658dc21b277d", "2017-09-26 13:00:07", "2017-09-26 13:00:07", "a696e28e-79b0-47ed-a9ce-d2e681665459"),
 
-("ece2c087-9546-4060-9e02-4eee1a524817", "a5211e7d-8382-4221-b77a-824b051e2370", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964"),
-("2bcf6fb0-4195-498a-892f-053f8d95c4fa", "a5211e7d-8382-4221-b77a-824b051e2370", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
-("4de62c1e-70b4-4f13-a71c-6b5dc9d2fa94", "a5211e7d-8382-4221-b77a-824b051e2370", "a696e28e-79b0-47ed-a9ce-d2e681665459"),
+("ece2c087-9546-4060-9e02-4eee1a524817", "a5211e7d-8382-4221-b77a-824b051e2370", "2017-09-26 14:00:00", "2017-09-26 14:00:00", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964"),
+("2bcf6fb0-4195-498a-892f-053f8d95c4fa", "a5211e7d-8382-4221-b77a-824b051e2370", "2017-09-26 14:00:03", "2017-09-26 14:00:03", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
+("4de62c1e-70b4-4f13-a71c-6b5dc9d2fa94", "a5211e7d-8382-4221-b77a-824b051e2370", "2017-09-26 14:00:07", "2017-09-26 14:00:07", "a696e28e-79b0-47ed-a9ce-d2e681665459"),
 
-("da1cef07-b865-4a9f-9e99-591b0f0cc11c", "a696e28e-79b0-47ed-a9ce-d2e681665459", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964"),
-("00293059-18ab-4bdb-b6eb-430254dce3cb", "a696e28e-79b0-47ed-a9ce-d2e681665459", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
-("cb0c3ef8-6f85-4c66-b802-2727d864a2f0", "a696e28e-79b0-47ed-a9ce-d2e681665459", "a5211e7d-8382-4221-b77a-824b051e2370");
+("da1cef07-b865-4a9f-9e99-591b0f0cc11c", "a696e28e-79b0-47ed-a9ce-d2e681665459", "2017-09-26 15:00:00", "2017-09-26 15:00:00", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964"),
+("00293059-18ab-4bdb-b6eb-430254dce3cb", "a696e28e-79b0-47ed-a9ce-d2e681665459", "2017-09-26 15:00:03", "2017-09-26 15:00:03", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
+("cb0c3ef8-6f85-4c66-b802-2727d864a2f0", "a696e28e-79b0-47ed-a9ce-d2e681665459", "2017-09-26 15:00:07", "2017-09-26 15:00:07", "a5211e7d-8382-4221-b77a-824b051e2370");
 
 
 /* Check if values have been added correctly */

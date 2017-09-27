@@ -6,7 +6,7 @@ INSERT INTO Writers (id, fullname, email, username, hash, profile_url, flagged, 
 
 
 INSERT INTO Stories (id, title, created_at, updated_at, writer_id) VALUES
-("1fb41095-a0c7-4764-bd78-3cf1234ec257", "Ice Cream Cones"  , "2017-09-27 11:30:17", "2017-09-27 11:30:17", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964"),
+("1fb41095-a0c7-4764-bd78-3cf1234ec257", "Inspirations"     , "2017-09-27 11:30:17", "2017-09-27 11:30:17", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964"),
 ("c24530d6-7b65-44ca-8e43-5cd58e44c3e9", "Taco Trucks"      , "2017-09-26 17:03:28", "2017-09-26 17:03:28", "a696e28e-79b0-47ed-a9ce-d2e681665459"),
 ("3f11625f-95b8-44b2-b6e8-d601c48eb35d", "Hike in Austin"   , "2017-09-26 20:30:17", "2017-09-26 20:30:17", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
 ("d584af97-0c4b-463d-970f-32c2cdbe91d7", "Hike in Austin II", "2017-09-27 11:43:31", "2017-09-27 11:43:31", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
@@ -22,7 +22,7 @@ INSERT INTO Stories (id, title, created_at, updated_at, writer_id) VALUES
 ("31df97a6-b2c6-454d-8770-3347d66724ae", "My Evening"       , "2017-09-27 11:49:24", "2017-09-27 11:49:24", "a5211e7d-8382-4221-b77a-824b051e2370");
 
 
-INSERT INTO Photos (StoryID, url, caption) VALUES
+INSERT INTO Photos (id, url, caption, time_taken, created_at, updated_at, story_id) VALUES
 (1, "https://i.pinimg.com/736x/b3/48/4c/b3484c816ba990b5ff29e5cd2299497f--wise-words-wise-sayings.jpg", "Your best teacher is your last mistake."),
 (1, "https://i.pinimg.com/736x/b6/d4/8b/b6d48b00d132a940e17dc57ae959a748--being-comfortable-quotes-inspirational-hiking-quotes.jpg", "Words to live and change your life by..."),
 (1, "https://i.pinimg.com/736x/de/f3/51/def35127fc73da5d7ab7d2f1f6fd0da0--quotes-about-changing-yourself-quote-about-being-yourself.jpg", "Trying to change my perspective on things.."),
@@ -45,6 +45,11 @@ INSERT INTO Photos (StoryID, url, caption) VALUES
 (7, "http://www.wwe.com/f/styles/gallery_img_l/public/all/2016/09/09_Tailgate_08232016jtb_0070--f2e9cef9fde89444899bf4326875d1f7.jpg", "Gametime!"),
 (7, "https://tctechcrunch2011.files.wordpress.com/2015/11/shutterstock_252786013.jpg?w=738", "Wish you were here."),
 (8, "https://images.techhive.com/images/article/2015/05/thelist-selfies-extreme-selfie-100584119-large.jpg", "Just do it!");
+
+
+INSERT INTO Readers (id, reader_id, created_at, updated_at, writer_id) VALUES
+();
+
 
 /* Check if values have been added correctly */
 SELECT * FROM Writers;

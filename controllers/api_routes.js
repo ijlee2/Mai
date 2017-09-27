@@ -14,7 +14,7 @@ const router = express.Router();
 
 // Import bcrypt
 const bcrypt     = require("bcrypt");
-const saltRounds = 15;
+const saltRounds = 12;
 
 // Import Dropzone
 const multer = require("multer");

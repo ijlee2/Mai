@@ -53,8 +53,8 @@ router.post("/signup", (req, res) => {
     function callback(result) {
         const options = {
             "expires" : new Date(Date.now() + 604800),
-            "httpOnly": true
-//          "secure"  : true
+            "httpOnly": true,
+            "secure"  : true
         };
      
         res.cookie("mai-id", result.id, options);
@@ -89,8 +89,8 @@ router.post("/login", (req, res) => {
                 if (!req.cookies.cookieName) {
                     const options = {
                         "expires" : new Date(Date.now() + 604800),
-                        "httpOnly": true
-//                      "secure"  : true
+                        "httpOnly": true,
+                        "secure"  : true
                     };
 
                     // Create cookies (expire in a week)

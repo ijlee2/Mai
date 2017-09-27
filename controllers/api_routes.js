@@ -32,6 +32,14 @@ const Story  = models.Story;
 const Photo  = models.Photo;
 const Reader = models.Reader;
 
+// Default photos
+const default_profiles = [
+    "https://goo.gl/7g6AwU",
+    "https://goo.gl/dFcx11",
+    "https://goo.gl/myorst",
+    "https://goo.gl/cnQGa7"
+];
+
 
 
 /****************************************************************************
@@ -43,6 +51,7 @@ const Reader = models.Reader;
 *****************************************************************************/
 router.post("/signup", (req, res) => {
     function callback(results) {
+<<<<<<< HEAD
         const options = {
             "maxAge"  : 604800,
             "httpOnly": true
@@ -51,16 +60,19 @@ router.post("/signup", (req, res) => {
      
         res.cookie("mai-id", results.id, options);
         res.cookie("mai-fullname", results.fullname, options);
+=======
+>>>>>>> a9509df36d6507e852014f12b7ed9608ece04a85
         res.redirect("/");
     }
 
     // Salt and hash the user's password
     bcrypt.hash(req.body.password, saltRounds, (error, hash) => {
         Writer.create({
-            "fullname": req.body.fullname,
-            "email"   : req.body.email,
-            "username": req.body.username,
-            "hash"    : hash
+            "fullname"   : req.body.fullname,
+            "email"      : req.body.email,
+            "username"   : req.body.username,
+            "hash"       : hash,
+            "profile_url": default_profiles[Math.floor(default_profiles.length * Math.random())]
 
         }).then(callback);
     });

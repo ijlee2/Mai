@@ -283,21 +283,27 @@ router.get("/settings", (req, res) => {
         });
 
     } else {
-        const writer = {
-            "id"      : "1",
-            "fullname": "David Gutierrez",
-            "email"   : "d.gutierrez@example.com",
-            "username": "d.gutierrez"
-        };
+        function callback(results) {
+            const writer = {
+                "id"      : results[0].dataValues.id,
+                "fullname": results[0].dataValues.fullname,
+                "email"   : results[0].dataValues.email,
+                "username": results[0].dataValues.username
+            };
 
-        res.render("settings", {
-            "mai-id"           : req.cookies["mai-id"],
-            "mai-fullname"     : req.cookies["mai-fullname"],
-            "custom-css"       : ["style"],
-            "custom-javascript": ["settings"],
-            writer
-        });
+            res.render("settings", {
+                "mai-id"           : req.cookies["mai-id"],
+                "mai-fullname"     : req.cookies["mai-fullname"],
+                "custom-css"       : ["style"],
+                "custom-javascript": ["settings"],
+                writer
+            });
+        }
 
+        Writer.findAll({
+            "where": {"id": req.cookies["mai-id"]}
+
+        }).then(callback);
     }
 });
 

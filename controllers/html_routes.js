@@ -110,11 +110,19 @@ router.get("/compose", (req, res) => {
         });
 
     } else {
+        const photos = [
+            {"url": "https://goo.gl/9p2qT2"},
+            {"url": "https://goo.gl/uKWPCJ"},
+            {"url": "https://goo.gl/tAeWUE"}
+        ];
+
         res.render("compose", {
             "mai-id"           : req.cookies["mai-id"],
             "mai-fullname"     : req.cookies["mai-fullname"],
             "custom-css"       : ["style"],
-            "custom-javascript": ["compose"]
+            "custom-javascript": ["compose"],
+            photos
+
         });
 
     }

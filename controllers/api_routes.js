@@ -197,27 +197,31 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
 
 router.post("/add-story", (req, res) => {
     function callback(results) {
-        // TODO: Redirect to story.hbs with the correct id
+        // TODO later: If storing was successful, call Google Vision next
+        console.log(results[0]);
 
+        res.redirect(`/story-${results[0].dataValues.story_id}`);
     }
 
-    const photos = [];
+    Story.create({
+        "title"    : req.body.title,
+        "writer_id": req.cookies["mai-id"]
 
-    for (let i = 0; i < req.body.urls.length; i++) {
-        photos.push({
-            "url"    : req.body.urls[i],
-            "caption": req.body.captions[i]
-        });
-    }
+    }).then(result => {
+        const photos = [];
 
-    Photo.bulkCreate(photos).then(() => {
-        Story.create({
-            "title": req.body.title
+        console.log(result);
 
-        }).then(callback);
+        for (let i = 0; i < req.body.urls.length; i++) {
+            photos.push({
+                "url"     : req.body.urls[i],
+                "caption" : req.body.captions[i],
+                "story_id": result.dataValues.id
+            });
+        }
+
+        Photo.bulkCreate(photos).then(callback);
     });
-
-    // TODO later: If storing was successful, call Google Vision next
 });
 
 

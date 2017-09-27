@@ -8,70 +8,27 @@ module.exports = function(sequelize, DataTypes) {
         },
         
         "fullname": {
-            "type"     : DataTypes.STRING(100),
-            "allowNull": false,
-            "validate" : {
-                "is": {
-                    "args": /^[a-z\s-']+$/i,
-                    "msg" : "Only letters, spaces, hyphens, and apostrophes are allowed."
-                },
-                "len": {
-                    "args": [1, 100],
-                    "msg" : "Your name cannot exceed 100 characters."
-                }
-            }
+            "type"     : DataTypes.STRING(100)
         },
 
         "email": {
-            "type"     : DataTypes.STRING(100),
-            "allowNull": false,
-            "unique"   : true,
-            "validate" : {
-                "isEmail": {
-                    "args": true,
-                    "msg" : "Please enter a valid email."
-                },
-                "len": {
-                    "args": [1, 100],
-                    "msg": "Your email cannot exceed 100 characters."
-                }
-            }
+            "type"     : DataTypes.STRING(100)
         },
 
         "username": {
-            "type"     : DataTypes.STRING(32),
-            "allowNull": false,
-            "unique"   : true,
-            "validate" : {
-                "is": {
-                    "args": /^[a-z0-9.]+$/i,
-                    "msg" : "Only letters, numbers, and periods are allowed."
-                },
-                "len": {
-                    "args": [4, 32],
-                    "msg" : "The username must have between 4 and 32 characters."
-                }
-            }
+            "type"     : DataTypes.STRING(32)
         },
         
         "hash": {
-            "type"     : DataTypes.STRING(60),
-            "allowNull": false,
+            "type"     : DataTypes.STRING(60)
         },
 
         "profile_url": {
-            "type"        : DataTypes.STRING,
-            "validate"    : {
-                "isURL"   : {
-                    "args": true,
-                    "msg" : "Please enter a valid url."
-                }
-            }
+            "type"        : DataTypes.STRING
         },
         
         "flagged": {
-            "type"        : DataTypes.BOOLEAN,
-            "defaultValue": false,
+            "type"        : DataTypes.BOOLEAN
         }
 
     }, {"underscored": true});

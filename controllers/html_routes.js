@@ -47,7 +47,7 @@ router.get("/", (req, res) => {
                     "url"  : results[0].Stories[i].Photos[0].dataValues.url
                 });
             }
-            
+
             const writer = {
                 "fullname"     : results[0].dataValues.fullname,
                 "profile_url"  : results[0].dataValues.profile_url,
@@ -109,7 +109,6 @@ router.get("/edit-:id", (req, res) => {
 
 router.get("/story-:id", (req, res) => {
     function callback(results) {
-        console.log(results);
         const photos = [];
 
         for (let i = 0; i < results[0].Photos.length; i++) {
@@ -163,38 +162,42 @@ router.get("/writers", (req, res) => {
 
 
 router.get("/profile-:id", (req, res) => {
-    const stories = [
-        {
-            "id": "1",
-            "url": "https://i.pinimg.com/736x/b3/48/4c/b3484c816ba990b5ff29e5cd2299497f--wise-words-wise-sayings.jpg"
-        },
-        {
-            "id": "2",
-            "url": "http://www.mistymountaincampresort.com/images/at_4.jpg"
-        },
-        {
-            "id": "3",
-            "url": "http://www.texasmonthly.com/wp-content/uploads/2015/03/Wilhites-Road-Trip.jpg"
-        },
-    ];
+    function callback(results) {
+        const stories = [];
 
-    const writer = {
-        "fullname"     : "Isaac Lee",
-        "profile_url"  : "assets/images/user_photo.jpg",
-        "numNewStories": 1,
-        "numStories"   : 3,
-        "numWriters"   : 6,
-        "numReaders"   : 4,
-        stories
-    };
+        for (let i = 0; i < results[0].Stories.length; i++) {
+            stories.push({
+                "id"   : results[0].Stories[i].id,
+                "title": results[0].Stories[i].title,
+                "url"  : results[0].Stories[i].Photos[0].dataValues.url
+            });
+        }
 
-    res.render("profile", {
-        "mai-id"           : req.cookies["mai-id"],
-        "mai-fullname"     : req.cookies["mai-fullname"],
-        "custom-css"       : ["style"],
-        "custom-javascript": ["profile"],
-        writer
-    });
+        const writer = {
+            "fullname"     : results[0].dataValues.fullname,
+            "profile_url"  : results[0].dataValues.profile_url,
+            "numNewStories": Math.floor(3 * Math.random()) + 1,
+            "numStories"   : 6,
+            "numWriters"   : Math.floor(100 * Math.random()) + 1,
+            "numReaders"   : Math.floor(100 * Math.random()) + 1,
+            stories
+        };
+
+        res.render("profile", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["index"],
+            writer
+        });
+    }
+
+    Writer.findAll({
+        "where"     : {"id": req.params.id},
+        "attributes": ["fullname", "profile_url"],
+        "include"   : [{"model": Story, "include": [Photo]}]
+
+    }).then(callback);
 });
 
 

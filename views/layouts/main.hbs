@@ -9,7 +9,7 @@
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="assets/images/mai.png">
-        
+
         <!-- Import fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Leckerli+One|Nunito" rel="stylesheet">
@@ -32,10 +32,10 @@
             <div class="nav-wrapper grey darken-4">
                 <a href="/" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
                 <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                
+
                 <!-- Desktop -->
                 <ul id="mai-dropdown-writer" class="dropdown-content">
-                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/profile-{{mai-id}}">Profile</a></li>
                     <li><a href="/settings">Settings</a></li>
                     <li><a href="#">Logout</a></li>
 
@@ -51,7 +51,7 @@
                     <li><a class="mai-menu-desktop-items" href="/writers">Find Writers</a></li>
                     <li><a class="mai-menu-desktop-items dropdown-button" href="#" data-activates="mai-dropdown-writer">{{mai-fullname}}<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
-                
+
                 <!-- Mobile -->
                 <ul class="side-nav" id="mai-menu-mobile">
                     <li class="black-text center-align">{{mai-fullname}}</li>
@@ -64,7 +64,7 @@
 
                     <li class="divider"></li>
 
-                    <li><a class="mai-menu-mobile-items" href="/profile">Profile</a></li>
+                    <li><a class="mai-menu-mobile-items" href="/profile-{{mai-id}}">Profile</a></li>
                     <li><a class="mai-menu-mobile-items" href="/settings">Settings</a></li>
                     <li><a class="mai-menu-mobile-items" href="#">Logout</a></li>
 
@@ -80,14 +80,14 @@
             <div class="nav-wrapper grey darken-4">
                 <a href="/" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
                 <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                
+
                 <!-- Desktop -->
                 <ul class="right hide-on-med-and-down" id="mai-menu-desktop">
                     <li><a class="mai-menu-desktop-items" href="/">Home</a></li>
                     <li><a href="/meet-mai">Meet Mai</a></li>
                     <li><a href="/meet-mai-team">Meet Mai Team</a></li>
                 </ul>
-                
+
                 <!-- Mobile -->
                 <ul class="side-nav" id="mai-menu-mobile">
                     <li><a class="mai-menu-mobile-items" href="/">Home</a></li>
@@ -101,7 +101,7 @@
         <div class="container">
             {{{body}}}
         </div>
-        
+
         <footer class="page-footer grey darken-4">
             <div class="container">
                 <div class="row">

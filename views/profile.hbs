@@ -34,15 +34,18 @@
 
                 <div class="row">
                     <!-- User stories -->
-                    <div class="col s12" id="mai-user-stories">
-                        <div class="row">
-                            {{#each writer.stories}}
-                            <div class="col s6">
-                                <a href="/story/{{this.id}}"><img class="responsive-img z-depth-1 hoverable" src="{{this.url}}"></a>
+                    {{#each writer.stories}}
+                    <div class="col s12 l6">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <a href="/story/{{this.id}}"><img class="responsive-img" src="{{this.url}}"></a>
                             </div>
-                            {{/each}}
+                            <div class="card-content">
+                                <p>{{this.title}}</p>
+                            </div>
                         </div>
                     </div>
+                    {{/each}}
                 </div>
             </div>
         </div>

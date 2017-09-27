@@ -38,20 +38,26 @@ router.get("/", (req, res) => {
 
     } else {
         function callback(results) {
-            console.log(results[0].dataValues);
+            const stories = [];
+
+            for (let i = 0; i < results[0].Stories.length; i++) {
+                stories.push({
+                    "id"   : results[0].Stories[i].id,
+                    "title": results[0].Stories[i].title,
+                    "url"  : results[0].Stories[i].Photos[0].dataValues.url
+                });
+            }
             
             const writer = {
                 "fullname"     : results[0].dataValues.fullname,
                 "profile_url"  : results[0].dataValues.profile_url,
-                "numNewStories": 1,
-                "numStories"   : 3,
-                "numWriters"   : 6,
-                "numReaders"   : 4,
-                "stories"      : results[0].dataValues.Stories
+                "numNewStories": Math.floor(3 * Math.random()) + 1,
+                "numStories"   : 6,
+                "numWriters"   : Math.floor(100 * Math.random()) + 1,
+                "numReaders"   : Math.floor(100 * Math.random()) + 1,
+                stories
             };
 
-//            console.log(writer);
-/*
             res.render("profile", {
                 "mai-id"           : req.cookies["mai-id"],
                 "mai-fullname"     : req.cookies["mai-fullname"],
@@ -59,13 +65,12 @@ router.get("/", (req, res) => {
                 "custom-javascript": ["index"],
                 writer
             });
-*/
         }
 
         Writer.findAll({
             "where"     : {"id": req.cookies["mai-id"]},
             "attributes": ["fullname", "profile_url"],
-            "include"   : [Story, Photo]
+            "include"   : [{"model": Story, "include": [Photo]}]
 
         }).then(callback);
     }

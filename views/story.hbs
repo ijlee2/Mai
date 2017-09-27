@@ -1,20 +1,25 @@
         <div class="mai-separator-3"></div>
 
         <div class="row">
-            {{#each photos}}
             <div class="col s10 offset-s1 m8 offset-m2 xl6 offset-xl3">
-                <div class="card" id="card{{@index}}">
+                <h1 class="mai-attacher-1">{{this.title}}</h1>
+
+                <div class="mai-separator-3"></div>
+                
+                {{#each photos}}
+                <div class="card">
                     <div class="card-image">
                         <img src="{{this.url}}">
                     </div>
+
                     <div class="card-content">
                         <p>{{this.caption}}</p>
                     </div>
                 </div>
 
-                <div class="mai-separator-2"></div>
+                <div class="mai-separator-3"></div>
+                {{/each}}
             </div>
-            {{/each}}
         </div>
 
         <div class="mai-separator-2"></div>

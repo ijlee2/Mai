@@ -140,37 +140,12 @@ router.get("/edit-:id", (req, res) => {
         });
 
     } else {
-        function callback(results) {
-            const photos = [];
-
-            for (let i = 0; i < results[0].Photos.length; i++) {
-                photos.push({
-                    "id"     : results[0].Photos[i].id,
-                    "caption": results[0].Photos[i].caption,
-                    "url"    : results[0].Photos[i].url
-                });
-            }
-
-            const story = {
-                "id"   : results[0].dataValues.id,
-                "title": results[0].dataValues.title,
-                photos
-            };
-
-            res.render("edit", {
-                "mai-id"           : req.cookies["mai-id"],
-                "mai-fullname"     : req.cookies["mai-fullname"],
-                "custom-css"       : ["style"],
-                "custom-javascript": ["edit"],
-                story
-            });
-        }
-
-        Story.findAll({
-            "where"  : {"id": req.params.id},
-            "include": [Photo]
-
-        }).then(callback);
+        res.render("edit", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["edit"]
+        });
     }
 
 });

@@ -136,6 +136,13 @@ img.circle {
     width: 100%;
 }
 
+.fixed-action-btn {
+  float: right;
+  position: relative;
+  right: 0.5em;
+  bottom: 1.5em;
+}
+
 /* Video */
 .cover_video {
     -webkit-filter: brightness(1.3) contrast(1.28) opacity(0.54) sepia(0.09) saturate(1.06);

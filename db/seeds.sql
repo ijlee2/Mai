@@ -1,18 +1,26 @@
 INSERT INTO Writers (id, fullname, email, username, hash, profile_url, flagged, created_at, updated_at) VALUES
-("2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "John Absher"    , "john.absher@example.com"    , "john" , "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "", false, "2017-09-26 04:15:06", "2017-09-26 04:15:06"),
-("7592aa72-3832-4b2d-9b8e-658dc21b277d", "David Gutierrez", "david.gutierrez@example.com", "david", "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "", false, "2017-09-26 15:05:57", "2017-09-26 15:05:57"),
-("a5211e7d-8382-4221-b77a-824b051e2370", "Jason Joachim"  , "jason.joachim@example.com"  , "jason", "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "", false, "2017-09-27 10:28:24", "2017-09-27 10:28:24"),
-("a696e28e-79b0-47ed-a9ce-d2e681665459", "Isaac Lee"      , "isaac.lee@example.com"      , "isaac", "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "", false, "2017-09-26 04:13:41", "2017-09-26 04:13:41");
+("2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "John Absher"    , "john.absher@example.com"    , "john" , "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "", false, "2017-09-26 04:15:06", "2017-09-25 04:15:06"),
+("7592aa72-3832-4b2d-9b8e-658dc21b277d", "David Gutierrez", "david.gutierrez@example.com", "david", "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "", false, "2017-09-26 15:05:57", "2017-09-25 15:05:57"),
+("a5211e7d-8382-4221-b77a-824b051e2370", "Jason Joachim"  , "jason.joachim@example.com"  , "jason", "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "", false, "2017-09-27 10:28:24", "2017-09-25 10:28:24"),
+("a696e28e-79b0-47ed-a9ce-d2e681665459", "Isaac Lee"      , "isaac.lee@example.com"      , "isaac", "$2a$15$Gcd5x3lhGkZKw1vFwKCLueHjTzpKi3TvH5hj1iKeCYNHvXhwPxeUm", "", false, "2017-09-26 04:13:41", "2017-09-25 08:13:41");
 
-INSERT INTO Stories (WriterID, url) VALUES
-(3, "https://www.google.com"),
-(2, "https://www.google.com"),
-(4, "https://www.google.com"),
-(1, "https://www.google.com"),
-(1, "https://www.google.com"),
-(3, "https://www.google.com"),
-(4, "https://www.google.com"),
-(1, "https://www.google.com");
+
+INSERT INTO Stories (id, title, created_at, updated_at, writer_id) VALUES
+("1fb41095-a0c7-4764-bd78-3cf1234ec257", "Ice Cream Cones"  , "2017-09-27 11:30:17", "2017-09-27 11:30:17", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964"),
+("c24530d6-7b65-44ca-8e43-5cd58e44c3e9", "Taco Trucks"      , "2017-09-26 17:03:28", "2017-09-26 17:03:28", "a696e28e-79b0-47ed-a9ce-d2e681665459"),
+("3f11625f-95b8-44b2-b6e8-d601c48eb35d", "Hike in Austin"   , "2017-09-26 20:30:17", "2017-09-26 20:30:17", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
+("d584af97-0c4b-463d-970f-32c2cdbe91d7", "Hike in Austin II", "2017-09-27 11:43:31", "2017-09-27 11:43:31", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
+("b1ede670-585b-4e02-924f-afd9b4861d4c", "Fractals"         , "2017-09-27 05:49:20", "2017-09-27 05:49:20", "a5211e7d-8382-4221-b77a-824b051e2370"),
+("4405a89e-f9c1-4042-b730-217e9bc5a163", "Top 5 Games"      , "2017-09-27 11:52:25", "2017-09-27 11:52:25", "a696e28e-79b0-47ed-a9ce-d2e681665459"),
+("81d7d549-176c-44b3-9f84-b8fe2fafad6f", "Best Curry Places", "2017-09-26 04:14:21", "2017-09-26 04:14:21", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
+("63618791-709f-4691-95ae-4727299d790d", "Hidden Places"    , "2017-09-26 17:03:28", "2017-09-26 17:03:28", "a696e28e-79b0-47ed-a9ce-d2e681665459"),
+("b8c5dac2-b14b-4ec4-9434-0f92a5679ea3", "Best PB&J Recipe" , "2017-09-26 18:35:26", "2017-09-26 18:35:26", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964"),
+("f2f62de0-7335-4360-a462-7071d37a1762", "Must Read Books"  , "2017-09-27 11:47:43", "2017-09-27 11:47:43", "7592aa72-3832-4b2d-9b8e-658dc21b277d"),
+("2000a6d2-2ffb-43de-9795-daa66d59aa6f", "My Morning"       , "2017-09-26 22:23:51", "2017-09-26 22:23:51", "a5211e7d-8382-4221-b77a-824b051e2370"),
+("a9151086-364f-44ab-b29e-3a5d8f466c53", "Top 3 Desserts"   , "2017-09-27 10:28:24", "2017-09-27 10:28:24", "2c43aa1d-e8bf-44d1-bb10-cc28ccec0964"),
+("4828900f-8643-4aac-9565-dc0b3618fc70", "My Afternoon"     , "2017-09-27 09:48:59", "2017-09-27 09:48:59", "a5211e7d-8382-4221-b77a-824b051e2370"),
+("31df97a6-b2c6-454d-8770-3347d66724ae", "My Evening"       , "2017-09-27 11:49:24", "2017-09-27 11:49:24", "a5211e7d-8382-4221-b77a-824b051e2370");
+
 
 INSERT INTO Photos (StoryID, url, caption) VALUES
 (1, "https://i.pinimg.com/736x/b3/48/4c/b3484c816ba990b5ff29e5cd2299497f--wise-words-wise-sayings.jpg", "Your best teacher is your last mistake."),

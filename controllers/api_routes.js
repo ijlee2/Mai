@@ -91,7 +91,7 @@ router.post("/signup", (req, res) => {
 router.post("/login", (req, res) => {
     // Find the user's hash
     Writer.findAll({
-        "attributes": ["id", "hash"],
+        "attributes": ["id", "fullname", "hash"],
         "where"     : {"username": req.body.username}
 
     }).then(results => {
@@ -99,11 +99,16 @@ router.post("/login", (req, res) => {
         bcrypt.compare(req.body.password, results[0].hash, (error, isMatch) => {
             if (isMatch) {
                 if (!req.cookies.cookieName) {
-                    // Create a cookie (expires in a week)
-                    res.cookie("id", results[0].id, {
+                    const options = {
                         "maxAge"  : 604800,
                         "httpOnly": true
-                    });
+//                        "secure"  : true
+                    };
+
+                    // TODO: Add secure flag for product
+                    // Create cookies (expire in a week)
+                    res.cookie("mai-id", results[0].id, options);
+                    res.cookie("mai-fullname", results[0].fullname, options);
                 }
             }
 

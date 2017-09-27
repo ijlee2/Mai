@@ -208,11 +208,24 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
 router.post("/publish", (req, res) => {
     function callback(results) {
         // TODO: Redirect to story.hbs with the correct id
-    }
-    
-    console.log(req.body.captions);
 
-    // TODO: Store the photo url and caption in Photo table. (Randomly generate a caption for now.)
+    }
+
+    const photos = [];
+
+    for (let i = 0; i < req.body.urls.length; i++) {
+        photos.push({
+            "url"    : req.body.urls[i],
+            "caption": req.body.captions[i]
+        });
+    }
+
+    Photo.bulkCreate(photos).then(() => {
+        Story.create({
+            "title": req.body.title
+
+        }).then(callback);
+    });
 
     // TODO later: If storing was successful, call Google Vision next
 });

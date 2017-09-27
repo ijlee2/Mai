@@ -54,7 +54,7 @@ router.get("/compose", (req, res) => {
 });
 
 
-router.get("/edit", (req, res) => {
+router.get("/edit-:id", (req, res) => {
     res.render("edit", {
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["style"],
@@ -63,7 +63,7 @@ router.get("/edit", (req, res) => {
 });
 
 
-router.get("/story/:id?", (req, res) => {
+router.get("/story-:id", (req, res) => {
     const photos = [
         {
             "url"    : "https://i.pinimg.com/736x/b3/48/4c/b3484c816ba990b5ff29e5cd2299497f--wise-words-wise-sayings.jpg",
@@ -93,6 +93,8 @@ router.get("/writers", (req, res) => {
 
     for (let i = 0; i < 6; i++) {
         writers.push({
+            // TODO: Replace ID (i + 1) with UUID
+            "id"         : (i + 1),
             "fullname"   : "John Absheu",
             "profile_url": "http://www.math.uni-frankfurt.de/~person/_4170854.jpg"
         });
@@ -107,7 +109,7 @@ router.get("/writers", (req, res) => {
 });
 
 
-router.get("/profile/:id?", (req, res) => {
+router.get("/profile-:id", (req, res) => {
     const stories = [
         {
             "id": "1",

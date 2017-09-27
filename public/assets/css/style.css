@@ -150,6 +150,14 @@ img.circle {
     z-index   : -1;
 }
 
+/* Fixed action button */
+.fixed-action-btn {
+    float   : right;
+    position: relative;
+    right   : 0.5em;
+    bottom  : 1.5em;
+}
+
 
 /****************************************************************************
     

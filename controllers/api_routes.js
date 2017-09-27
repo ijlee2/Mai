@@ -95,6 +95,9 @@ router.post("/login", (req, res) => {
 
 router.patch("/update-profile/:id", (req, res) => {
     function callback(results) {
+        // TODO: Update cookie for fullname
+
+        // TODO: Pass values
         res.redirect("/profile");
     }
 
@@ -112,6 +115,7 @@ router.patch("/update-profile/:id", (req, res) => {
 
 router.patch("/update-password/:id", (req, res) => {
     function callback(results) {
+        // TODO: Pass values
         res.redirect("/profile");
     }
 
@@ -138,8 +142,14 @@ router.patch("/update-password/:id", (req, res) => {
 
 router.delete("/delete-account/:id", (req, res) => {
     function callback(results) {
-        // TODO: Reset cookie
+        const options = {
+            "maxAge"  : 604800,
+            "httpOnly": true
+//          "secure"  : true
+        };
 
+        res.cookies("mai-id", "", options);
+        res.cookies("mai-fullname", "", options);
         res.redirect("/");
     }
 
@@ -221,8 +231,7 @@ router.patch("/edit-story-:id", (req, res) => {
 
 router.delete("/delete-story-:id", (req, res) => {
     function callback(results) {
-        // TODO: Redirect to story.hbs with the correct id
-        res.redirect("/story.hbs");
+        res.redirect("/profile");
     }
 
     Story.destroy({

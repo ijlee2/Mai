@@ -94,24 +94,27 @@ router.get("/story-:id", (req, res) => {
 
 
 router.get("/writers", (req, res) => {
-    const writers = [];
+    function callback(results) {
+        const writers = [];
 
-    for (let i = 0; i < 6; i++) {
-        writers.push({
-            // TODO: Replace ID (i + 1) with UUID
-            "id"         : (i + 1),
-            "fullname"   : "John Absheu",
-            "profile_url": "http://www.math.uni-frankfurt.de/~person/_4170854.jpg"
+        for (let i = 0; i < results.length; i++) {
+            writers.push({
+                "id"         : results[i].id,
+                "fullname"   : results[i].dataValues.fullname,
+                "profile_url": results[i].dataValues.profile_url
+            });
+        }
+
+        res.render("writers", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["writers"],
+            writers
         });
     }
 
-    res.render("writers", {
-        "mai-id"           : req.cookies["mai-id"],
-        "mai-fullname"     : req.cookies["mai-fullname"],
-        "custom-css"       : ["style"],
-        "custom-javascript": ["writers"],
-        writers
-    });
+    Writer.findAll({}).then(callback);
 });
 
 

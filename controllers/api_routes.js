@@ -51,7 +51,6 @@ const default_profiles = [
 *****************************************************************************/
 router.post("/signup", (req, res) => {
     function callback(results) {
-<<<<<<< HEAD
         const options = {
             "maxAge"  : 604800,
             "httpOnly": true
@@ -60,8 +59,6 @@ router.post("/signup", (req, res) => {
      
         res.cookie("mai-id", results.id, options);
         res.cookie("mai-fullname", results.fullname, options);
-=======
->>>>>>> a9509df36d6507e852014f12b7ed9608ece04a85
         res.redirect("/");
     }
 

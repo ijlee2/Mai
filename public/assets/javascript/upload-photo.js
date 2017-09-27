@@ -41,6 +41,9 @@ Dropzone.options.uploadWidget = {
 
 // =============================
 // Begin insertion of John's code snippet to upload photos to S3.
+// Here are the links to the pages that guided this process:
+// https://devcenter.heroku.com/articles/s3-upload-node
+// https://github.com/flyingsparx/NodeDirectUploader/blob/master/views/account.html
 //==============================
 
 /*

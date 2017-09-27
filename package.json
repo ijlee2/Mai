@@ -2,6 +2,7 @@
     "//": [
         "bcrypt                     : Hash user passwords",
         "body-parser                : Parse incoming request bodies in middlewares",
+        "cookie-parser              : Create cookies in Express",
         "express                    : Develop API using Express",
         "express-handlebars         : Use Handlebars to create custom pages",
         "image-size                 : Check the dimensions of an image",

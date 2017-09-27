@@ -11,6 +11,13 @@ const path    = require("path");
 // Create an instance of Router
 const router = express.Router();
 
+// Talk to the models
+const models = require(path.join(__dirname, "..", "models"));
+const Writer = models.Writer;
+const Story  = models.Story;
+const Photo  = models.Photo;
+const Reader = models.Reader;
+
 
 
 /****************************************************************************

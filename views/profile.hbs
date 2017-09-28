@@ -38,14 +38,14 @@
             <div class="col s12 m6 l4 xl3">
                 <div class="card hoverable">
                     <div class="card-image mai-card-preview">
-                        <a href="/story_{{this.id}}"><img class="responsive-img" src="{{this.url}}"></a>
+                        <a href="/story_{{this.id}}"><img class="responsive-img" src="{{this.url}}" title="Click to read {{this.title}}."></a>
                         {{#if ../editable}}
-                        <a href="/edit-story_{{../mai-id}}&{{this.id}}" class="btn-floating btn-large halfway-fab waves-effect waves-light yellow darken-2"><i class="large material-icons">mode_edit</i></a>
+                        <a href="/edit-story_{{../mai-id}}&{{this.id}}" class="btn-floating btn-large halfway-fab waves-effect waves-light yellow darken-2" title="Click to edit {{this.title}}."><i class="large material-icons">mode_edit</i></a>
                         {{/if}}
                     </div>
-                    <div class="card-content">
-                        <p>{{this.title}}</p>
-                    </div>
+                    <a href="/story_{{this.id}}" title="Click to read {{this.title}}.">
+                        <div class="card-content">{{this.title}}</div>
+                    </a>
                 </div>
             </div>
             {{/each}}

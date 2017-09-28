@@ -126,16 +126,6 @@ footer a:hover {
     margin-bottom: 0.6em;
 }
 
-/*#footerIcon li + li:before {
-    content: " | ";
-    padding: 0 10px;
-}*/
-
-#footerIcon li {
-    display: inline;
-    padding: 0 10px;
-}
-
 label {
     font-size: 0.85em !important;
 }
@@ -210,8 +200,7 @@ img.circle {
 *****************************************************************************/
 /* Signup, Login */
 .mai-signup-wrapper, .mai-login-wrapper {
-    height   : calc(100vh - 1.5*var(--height-nav));
-    transform: scale(0.9);
+    height: calc(100vh - 1.5*var(--height-nav));
 }
 
 .mai-signup-wrapper > *, .mai-login-wrapper > * {

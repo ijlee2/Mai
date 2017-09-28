@@ -210,7 +210,8 @@ img.circle {
 *****************************************************************************/
 /* Signup, Login */
 .mai-signup-wrapper, .mai-login-wrapper {
-    height: calc(100vh - 1.5*var(--height-nav));
+    height   : calc(100vh - 1.5*var(--height-nav));
+    transform: scale(0.9);
 }
 
 .mai-signup-wrapper > *, .mai-login-wrapper > * {

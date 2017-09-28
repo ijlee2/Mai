@@ -311,10 +311,10 @@ h1.brand-logo img {
 /* Mobile */
 @media all and (max-width: 600px), all and (max-device-width: 600px) {
     .mai-card img {
-        height: 300px;
+        height: 200px;
     }
 
     .mai-card-preview img {
-        height: 320px;
+        height: 200px;
     }
 }

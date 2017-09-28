@@ -246,7 +246,8 @@ router.get("/story-:id", (req, res) => {
 
 
 router.get("/edit-story-:id", (req, res) => {
-    if (!req.cookies["mai-id"]) {
+    // Only the user can edit their stories
+    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
             "mai-fullname"     : req.cookies["mai-fullname"],

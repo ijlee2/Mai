@@ -108,65 +108,100 @@ router.post("/login", (req, res) => {
 
 
 router.patch("/update-profile/:id", (req, res) => {
-    function callback(result) {
+    // Only the user can update their profile
+    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
+        res.render("index", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["index"]
+        });
 
-        // TODO: Update cookie for fullname
-        res.cookie("mai-fullname", req.body.fullname);
+    } else {
+        function callback(result) {
 
-        // TODO: Pass values
-        res.redirect("/settings");
+            // TODO: Update cookie for fullname
+            res.cookie("mai-fullname", req.body.fullname);
+
+            // TODO: Pass values
+            res.redirect("/settings");
+        }
+
+        Writer.update({
+            "fullname": req.body.fullname,
+            "email"   : req.body.email,
+            "username": req.body.username
+
+        }, {
+            "where": {"id" : req.params.id}
+
+        }).then(callback);
+
     }
-
-    Writer.update({
-        "fullname": req.body.fullname,
-        "email"   : req.body.email,
-        "username": req.body.username
-
-    }, {
-        "where": {"id" : req.params.id}
-
-    }).then(callback);
 });
 
 
 router.patch("/update-password/:id", (req, res) => {
-    function callback(result) {
-        // TODO: Pass values
-        res.redirect("/settings");
-    }
-
-    // Find the user's hash
-    Writer.findAll({
-        "attributes": ["hash"],
-        "where"     : {"id": req.params.id}
-
-    }).then(results => {
-        // Verify the user
-        bcrypt.compare(req.body.password_current, results[0].hash, (error, isMatch) => {
-            if (isMatch) {
-                // Salt and hash the new password
-                bcrypt.hash(req.body.password_new, saltRounds, (error, hash) => {
-                    Writer.update({hash}, {"where": {"id": req.params.id}});
-
-                });
-            }
+    // Only the user can update their password
+    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
+        res.render("index", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["index"]
         });
 
-    }).then(callback);
+    } else {
+        function callback(result) {
+            // TODO: Pass values
+            res.redirect("/settings");
+        }
+
+        // Find the user's hash
+        Writer.findAll({
+            "attributes": ["hash"],
+            "where"     : {"id": req.params.id}
+
+        }).then(results => {
+            // Verify the user
+            bcrypt.compare(req.body.password_current, results[0].hash, (error, isMatch) => {
+                if (isMatch) {
+                    // Salt and hash the new password
+                    bcrypt.hash(req.body.password_new, saltRounds, (error, hash) => {
+                        Writer.update({hash}, {"where": {"id": req.params.id}});
+
+                    });
+                }
+            });
+
+        }).then(callback);
+    }
 });
 
 
 router.delete("/delete-account/:id", (req, res) => {
-    function callback(results) {
-        res.clearCookie("mai-id");
-        res.clearCookie("mai-fullname");
-        res.redirect("/");
+    // Only the user can delete their account
+    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
+        res.render("index", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["index"]
+        });
+
+    } else {
+        function callback(results) {
+            res.clearCookie("mai-id");
+            res.clearCookie("mai-fullname");
+            res.redirect("/");
+        }
+
+        Writer.destroy({
+            "where": {"id": req.params.id}
+
+        }).then(callback);
+
     }
-
-    Writer.destroy({
-        "where": {"id": req.params.id}
-
-    }).then(callback);
 });
 
 
@@ -231,46 +266,70 @@ router.post("/add-story", (req, res) => {
 
 
 router.patch("/edit-story-:id", (req, res) => {
-    function callback(results) {
-        res.redirect(`/story-${req.params.id}`);
-    }
+    // Only the user can edit their stories
+    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
+        res.render("index", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["index"]
+        });
 
-    // Update the title
-    Story.update({
-        "title": req.body.title
-
-    }, {
-        "where": {"id": req.params.id}
-
-    // Update the captions (TODO: test and fix this)
-    }).then(result => {
-        function updateCaption(caption, i) {
-            return Photo.update({
-                "caption": caption
-
-            }, {
-                "where": {"id": req.body.ids[i]}
-
-            });
+    } else {
+        function callback(results) {
+            res.redirect(`/story-${req.params.id}`);
         }
 
-        const updatesInParallel = req.body.captions.map(updateCaption);
+        // Update the title
+        Story.update({
+            "title": req.body.title
 
-        return Promise.all([updatesInParallel]);
+        }, {
+            "where": {"id": req.params.id}
 
-    }).then(callback);
+        // Update the captions (TODO: test and fix this)
+        }).then(result => {
+            function updateCaption(caption, i) {
+                return Photo.update({
+                    "caption": caption
+
+                }, {
+                    "where": {"id": req.body.ids[i]}
+
+                });
+            }
+
+            const updatesInParallel = req.body.captions.map(updateCaption);
+
+            return Promise.all([updatesInParallel]);
+
+        }).then(callback);
+
+    }
 });
 
 
 router.delete("/delete-story-:id", (req, res) => {
-    function callback(results) {
-        res.redirect("/");
+    // Only the user can delete their stories
+    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
+        res.render("index", {
+            "mai-id"           : req.cookies["mai-id"],
+            "mai-fullname"     : req.cookies["mai-fullname"],
+            "custom-css"       : ["style"],
+            "custom-javascript": ["index"]
+        });
+
+    } else {
+        function callback(results) {
+            res.redirect("/");
+        }
+
+        Story.destroy({
+            "where": {"id": req.params.id}
+
+        }).then(callback);
+
     }
-
-    Story.destroy({
-        "where": {"id": req.params.id}
-
-    }).then(callback);
 });
 
 

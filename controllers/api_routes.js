@@ -183,7 +183,7 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
         return res.status(422).json({
             "error": "The uploaded file must be an image."
         });
-    }
+    };
 
     const dimensions = sizeOf(req.file.path);
 
@@ -191,11 +191,12 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
         return res.status(422).json({
             "error": "The image must be at least 200 x 200px."
         });
-    }
+    };
 
 //    return res.status(200).send(req.file);
     // TODO: send user to "add-story" page along with photo URLs
     res.redirect("/add-story");
+    // next();
 });
 
 
@@ -204,7 +205,7 @@ router.post("/add-story", (req, res) => {
         // TODO later: If storing was successful, call Google Vision next
         
         // Redirect to story page
-        res.redirect(`/story-${results[0].dataValues.story_id}`);
+        res.redirect("/story-${results[0].dataValues.story_id}");
     }
 
     Story.create({

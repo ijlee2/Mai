@@ -107,15 +107,18 @@ router.post("/login", (req, res) => {
 });
 
 
-router.patch("/update-profile/:id", (req, res) => {
-    // Only the user can update their profile
-    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
+router.patch("/update-profile_:id", (req, res) => {
+    if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
             "mai-fullname"     : req.cookies["mai-fullname"],
             "custom-css"       : ["style"],
             "custom-javascript": ["index"]
         });
+
+    // Only the user can edit their profile
+    } else if (req.cookies["mai-id"] !== req.params.id) {
+        res.redirect("/");
 
     } else {
         function callback(result) {
@@ -141,15 +144,18 @@ router.patch("/update-profile/:id", (req, res) => {
 });
 
 
-router.patch("/update-password/:id", (req, res) => {
-    // Only the user can update their password
-    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
+router.patch("/update-password_:id", (req, res) => {
+    if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
             "mai-fullname"     : req.cookies["mai-fullname"],
             "custom-css"       : ["style"],
             "custom-javascript": ["index"]
         });
+
+    // Only the user can edit their password
+    } else if (req.cookies["mai-id"] !== req.params.id) {
+        res.redirect("/");
 
     } else {
         function callback(result) {
@@ -179,15 +185,18 @@ router.patch("/update-password/:id", (req, res) => {
 });
 
 
-router.delete("/delete-account/:id", (req, res) => {
-    // Only the user can delete their account
-    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
+router.delete("/delete-account_:id", (req, res) => {
+    if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
             "mai-fullname"     : req.cookies["mai-fullname"],
             "custom-css"       : ["style"],
             "custom-javascript": ["index"]
         });
+
+    // Only the user can delete their stories
+    } else if (req.cookies["mai-id"] !== req.params.id) {
+        res.redirect("/");
 
     } else {
         function callback(results) {
@@ -250,8 +259,6 @@ router.post("/add-story", (req, res) => {
     }).then(result => {
         const photos = [];
 
-        console.log(result);
-
         for (let i = 0; i < req.body.urls.length; i++) {
             photos.push({
                 "url"     : req.body.urls[i],
@@ -265,15 +272,18 @@ router.post("/add-story", (req, res) => {
 });
 
 
-router.patch("/edit-story-:id", (req, res) => {
-    // Only the user can edit their stories
-    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
+router.patch("/edit-story_:maiId_:storyId", (req, res) => {
+    if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
             "mai-fullname"     : req.cookies["mai-fullname"],
             "custom-css"       : ["style"],
             "custom-javascript": ["index"]
         });
+
+    // Only the user can edit their stories
+    } else if (req.cookies["mai-id"] !== req.params.maiId) {
+        res.redirect("/");
 
     } else {
         function callback(results) {
@@ -285,7 +295,7 @@ router.patch("/edit-story-:id", (req, res) => {
             "title": req.body.title
 
         }, {
-            "where": {"id": req.params.id}
+            "where": {"id": req.params.storyId}
 
         // Update the captions (TODO: test and fix this)
         }).then(result => {
@@ -309,9 +319,8 @@ router.patch("/edit-story-:id", (req, res) => {
 });
 
 
-router.delete("/delete-story-:id", (req, res) => {
-    // Only the user can delete their stories
-    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
+router.delete("/delete-story_:maiId_:storyId", (req, res) => {
+    if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
             "mai-fullname"     : req.cookies["mai-fullname"],
@@ -319,13 +328,17 @@ router.delete("/delete-story-:id", (req, res) => {
             "custom-javascript": ["index"]
         });
 
+    // Only the user can delete their stories
+    } else if (req.cookies["mai-id"] !== req.params.maiId) {
+        res.redirect("/");
+
     } else {
         function callback(results) {
             res.redirect("/");
         }
 
         Story.destroy({
-            "where": {"id": req.params.id}
+            "where": {"id": req.params.storyId}
 
         }).then(callback);
 

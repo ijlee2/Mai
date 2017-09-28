@@ -12,10 +12,10 @@
                     <div class="card-content">
                         <div class="mai-separator-2"></div>
 
-                        <form id="mai-form-upload-photos" class="dropzone" action="/api/upload-photos" method="POST" enctype="multipart/form-data">
+                        <form action="/api/upload-photos" method="POST" class="dropzone" id="mai-form-upload-photos" enctype="multipart/form-data">
                             <div class="fallback">
                                 <label for="mai-photos" class="blue-grey-text text-darken-2">Photos</label>
-                                <input type="file" name="photos" <!-- value="*FILEPATH?*" src="*FILEPATH*" --> id="mai-photos" multiple>
+                                <input type="file" name="photos" id="mai-photos" multiple>
                             </div>
                         </form>
 

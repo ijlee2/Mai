@@ -95,7 +95,7 @@ router.get("/logout", function(req, res){
 });
 
 
-router.get("/profile-:id", (req, res) => {
+router.get("/profile_:id", (req, res) => {
     if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
@@ -199,7 +199,7 @@ router.get("/create-story", (req, res) => {
 });
 
 
-router.get("/story-:id", (req, res) => {
+router.get("/story_:id", (req, res) => {
     if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
@@ -245,15 +245,18 @@ router.get("/story-:id", (req, res) => {
 });
 
 
-router.get("/edit-story-:id", (req, res) => {
-    // Only the user can edit their stories
-    if (!req.cookies["mai-id"] || req.cookies["mai-id"] !== req.params.id) {
+router.get("/edit-story_:maiId&:storyId", (req, res) => {
+    if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
             "mai-fullname"     : req.cookies["mai-fullname"],
             "custom-css"       : ["style"],
             "custom-javascript": ["index"]
         });
+
+    // Only the user can edit their stories
+    } else if (req.cookies["mai-id"] !== req.params.maiId) {
+        res.redirect("/");
 
     } else {
         function callback(results) {
@@ -283,7 +286,7 @@ router.get("/edit-story-:id", (req, res) => {
         }
 
         Story.findAll({
-            "where"  : {"id": req.params.id},
+            "where"  : {"id": req.params.storyId},
             "include": [Photo]
 
         }).then(callback);

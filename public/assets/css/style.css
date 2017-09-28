@@ -1,8 +1,8 @@
 /****************************************************************************
  ****************************************************************************
-    
+
     Default stylesheet
-    
+
 *****************************************************************************
 *****************************************************************************/
 :root {
@@ -19,9 +19,9 @@
 
 
 /****************************************************************************
-    
+
     Universal elements
-    
+
 *****************************************************************************/
 /* Window */
 body {
@@ -34,7 +34,7 @@ body {
 }
 
 /* Fonts */
-h1 { 
+h1 {
     font-family   : var(--font-highlight);
     font-size     : 2.8em;
     height        : 1.4em;
@@ -112,6 +112,10 @@ nav #mai-menu-desktop li:last-child {
 }
 
 /* Footer */
+footer a:hover {
+    text-decoration: underline;
+}
+
 .footer-copyright {
     font-size: 0.75em;
 }
@@ -150,6 +154,10 @@ img.circle {
     font-size: 1.2em !important;
 }
 
+.card a.btn-floating:hover {
+    background: #ffa000 !important;
+}
+
 .mai-card img {
     object-fit: cover;
     width     : 100%;
@@ -186,9 +194,9 @@ img.circle {
 
 
 /****************************************************************************
-    
+
     Page-specific elements
-    
+
 *****************************************************************************/
 /* Signup, Login */
 .mai-signup-wrapper, .mai-login-wrapper {
@@ -201,6 +209,12 @@ img.circle {
 
 h1.brand-logo img {
     height: 100%;
+}
+
+/* Writers */
+.mai-writer:hover {
+    transform : scale(1.05);
+    transition: all 0.2s;
 }
 
 /* Profile */
@@ -243,9 +257,9 @@ h1.brand-logo img {
 
 /****************************************************************************
  ****************************************************************************
-    
+
     Media query
-    
+
 *****************************************************************************
 *****************************************************************************/
 /* Tablet and larger */
@@ -280,7 +294,7 @@ h1.brand-logo img {
     nav .brand-logo {
         margin-left: 0;
     }
-    
+
     .cover_video {
         visibility: hidden;
     }

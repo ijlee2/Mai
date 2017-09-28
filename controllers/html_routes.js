@@ -254,6 +254,7 @@ router.get("/edit-story-:id", (req, res) => {
 
             for (let i = 0; i < results[0].Photos.length; i++) {
                 photos.push({
+                    "id"     : results[0].Photos[i].id,
                     "url"    : results[0].Photos[i].url,
                     "caption": results[0].Photos[i].caption
                 });

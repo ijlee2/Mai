@@ -42,7 +42,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.9em;
+    font-size: 1.8em;
 }
 
 strong {
@@ -134,6 +134,20 @@ button {
 /* Image */
 img.circle {
     width: 100%;
+}
+
+/* Materialize card */
+.card label {
+    font-size: 1.2em !important;
+}
+
+.card input {
+    font-size : 1.2em !important;
+    margin-top: 0.75em !important;
+}
+
+.card p {
+    font-size: 1.2em !important;
 }
 
 .mai-card img {

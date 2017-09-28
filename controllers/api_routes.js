@@ -52,7 +52,7 @@ const default_profiles = [
 router.post("/signup", (req, res) => {
     function callback(result) {
         const options = {
-            "expires" : new Date(Date.now() + 604800),
+            "expires" : new Date(Date.now() + 604800000),
             "httpOnly": true
 //            "secure"  : true
         };
@@ -88,7 +88,7 @@ router.post("/login", (req, res) => {
             if (isMatch) {
                 if (!req.cookies.cookieName) {
                     const options = {
-                        "expires" : new Date(Date.now() + 604800),
+                        "expires" : new Date(Date.now() + 604800000),
                         "httpOnly": true
 //                        "secure"  : true
                     };
@@ -109,7 +109,7 @@ router.post("/login", (req, res) => {
 
 router.patch("/update-profile/:id", (req, res) => {
     function callback(result) {
-        
+
         // TODO: Update cookie for fullname
         res.cookie("mai-fullname", req.body.fullname);
 

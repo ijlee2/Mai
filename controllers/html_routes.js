@@ -82,6 +82,19 @@ router.get("/", (req, res) => {
 });
 
 
+router.get("/logout", function(req, res){
+    const cookie = req.cookies;
+
+    for (let prop in cookie) {
+        if (cookie.hasOwnProperty(prop)) {
+            res.cookie(prop, "", {"expires": new Date(0)});
+        }
+    }
+    
+    res.redirect("/");
+});
+
+
 router.get("/profile-:id", (req, res) => {
     if (!req.cookies["mai-id"]) {
         res.render("index", {

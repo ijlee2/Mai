@@ -29,26 +29,26 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="mai-separator-2"></div>
-
-                <div class="row">
-                    <!-- User stories -->
-                    {{#each writer.stories}}
-                    <div class="col s12 l6">
-                        <div class="card hoverable">
-                            <div class="card-image mai-card-preview">
-                                <a href="/story_{{this.id}}"><img class="responsive-img" src="{{this.url}}"></a>
-                                {{#if ../editable}}
-                                <a href="/edit-story_{{../mai-id}}&{{this.id}}" class="btn-floating btn-large halfway-fab waves-effect waves-light yellow darken-2"><i class="large material-icons">mode_edit</i></a>
-                                {{/if}}
-                            </div>
-                            <div class="card-content">
-                                <p>{{this.title}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {{/each}}
-                </div>
             </div>
         </div>
+
+        <div class="row">
+            <!-- User stories -->
+            {{#each writer.stories}}
+            <div class="col s12 m6 l3">
+                <div class="card hoverable">
+                    <div class="card-image mai-card-preview">
+                        <a href="/story_{{this.id}}"><img class="responsive-img" src="{{this.url}}"></a>
+                        {{#if ../editable}}
+                        <a href="/edit-story_{{../mai-id}}&{{this.id}}" class="btn-floating btn-large halfway-fab waves-effect waves-light yellow darken-2"><i class="large material-icons">mode_edit</i></a>
+                        {{/if}}
+                    </div>
+                    <div class="card-content">
+                        <p>{{this.title}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        
+        <div class="mai-separator-3"></div>

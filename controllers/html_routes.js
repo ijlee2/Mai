@@ -202,8 +202,7 @@ router.get("/create-story", (req, res) => {
     } else {
         // TODO: Replace this array of photo URLs with the URLs from Amazon S3
         const photos = [
-            {"url": "https://goo.gl/uKWPCJ"},
-            {"url": "https://goo.gl/tAeWUE"}
+            {"url": "https://goo.gl/iyTKk9"}
         ];
 
         res.render("compose", {

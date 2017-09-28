@@ -273,7 +273,7 @@ router.post("/create-story", (req, res) => {
 });
 
 
-router.patch("/edit-story_:maiId_:storyId", (req, res) => {
+router.patch("/edit-story_:maiId&:storyId", (req, res) => {
     if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
@@ -320,7 +320,7 @@ router.patch("/edit-story_:maiId_:storyId", (req, res) => {
 });
 
 
-router.delete("/delete-story_:maiId_:storyId", (req, res) => {
+router.delete("/delete-story_:maiId&:storyId", (req, res) => {
     if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],

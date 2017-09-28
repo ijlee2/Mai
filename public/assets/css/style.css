@@ -116,6 +116,12 @@ footer a:hover {
     text-decoration: underline;
 }
 
+#mai-footer-social li {
+    font-size    : 1.6em;
+    float        : left;
+    padding-right: 0.9em;
+}
+
 .footer-copyright {
     font-size: 0.75em;
 }

@@ -238,14 +238,14 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
     };
 
 //    return res.status(200).send(req.file);
-    // TODO: send user to "add-story" page along with photo URLs
-    // res.redirect("/add-story");
+    // TODO: send user to "create-story" page along with photo URLs
+    // res.redirect("/create-story");
     res.json(true);
     // next();
 });
 
 
-router.post("/add-story", (req, res) => {
+router.post("/create-story", (req, res) => {
     function callback(results) {
         // TODO later: If storing was successful, call Google Vision next
         

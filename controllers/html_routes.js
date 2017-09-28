@@ -202,7 +202,6 @@ router.get("/create-story", (req, res) => {
     } else {
         // TODO: Replace this array of photo URLs with the URLs from Amazon S3
         const photos = [
-            {"url": "https://goo.gl/9p2qT2"},
             {"url": "https://goo.gl/uKWPCJ"},
             {"url": "https://goo.gl/tAeWUE"}
         ];

@@ -8,8 +8,8 @@
                 <div class="mai-separator-3"></div>
                 
                 {{#each photos}}
-                <div class="card">
-                    <div class="card-image">
+                <div class="card" id="card{{@index}}">
+                    <div class="card-image mai-card">
                         <img src="{{this.url}}">
                     </div>
 

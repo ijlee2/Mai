@@ -250,7 +250,7 @@ router.post("/create-story", (req, res) => {
         // TODO later: If storing was successful, call Google Vision next
         
         // Redirect to story page
-        res.redirect("/story-${results[0].dataValues.story_id}");
+        res.redirect("/story_${results[0].dataValues.story_id}");
     }
 
     Story.create({
@@ -288,7 +288,7 @@ router.patch("/edit-story_:maiId&:storyId", (req, res) => {
 
     } else {
         function callback(results) {
-            res.redirect(`/story-${req.params.storyId}`);
+            res.redirect(`/story_${req.params.storyId}`);
         }
 
         // Update the title

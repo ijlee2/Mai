@@ -212,6 +212,13 @@ router.get("/story-:id", (req, res) => {
         function callback(results) {
             const photos = [];
 
+            for (let i = 0; i < results[0].Photos.length; i++) {
+                photos.push({
+                    "url"    : results[0].Photos[i].url,
+                    "caption": results[0].Photos[i].caption
+                });
+            }
+
             res.render("story", {
                 "mai-id"           : req.cookies["mai-id"],
                 "mai-fullname"     : req.cookies["mai-fullname"],
@@ -220,13 +227,6 @@ router.get("/story-:id", (req, res) => {
                 "title"            : results[0].dataValues.title,
                 photos
             });
-
-            for (let i = 0; i < results[0].Photos.length; i++) {
-                photos.push({
-                    "url"    : results[0].Photos[i].url,
-                    "caption": results[0].Photos[i].caption
-                });
-            }
         }
 
         Story.findAll({
@@ -239,7 +239,7 @@ router.get("/story-:id", (req, res) => {
 });
 
 
-router.get("/edit-story:id", (req, res) => {
+router.get("/edit-story-:id", (req, res) => {
     if (!req.cookies["mai-id"]) {
         res.render("index", {
             "mai-id"           : req.cookies["mai-id"],
@@ -249,13 +249,36 @@ router.get("/edit-story:id", (req, res) => {
         });
 
     } else {
-        res.render("edit", {
-            "mai-id"           : req.cookies["mai-id"],
-            "mai-fullname"     : req.cookies["mai-fullname"],
-            "custom-css"       : ["style"],
-            "custom-javascript": ["edit"]
-        });
+        function callback(results) {
+            const photos = [];
 
+            for (let i = 0; i < results[0].Photos.length; i++) {
+                photos.push({
+                    "url"    : results[0].Photos[i].url,
+                    "caption": results[0].Photos[i].caption
+                });
+            }
+
+            const story = {
+                "id"   : results[0].dataValues.id,
+                "title": results[0].dataValues.title,
+                photos
+            };
+
+            res.render("edit", {
+                "mai-id"           : req.cookies["mai-id"],
+                "mai-fullname"     : req.cookies["mai-fullname"],
+                "custom-css"       : ["style"],
+                "custom-javascript": ["edit"],
+                story
+            });
+        }
+
+        Story.findAll({
+            "where"  : {"id": req.params.id},
+            "include": [Photo]
+
+        }).then(callback);
     }
 });
 

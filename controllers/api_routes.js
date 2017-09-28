@@ -109,7 +109,9 @@ router.post("/login", (req, res) => {
 
 router.patch("/update-profile/:id", (req, res) => {
     function callback(result) {
+        
         // TODO: Update cookie for fullname
+        res.cookie("mai-fullname", req.body.fullname);
 
         // TODO: Pass values
         res.redirect("/settings");

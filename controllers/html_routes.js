@@ -210,6 +210,11 @@ router.get("/story-:id", (req, res) => {
 
     } else {
         function callback(results) {
+            const writer = {
+                "id"      : results[0].Writer.dataValues.id,
+                "fullname": results[0].Writer.dataValues.fullname
+            };
+
             const photos = [];
 
             for (let i = 0; i < results[0].Photos.length; i++) {
@@ -225,13 +230,14 @@ router.get("/story-:id", (req, res) => {
                 "custom-css"       : ["style"],
                 "custom-javascript": ["story"],
                 "title"            : results[0].dataValues.title,
+                writer,
                 photos
             });
         }
 
         Story.findAll({
             "where"  : {"id": req.params.id},
-            "include": [Photo]
+            "include": [Writer, Photo]
 
         }).then(callback);
 

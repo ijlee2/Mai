@@ -288,7 +288,7 @@ router.patch("/edit-story_:maiId&:storyId", (req, res) => {
 
     } else {
         function callback(results) {
-            res.redirect(`/story-${req.params.id}`);
+            res.redirect(`/story-${req.params.storyId}`);
         }
 
         // Update the title

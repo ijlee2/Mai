@@ -5,6 +5,7 @@
 
 *****************************************************************************
 *****************************************************************************/
+// Import packages
 const express = require("express");
 const path    = require("path");
 
@@ -75,7 +76,17 @@ router.get("/", (req, res) => {
         Writer.findAll({
             "where"     : {"id": req.cookies["mai-id"]},
             "attributes": ["fullname", "profile_url"],
-            "include"   : [{"model": Story, "include": [Photo]}]
+            "include"   : [
+                {
+                    "model"  : Story,
+                    "include": [
+                        {
+                            "model"     : Photo,
+                            "attributes": ["url"]
+                        }
+                    ]
+                }
+            ]
 
         }).then(callback);
     }
@@ -139,7 +150,17 @@ router.get("/profile_:id", (req, res) => {
         Writer.findAll({
             "where"     : {"id": req.params.id},
             "attributes": ["fullname", "profile_url"],
-            "include"   : [{"model": Story, "include": [Photo]}]
+            "include"   : [
+                {
+                    "model"  : Story,
+                    "include": [
+                        {
+                            "model"     : Photo,
+                            "attributes": ["url"]
+                        }
+                    ]
+                }
+            ]
 
         }).then(callback);
 
@@ -237,7 +258,16 @@ router.get("/story_:id", (req, res) => {
 
         Story.findAll({
             "where"  : {"id": req.params.id},
-            "include": [Writer, Photo]
+            "include": [
+                {
+                    "model"     : Writer,
+                    "attributes": ["id", "fullname"]
+                },
+                {
+                    "model"     : Photo,
+                    "attributes": ["url", "caption"]
+                }
+            ]
 
         }).then(callback);
 

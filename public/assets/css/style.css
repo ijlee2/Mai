@@ -145,7 +145,7 @@ img.circle {
 .mai-card-preview img {
     object-fit: cover;
     width     : 100%;
-    height    : 260px;
+    height    : 200px;
 }
 
 /* Video */
@@ -249,7 +249,7 @@ h1.brand-logo img {
     }
 
     .mai-card-preview img {
-        height: 240px;
+        height: 200px;
     }
 }
 
@@ -276,7 +276,7 @@ h1.brand-logo img {
     }
 
     .mai-card-preview img {
-        height: 420px;
+        height: 240px;
     }
 }
 
@@ -287,6 +287,6 @@ h1.brand-logo img {
     }
 
     .mai-card-preview img {
-        height: 340px;
+        height: 320px;
     }
 }

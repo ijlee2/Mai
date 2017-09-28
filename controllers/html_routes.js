@@ -19,6 +19,34 @@ const Story  = models.Story;
 const Photo  = models.Photo;
 const Reader = models.Reader;
 
+// Mai team
+const mai_team = [
+    {
+        "fullname"    : "John Absher",
+        "profile_url" : "assets/images/john_absher.jpg",
+        "linkedin_url": "https://www.linkedin.com/in/johnabsher/",
+        "biography"   : "Hand-delivered a bottle of Salt Lick BBQ sauce to the king of Norway."
+    },
+    {
+        "fullname"    : "David Gutierrez",
+        "profile_url" : "assets/images/david_gutierrez.jpg",
+        "linkedin_url": "https://www.linkedin.com/in/david-gutierrez-979a4a148/",
+        "biography"   : "Once while sailing around the world, he discovered a short cut."
+    },
+    {
+        "fullname"    : "Jason Joachim",
+        "profile_url" : "assets/images/jason_joachim.jpg",
+        "linkedin_url": "https://www.linkedin.com/in/jasonjoachim/",
+        "biography"   : "Heavy metal and experimental musician, now rocking web applications."
+    },
+    {
+        "fullname"    : "Isaac Lee",
+        "profile_url" : "assets/images/isaac_lee.jpg",
+        "linkedin_url": "https://www.linkedin.com/in/ijlee2/",
+        "biography"   : "Amateur boulderer and public speaker. Feed him coffee and music."
+    }
+]
+
 
 
 /****************************************************************************
@@ -408,7 +436,8 @@ router.get("/meet-mai-team", (req, res) => {
         "mai-id"           : req.cookies["mai-id"],
         "mai-fullname"     : req.cookies["mai-fullname"],
         "custom-css"       : ["style"],
-        "custom-javascript": ["meet-mai-team"]
+        "custom-javascript": ["meet-mai-team"],
+        mai_team
     });
 });
 

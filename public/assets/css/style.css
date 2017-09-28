@@ -20,7 +20,7 @@
 
 /****************************************************************************
 
-    Universal elements
+    General
 
 *****************************************************************************/
 /* Window */
@@ -45,17 +45,15 @@ h2 {
     font-size: 1.6em;
 }
 
+h3 {
+    font-size: 1.4em;
+}
+
 strong {
     font-weight: bold;
 }
 
 /* Vertical separators */
-.clearfix::after {
-    content: "" !important;
-    display: block !important;
-    clear  : both !important;
-}
-
 .mai-attacher-1 {
     margin-bottom: 0;
 }
@@ -73,7 +71,7 @@ strong {
 }
 
 /* Navbar */
-/* Source for changing the height: https://stackoverflow.com/questions/35552708/is-materialize-navbar-height-adjustment-possible */
+/* Source: https://stackoverflow.com/questions/35552708/is-materialize-navbar-height-adjustment-possible */
 nav {
     height     : var(--height-nav);
     line-height: var(--height-nav);
@@ -152,8 +150,8 @@ img.circle {
 }
 
 .card input {
-    font-size : 1.2em !important;
-    margin-top: 0.75em !important;
+    font-size    : 1.2em !important;
+    margin-top   : 0.75em !important;
     margin-bottom: 1.5em !important;
 }
 
@@ -202,7 +200,7 @@ img.circle {
 
 /****************************************************************************
 
-    Page-specific elements
+    Page-specific
 
 *****************************************************************************/
 /* Signup, Login */
@@ -298,30 +296,42 @@ h1.brand-logo img {
         display: block;
     }
 
+    h1 {
+        font-size: 2.4em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
     nav .brand-logo {
         margin-left: 0;
     }
 
-    .cover_video {
-        visibility: hidden;
-    }
-
     .mai-card img {
-        height: 360px;
+        height: 300px;
     }
 
     .mai-card-preview img {
         height: 240px;
+    }
+
+    .card p {
+        font-size: 1em !important;
+    }
+
+    .cover_video {
+        visibility: hidden;
     }
 }
 
 /* Mobile */
 @media all and (max-width: 600px), all and (max-device-width: 600px) {
     .mai-card img {
-        height: 200px;
+        height: 280px;
     }
 
     .mai-card-preview img {
-        height: 200px;
+        height: 224px;
     }
 }

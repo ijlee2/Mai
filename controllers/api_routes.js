@@ -239,7 +239,8 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
 
 //    return res.status(200).send(req.file);
     // TODO: send user to "add-story" page along with photo URLs
-    res.redirect("/add-story");
+    // res.redirect("/add-story");
+    res.json(true);
     // next();
 });
 

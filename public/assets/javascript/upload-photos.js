@@ -36,6 +36,11 @@ Dropzone.options.uploadWidget = {
         file.rejectDimensions = function() {
             done("The image must be at least 200 x 200px.");
         };
+    },
+
+    //John's attempt to fix bug. 
+    "success": function(file, serverResponse){
+        console.log("Success");
     }
 };
 

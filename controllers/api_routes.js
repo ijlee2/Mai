@@ -232,10 +232,7 @@ router.post("/add-story", (req, res) => {
 
 router.patch("/edit-story-:id", (req, res) => {
     function callback(results) {
-        console.log("success?");
-
-        // TODO: Redirect to story.hbs with the correct id
- //       res.redirect("/story.hbs");
+        res.redirect(`/story-${req.params.id}`);
     }
 
     // Update the title

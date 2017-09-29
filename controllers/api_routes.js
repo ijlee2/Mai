@@ -47,6 +47,14 @@ function isValidCookie(uuid) {
     return (uuid && regex.test(uuid));
 }
 
+// Pass these values if the user is not logged in
+const defaultValues = {
+    "maiId"           : null,
+    "maiFullname"     : null,
+    "customCSS"       : ["style"],
+    "customJavascript": ["index"]
+};
+
 
 
 /****************************************************************************
@@ -124,12 +132,7 @@ router.patch("/update-profile_:id", (req, res) => {
 
     // Display homepage if the user is not logged in or does not have a valid cookie
     if (!isValidCookie(maiId)) {
-        res.render("index", {
-            maiId,
-            maiFullname,
-            "customCSS"       : ["style"],
-            "customJavascript": ["index"]
-        });
+        res.render("index", defaultValues);
 
     // Only the user can edit their profile
     } else if (req.params.id !== maiId) {
@@ -161,12 +164,7 @@ router.patch("/update-password_:id", (req, res) => {
     const maiFullname = req.cookies["maiFullname"];
 
     if (!isValidCookie(maiId)) {
-        res.render("index", {
-            maiId,
-            maiFullname,
-            "customCSS"       : ["style"],
-            "customJavascript": ["index"]
-        });
+        res.render("index", defaultValues);
 
     // Only the user can edit their password
     } else if (req.params.id !== maiId) {
@@ -207,12 +205,7 @@ router.delete("/delete-account_:id", (req, res) => {
     const maiFullname = req.cookies["maiFullname"];
 
     if (!isValidCookie(maiId)) {
-        res.render("index", {
-            maiId,
-            maiFullname,
-            "customCSS"       : ["style"],
-            "customJavascript": ["index"]
-        });
+        res.render("index", defaultValues);
 
     // Only the user can delete their stories
     } else if (req.params.id !== maiId) {
@@ -273,12 +266,7 @@ router.post("/create-story", (req, res) => {
     const maiFullname = req.cookies["maiFullname"];
 
     if (!isValidCookie(maiId)) {
-        res.render("index", {
-            maiId,
-            maiFullname,
-            "customCSS"       : ["style"],
-            "customJavascript": ["index"]
-        });
+        res.render("index", defaultValues);
 
     } else {
         function callback(results) {
@@ -312,12 +300,7 @@ router.patch("/edit-story_:maiId&:storyId", (req, res) => {
     const maiFullname = req.cookies["maiFullname"];
 
     if (!isValidCookie(maiId)) {
-        res.render("index", {
-            maiId,
-            maiFullname,
-            "customCSS"       : ["style"],
-            "customJavascript": ["index"]
-        });
+        res.render("index", defaultValues);
 
     // Only the user can edit their stories
     } else if (req.params.maiId !== maiId) {
@@ -359,12 +342,7 @@ router.delete("/delete-story_:maiId&:storyId", (req, res) => {
     const maiFullname = req.cookies["maiFullname"];
 
     if (!isValidCookie(maiId)) {
-        res.render("index", {
-            maiId,
-            maiFullname,
-            "customCSS"       : ["style"],
-            "customJavascript": ["index"]
-        });
+        res.render("index", defaultValues);
 
     // Only the user can delete their stories
     } else if (req.params.maiId !== maiId) {

@@ -1,4 +1,6 @@
 # Mai
+![Mai](public/assets/images/mai_splash.png?raw=true)
+
 [Everyone has a story to tell. Hear them out.](https://mai-app.herokuapp.com/)
 
 
@@ -10,8 +12,10 @@
 
 
 ## Technologies Used
-- [x] HTML5, CSS3, Materialize, ES7, jQuery, Handlebars.js
+- [x] Materialize, ES7, jQuery, Handlebars
 
-- [x] Node.js, Express.js, MySQL, Sequelize.js, React.js (future)
+- [x] Node, Express, MySQL, Sequelize, React (future)
+
+- [x] Amazon RDS (future), Amazon S3 (future)
 
 - [x] Google Cloud Vision, Google Cloud Natural Language (future)

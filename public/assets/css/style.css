@@ -172,7 +172,7 @@ img.circle {
 .mai-card-preview img {
     object-fit: cover;
     width     : 100%;
-    height    : 220px;
+    height    : 240px;
 }
 
 /* Video */
@@ -230,7 +230,7 @@ h1.brand-logo img {
 #mai-user-stats #mai-numStories,
 #mai-user-stats #mai-numWriters,
 #mai-user-stats #mai-numReaders {
-    font-size: 1.8em;
+    font-size: 1.75em;
 }
 
 /* Meet Mai */

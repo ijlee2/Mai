@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 3000;
 *****************************************************************************
 *****************************************************************************/
 // Import our models
-const mai_db = require(path.join(__dirname, "models"));
+const maiDB = require(path.join(__dirname, "models"));
 
 
 
@@ -93,6 +93,7 @@ app.use("/api", router_api);
 
 *****************************************************************************
 *****************************************************************************/
-mai_db.sequelize.sync().then(function() {
+// Uncomment force to reset the database
+maiDB.sequelize.sync(/*{"force": true}*/).then(function() {
     app.listen(PORT, () => console.log(`App listening on ${PORT}.`));
 });

@@ -8,7 +8,7 @@ $(document).ready(function() {
     // Carousel settings
     $(".carousel").carousel({
         "duration": 120,
-        "dist"    : -40,
-        "shift"   : 80
+        "dist"    : -60,
+        "shift"   : 50
     });
 });

@@ -224,13 +224,13 @@ h1.brand-logo img {
 
 /* Profile */
 #mai-user-stats {
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 #mai-user-stats #mai-numStories,
 #mai-user-stats #mai-numWriters,
 #mai-user-stats #mai-numReaders {
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 
 /* Meet Mai */
@@ -312,6 +312,16 @@ h1.brand-logo img {
 
     .card p {
         font-size: 1em !important;
+    }
+
+    #mai-user-stats {
+        font-size: 1.2em;
+    }
+
+    #mai-user-stats #mai-numStories,
+    #mai-user-stats #mai-numWriters,
+    #mai-user-stats #mai-numReaders {
+        font-size: 1.2em;
     }
 
     .cover_video {

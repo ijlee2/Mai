@@ -124,6 +124,10 @@ router.get("/", (req, res) => {
                         }
                     ]
                 }
+            ],
+            "order"     : [
+                [Story, "created_at", "DESC"],
+                [Story, Photo, "created_at", "ASC"]
             ]
 
         }).then(callback);
@@ -204,6 +208,10 @@ router.get("/profile_:id", (req, res) => {
                         }
                     ]
                 }
+            ],
+            "order"     : [
+                [Story, "created_at", "DESC"],
+                [Story, Photo, "created_at", "ASC"]
             ]
 
         }).then(callback);
@@ -317,6 +325,9 @@ router.get("/story_:id", (req, res) => {
                     "model"     : Photo,
                     "attributes": ["url", "caption"]
                 }
+            ],
+            "order"  : [
+                [Photo, "created_at", "ASC"]
             ]
 
         }).then(callback);
@@ -370,7 +381,10 @@ router.get("/edit-story_:maiId&:storyId", (req, res) => {
 
         Story.findAll({
             "where"  : {"id": req.params.storyId},
-            "include": [Photo]
+            "include": [Photo],
+            "order"  : [
+                [Photo, "created_at", "ASC"]
+            ]
 
         }).then(callback);
     }

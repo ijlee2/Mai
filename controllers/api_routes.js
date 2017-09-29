@@ -61,8 +61,8 @@ router.post("/signup", (req, res) => {
         // Cookie will expire in 1 week
         const options = {
             "expires" : new Date(Date.now() + 604800000),
-            "httpOnly": true
-//            "secure"  : true
+            "httpOnly": true,
+            "secure"  : true
         };
      
         res.cookie("maiId", result.id, options);
@@ -98,8 +98,8 @@ router.post("/login", (req, res) => {
                 if (!req.cookies.cookieName) {
                     const options = {
                         "expires" : new Date(Date.now() + 604800000),
-                        "httpOnly": true
-//                        "secure"  : true
+                        "httpOnly": true,
+                        "secure"  : true
                     };
 
                     res.cookie("maiId", results[0].id, options);

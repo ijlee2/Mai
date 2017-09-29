@@ -4,14 +4,14 @@ CREATE DATABASE mai_db;
 USE mai_db;
 
 CREATE TABLE Writers (
-    id          INT NOT NULL AUTO_INCREMENT,
-    fullname    VARCHAR(100) NOT NULL,
-    email       VARCHAR(100) NOT NULL UNIQUE,
-    username    VARCHAR(32)  NOT NULL UNIQUE,
-    hash        VARCHAR(60)  NOT NULL,
+    id        INT NOT NULL AUTO_INCREMENT,
+    fullname  VARCHAR(100) NOT NULL,
+    email     VARCHAR(100) NOT NULL UNIQUE,
+    username  VARCHAR(32)  NOT NULL UNIQUE,
+    hash      VARCHAR(60)  NOT NULL,
 
-    profile_url VARCHAR(256),
-    flagged     BOOLEAN DEFAULT false,
+    url_photo VARCHAR(256),
+    flagged   BOOLEAN DEFAULT false,
 
     PRIMARY KEY (id)
 );

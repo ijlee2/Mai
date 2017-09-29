@@ -59,7 +59,7 @@ module.exports = function(sequelize, DataTypes) {
             "allowNull": false,
         },
 
-        "profile_url": {
+        "url_photo": {
             "type"        : DataTypes.STRING,
             "validate"    : {
                 "isURL"   : {

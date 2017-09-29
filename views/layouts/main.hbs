@@ -19,7 +19,7 @@
         <link type="text/css" rel="stylesheet" href="assets/css/materialize/materialize.min.css" media="screen,projection">
 
         <!-- Custom CSS -->
-        {{#each custom-css}}
+        {{#each customCSS}}
         <link rel="stylesheet" type="text/css" href="assets/css/{{this}}.css">
         {{/each}}
 
@@ -28,7 +28,7 @@
     </head>
     <body class="blue-grey lighten-5">
         <!-- Navbar -->
-        {{#if mai-id}}
+        {{#if maiId}}
         <nav>
             <div class="nav-wrapper grey darken-4">
                 <a href="/" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
@@ -49,12 +49,12 @@
                     <li><a class="mai-menu-desktop-items" href="/">Home<i class="material-icons right">home</i></a></li>
                     <li class="green darken-2"><a class="mai-menu-desktop-items" href="/upload-photos">Compose<i class="material-icons right">add_a_photo</i></a></li>
                     <li><a class="mai-menu-desktop-items" href="/writers">Find Writers<i class="material-icons right">group</i></a></li>
-                    <li><a class="mai-menu-desktop-items dropdown-button" href="#" data-activates="mai-dropdown-writer">{{mai-fullname}}<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="mai-menu-desktop-items dropdown-button" href="#" data-activates="mai-dropdown-writer">{{maiFullname}}<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
 
                 <!-- Mobile -->
                 <ul class="side-nav" id="mai-menu-mobile">
-                    <li class="black-text center-align">{{mai-fullname}}</li>
+                    <li class="black-text center-align">{{maiFullname}}</li>
 
                     <li class="divider"></li>
 
@@ -130,7 +130,7 @@
                         <h3 class="white-text">Links</h3>
                         <ul id="mai-footer-links">
                             <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
-                            {{#if mai-id}}
+                            {{#if maiId}}
                             <li><a class="grey-text text-lighten-3" href="/compose">Compose</a></li>
                             <li><a class="grey-text text-lighten-3" href="/writers">Find Writers</a></li>
                             {{/if}}
@@ -155,7 +155,7 @@
         <script type="text/javascript" src="assets/javascript/materialize/materialize.min.js"></script>
 
         <!-- Custom JavaScript -->
-        {{#each custom-javascript}}
+        {{#each customJavascript}}
         <script type="text/javascript" src="assets/javascript/{{this}}.js"></script>
         {{/each}}
     </body>

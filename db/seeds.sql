@@ -2,7 +2,7 @@
 USE ocbusqsbzymg3amh;
 
 
-INSERT INTO Writers (id, fullname, email, username, hash, profile_url, flagged, created_at, updated_at) VALUES
+INSERT INTO Writers (id, fullname, email, username, hash, url_photo, flagged, created_at, updated_at) VALUES
 ("2c43aa1d-e8bf-44d1-bb10-cc28ccec0964", "John Absher"    , "john.absher@example.com"    , "john" , "$2a$12$5ZWQzoBvw7yP9HwPH4Dgu.MILNr6kn.U0Syp1QC6ksV.Qh5QW3EKi", "assets/images/john_absher.jpg"    , false, "2017-09-25 04:15:06", "2017-09-25 04:15:06"),
 ("7592aa72-3832-4b2d-9b8e-658dc21b277d", "David Gutierrez", "david.gutierrez@example.com", "david", "$2a$12$5ZWQzoBvw7yP9HwPH4Dgu.MILNr6kn.U0Syp1QC6ksV.Qh5QW3EKi", "assets/images/david_gutierrez.jpg", false, "2017-09-25 15:05:57", "2017-09-25 15:05:57"),
 ("a5211e7d-8382-4221-b77a-824b051e2370", "Jason Joachim"  , "jason.joachim@example.com"  , "jason", "$2a$12$5ZWQzoBvw7yP9HwPH4Dgu.MILNr6kn.U0Syp1QC6ksV.Qh5QW3EKi", "assets/images/jason_joachim.jpg"  , false, "2017-09-25 10:28:24", "2017-09-25 10:28:24"),

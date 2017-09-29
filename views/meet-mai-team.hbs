@@ -4,11 +4,11 @@
             <h1 class="mai-attacher-1">Mai Team</h1>
 
             <div class="carousel">
-                {{#each mai_team}}
+                {{#each maiTeam}}
                 <div class="carousel-item center-align">
-                    <a href="{{this.linkedin_url}}" target="_blank">
+                    <a href="{{this.url_linkedin}}" target="_blank">
                         <h2>{{this.fullname}}</h2>
-                        <img class="responsive-img" src="{{this.profile_url}}" alt="{{this.fullname}}">
+                        <img class="responsive-img" src="{{this.url_photo}}" alt="{{this.fullname}}">
                     </a>
 
                     <p>{{this.biography}}</p>
@@ -26,12 +26,12 @@
                     <h1>Mai Team</h1>
                     
                     <div class="row">
-                        {{#each mai_team}}
+                        {{#each maiTeam}}
                         <div class="col s12 m6">
                             <div class="card mai-card">
                                 <div class="card-image">
-                                    <a href="{{this.linkedin_url}}" target="_blank">
-                                        <img class="responsive-img" src="{{this.profile_url}}" alt="{{this.fullname}}">
+                                    <a href="{{this.url_linkedin}}" target="_blank">
+                                        <img class="responsive-img" src="{{this.url_photo}}" alt="{{this.fullname}}">
                                     </a>
                                 </div>
 

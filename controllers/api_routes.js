@@ -33,12 +33,19 @@ const Photo  = models.Photo;
 const Reader = models.Reader;
 
 // Default profile photos
-const default_profiles = [
+const defaultPhotos = [
     "https://goo.gl/7g6AwU",
     "https://goo.gl/dFcx11",
     "https://goo.gl/myorst",
     "https://goo.gl/cnQGa7"
 ];
+
+// Source: https://stackoverflow.com/questions/7905929/how-to-test-valid-uuid-guid
+function isValidCookie(uuid) {
+    const regex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+    return (uuid && regex.test(uuid));
+}
 
 
 
@@ -51,27 +58,29 @@ const default_profiles = [
 *****************************************************************************/
 router.post("/signup", (req, res) => {
     function callback(result) {
+        // Cookie will expire in 1 week
         const options = {
             "expires" : new Date(Date.now() + 604800000),
             "httpOnly": true
 //            "secure"  : true
         };
      
-        res.cookie("mai-id", result.id, options);
-        res.cookie("mai-fullname", result.fullname, options);
+        res.cookie("maiId", result.id, options);
+        res.cookie("maiFullname", result.fullname, options);
         res.redirect("/");
     }
 
     // Salt and hash the user's password
     bcrypt.hash(req.body.password, saltRounds, (error, hash) => {
         Writer.create({
-            "fullname"   : req.body.fullname,
-            "email"      : req.body.email,
-            "username"   : req.body.username,
-            "hash"       : hash,
-            "profile_url": default_profiles[Math.floor(default_profiles.length * Math.random())]
+            "fullname" : req.body.fullname,
+            "email"    : req.body.email,
+            "username" : req.body.username,
+            "hash"     : hash,
+            "url_photo": defaultPhotos[Math.floor(defaultPhotos.length * Math.random())]
 
         }).then(callback);
+
     });
 });
 
@@ -93,40 +102,43 @@ router.post("/login", (req, res) => {
 //                        "secure"  : true
                     };
 
-                    // Create cookies (expire in a week)
-                    res.cookie("mai-id", results[0].id, options);
-                    res.cookie("mai-fullname", results[0].fullname, options);
+                    res.cookie("maiId", results[0].id, options);
+                    res.cookie("maiFullname", results[0].fullname, options);
                 }
+
+                res.redirect("/");
+
+            // TODO: If the username or password does not match, display an error message
+            } else {
+                res.redirect("/");
+
             }
-
-            res.redirect("/");
-
         });
-
     });
 });
 
 
 router.patch("/update-profile_:id", (req, res) => {
-    if (!req.cookies["mai-id"]) {
+    const maiId       = req.cookies["maiId"];
+    const maiFullname = req.cookies["maiFullname"];
+
+    // Display homepage if the user is not logged in or does not have a valid cookie
+    if (!isValidCookie(maiId)) {
         res.render("index", {
-            "mai-id"           : req.cookies["mai-id"],
-            "mai-fullname"     : req.cookies["mai-fullname"],
-            "custom-css"       : ["style"],
-            "custom-javascript": ["index"]
+            maiId,
+            maiFullname,
+            "customCSS"       : ["style"],
+            "customJavascript": ["index"]
         });
 
     // Only the user can edit their profile
-    } else if (req.cookies["mai-id"] !== req.params.id) {
+    } else if (req.params.id !== maiId) {
         res.redirect("/");
 
     } else {
         function callback(result) {
-
-            // TODO: Update cookie for fullname
-            res.cookie("mai-fullname", req.body.fullname);
-
-            // TODO: Pass values
+            // Update the fullname cookie
+            res.cookie("maiFullname", req.body.fullname);
             res.redirect("/settings");
         }
 
@@ -145,21 +157,23 @@ router.patch("/update-profile_:id", (req, res) => {
 
 
 router.patch("/update-password_:id", (req, res) => {
-    if (!req.cookies["mai-id"]) {
+    const maiId       = req.cookies["maiId"];
+    const maiFullname = req.cookies["maiFullname"];
+
+    if (!isValidCookie(maiId)) {
         res.render("index", {
-            "mai-id"           : req.cookies["mai-id"],
-            "mai-fullname"     : req.cookies["mai-fullname"],
-            "custom-css"       : ["style"],
-            "custom-javascript": ["index"]
+            maiId,
+            maiFullname,
+            "customCSS"       : ["style"],
+            "customJavascript": ["index"]
         });
 
     // Only the user can edit their password
-    } else if (req.cookies["mai-id"] !== req.params.id) {
+    } else if (req.params.id !== maiId) {
         res.redirect("/");
 
     } else {
         function callback(result) {
-            // TODO: Pass values
             res.redirect("/settings");
         }
 
@@ -174,34 +188,40 @@ router.patch("/update-password_:id", (req, res) => {
                 if (isMatch) {
                     // Salt and hash the new password
                     bcrypt.hash(req.body.password_new, saltRounds, (error, hash) => {
-                        Writer.update({hash}, {"where": {"id": req.params.id}});
+                        Writer.update({hash}, {
+                            "where": {"id": req.params.id}
 
+                        });
                     });
                 }
             });
 
         }).then(callback);
+
     }
 });
 
 
 router.delete("/delete-account_:id", (req, res) => {
-    if (!req.cookies["mai-id"]) {
+    const maiId       = req.cookies["maiId"];
+    const maiFullname = req.cookies["maiFullname"];
+
+    if (!isValidCookie(maiId)) {
         res.render("index", {
-            "mai-id"           : req.cookies["mai-id"],
-            "mai-fullname"     : req.cookies["mai-fullname"],
-            "custom-css"       : ["style"],
-            "custom-javascript": ["index"]
+            maiId,
+            maiFullname,
+            "customCSS"       : ["style"],
+            "customJavascript": ["index"]
         });
 
     // Only the user can delete their stories
-    } else if (req.cookies["mai-id"] !== req.params.id) {
+    } else if (req.params.id !== maiId) {
         res.redirect("/");
 
     } else {
         function callback(results) {
-            res.clearCookie("mai-id");
-            res.clearCookie("mai-fullname");
+            res.clearCookie("maiId");
+            res.clearCookie("maiFullname");
             res.redirect("/");
         }
 
@@ -222,6 +242,9 @@ router.delete("/delete-account_:id", (req, res) => {
 
 *****************************************************************************
 *****************************************************************************/
+// TODO: Upload the photos to Amazon S3
+// TODO: Use Google Vision
+// TODO: Redirect the user to create-story page
 router.post("/upload-photos", upload.single("file"), (req, res, next) => {
     if (!req.file.mimetype.startsWith("image/")) {
         return res.status(422).json({
@@ -246,44 +269,58 @@ router.post("/upload-photos", upload.single("file"), (req, res, next) => {
 
 
 router.post("/create-story", (req, res) => {
-    function callback(results) {
-        // TODO later: If storing was successful, call Google Vision next
-        
-        // Redirect to story page
-        res.redirect("/story_${results[0].dataValues.story_id}");
-    }
+    const maiId       = req.cookies["maiId"];
+    const maiFullname = req.cookies["maiFullname"];
 
-    Story.create({
-        "title"    : req.body.title,
-        "writer_id": req.cookies["mai-id"]
+    if (!isValidCookie(maiId)) {
+        res.render("index", {
+            maiId,
+            maiFullname,
+            "customCSS"       : ["style"],
+            "customJavascript": ["index"]
+        });
 
-    }).then(result => {
-        const photos = [];
-
-        for (let i = 0; i < req.body.urls.length; i++) {
-            photos.push({
-                "url"     : req.body.urls[i],
-                "caption" : req.body.captions[i],
-                "story_id": result.dataValues.id
-            });
+    } else {
+        function callback(results) {
+            res.redirect(`/story_${results[0].dataValues.story_id}`);
         }
 
-        Photo.bulkCreate(photos).then(callback);
-    });
+        Story.create({
+            "title"    : req.body.title,
+            "writer_id": maiId
+
+        }).then(result => {
+            const photos = [];
+
+            for (let i = 0; i < req.body.urls.length; i++) {
+                photos.push({
+                    "url"     : req.body.urls[i],
+                    "caption" : req.body.captions[i],
+                    "story_id": result.dataValues.id
+                });
+            }
+
+            Photo.bulkCreate(photos).then(callback);
+        });
+
+    }
 });
 
 
 router.patch("/edit-story_:maiId&:storyId", (req, res) => {
-    if (!req.cookies["mai-id"]) {
+    const maiId       = req.cookies["maiId"];
+    const maiFullname = req.cookies["maiFullname"];
+
+    if (!isValidCookie(maiId)) {
         res.render("index", {
-            "mai-id"           : req.cookies["mai-id"],
-            "mai-fullname"     : req.cookies["mai-fullname"],
-            "custom-css"       : ["style"],
-            "custom-javascript": ["index"]
+            maiId,
+            maiFullname,
+            "customCSS"       : ["style"],
+            "customJavascript": ["index"]
         });
 
     // Only the user can edit their stories
-    } else if (req.cookies["mai-id"] !== req.params.maiId) {
+    } else if (req.params.maiId !== maiId) {
         res.redirect("/");
 
     } else {
@@ -298,13 +335,10 @@ router.patch("/edit-story_:maiId&:storyId", (req, res) => {
         }, {
             "where": {"id": req.params.storyId}
 
-        // Update the captions (TODO: test and fix this)
+        // Update the captions
         }).then(result => {
             function updateCaption(caption, i) {
-                return Photo.update({
-                    "caption": caption
-
-                }, {
+                return Photo.update({caption}, {
                     "where": {"id": req.body.ids[i]}
 
                 });
@@ -321,16 +355,19 @@ router.patch("/edit-story_:maiId&:storyId", (req, res) => {
 
 
 router.delete("/delete-story_:maiId&:storyId", (req, res) => {
-    if (!req.cookies["mai-id"]) {
+    const maiId       = req.cookies["maiId"];
+    const maiFullname = req.cookies["maiFullname"];
+
+    if (!isValidCookie(maiId)) {
         res.render("index", {
-            "mai-id"           : req.cookies["mai-id"],
-            "mai-fullname"     : req.cookies["mai-fullname"],
-            "custom-css"       : ["style"],
-            "custom-javascript": ["index"]
+            maiId,
+            maiFullname,
+            "customCSS"       : ["style"],
+            "customJavascript": ["index"]
         });
 
     // Only the user can delete their stories
-    } else if (req.cookies["mai-id"] !== req.params.maiId) {
+    } else if (req.params.maiId !== maiId) {
         res.redirect("/");
 
     } else {
@@ -347,8 +384,8 @@ router.delete("/delete-story_:maiId&:storyId", (req, res) => {
 });
 
 
+// TODO: Change to POST
 router.get("/vision", (req, res) => {
-    // Source: https://github.com/comoc/node-cloud-vision-api
     const request = new vision.Request({
         "image": new vision.Image({
             "url": "http://www.ox.ac.uk/sites/files/oxford/styles/ow_medium_feature/public/field/field_image_main/friends_main.jpg?itok=Wmh9VQWO"
@@ -363,7 +400,7 @@ router.get("/vision", (req, res) => {
         res.send(results.responses);
 
     }, error => {
-        console.log("error: " + error);
+        console.log(`error: ${error}`);
 
     });
 });

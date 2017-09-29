@@ -16,6 +16,8 @@
 
 - [x] Node, Express, MySQL, Sequelize, React (future)
 
+- [x] bcrypt, Cookies, Dropzone
+
 - [x] Amazon RDS (future), Amazon S3 (future)
 
 - [x] Google Cloud Vision, Google Cloud Natural Language (future)

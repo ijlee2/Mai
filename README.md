@@ -1,5 +1,5 @@
 # Mai
-<a href="https://mai-app.herokuapp.com/" target="_blank"><img src="public/assets/images/mai_splash.png?raw=true" alt="Mai logo"></a>
+<a href="https://mai-app.herokuapp.com/" target="_blank"><img src="public/assets/images/mai_splash.png?raw=true" alt="Mai"></a>
 
 [Everyone has a story to tell. Hear them out.](https://mai-app.herokuapp.com/)
 

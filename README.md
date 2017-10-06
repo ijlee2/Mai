@@ -6,15 +6,16 @@
 
 ## Team Members
 - [John Absher](https://www.linkedin.com/in/johnabsher/)
+- [Brian Ervin](https://www.linkedin.com/in/brianervinmedia/)
 - [David Gutierrez](https://www.linkedin.com/in/david-gutierrez-979a4a148/)
 - [Jason Joachim](https://www.linkedin.com/in/jasonjoachim/)
 - [Isaac Lee](https://www.linkedin.com/in/ijlee2/)
 
 
 ## Technologies Used
-- [x] Materialize, ES7, jQuery, Handlebars
+- [x] Materialize, ES7, jQuery, React (future), Handlebars
 
-- [x] Node, Express, MySQL, Sequelize, React (future)
+- [x] Node, Express, MySQL, Sequelize
 
 - [x] bcrypt, Cookies, Dropzone
 

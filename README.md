@@ -24,13 +24,8 @@
 
 ## Sketches
 - [Planning 1](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/planning_page01.jpg)
-
 - [Front End 1](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/front_end_page01.jpg)
-
 - [Front End 2](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/front_end_page02.jpg)
-
 - [Front End 3](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/front_end_page03.jpg)
-
 - [Front End 4](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/front_end_page04.jpg)
-
 - [Back End 1](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/back_end_page01.jpg)

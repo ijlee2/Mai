@@ -16,7 +16,7 @@
 
 ## Technologies Used
 
-- [x] Flexbox (future), Materialize, ES7, jQuery, React (future), Handlebars
+- [x] Materialize, ES7, jQuery, Handlebars, React + Redux (future)
 
 - [x] Node, Express, MySQL, Sequelize
 

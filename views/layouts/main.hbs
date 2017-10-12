@@ -29,72 +29,76 @@
     <body class="blue-grey lighten-5">
         <!-- Navbar -->
         {{#if maiId}}
-        <nav>
-            <div class="nav-wrapper grey darken-4">
-                <a href="/" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
-                <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper grey darken-4">
+                    <a href="/" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
+                    <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 
-                <!-- Desktop -->
-                <ul id="mai-dropdown-writer" class="dropdown-content">
-                    <li><a href="/meet-mai">Meet Mai</a></li>
-                    <li><a href="/meet-mai-team">Meet Mai Team</a></li>
+                    <!-- Desktop -->
+                    <ul id="mai-dropdown-writer" class="dropdown-content">
+                        <li><a href="/meet-mai">Meet Mai</a></li>
+                        <li><a href="/meet-mai-team">Meet Mai Team</a></li>
 
-                    <li class="divider"></li>
+                        <li class="divider"></li>
 
-                    <li><a href="/settings">Settings</a></li>
-                    <li><a href="/logout">Logout</a></li>
-                </ul>
+                        <li><a href="/settings">Settings</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
 
-                <ul class="right hide-on-med-and-down" id="mai-menu-desktop">
-                    <li><a class="mai-menu-desktop-items" href="/">Home<i class="material-icons right">home</i></a></li>
-                    <li class="green darken-2"><a class="mai-menu-desktop-items" href="/upload-photos">Compose<i class="material-icons right">add_a_photo</i></a></li>
-                    <li><a class="mai-menu-desktop-items" href="/writers">Find Writers<i class="material-icons right">group</i></a></li>
-                    <li><a class="mai-menu-desktop-items dropdown-button" href="#" data-activates="mai-dropdown-writer">{{maiFullname}}<i class="material-icons right">arrow_drop_down</i></a></li>
-                </ul>
+                    <ul class="right hide-on-med-and-down" id="mai-menu-desktop">
+                        <li><a class="mai-menu-desktop-items" href="/">Home<i class="material-icons right">home</i></a></li>
+                        <li class="green darken-2"><a class="mai-menu-desktop-items" href="/upload-photos">Compose<i class="material-icons right">add_a_photo</i></a></li>
+                        <li><a class="mai-menu-desktop-items" href="/writers">Find Writers<i class="material-icons right">group</i></a></li>
+                        <li><a class="mai-menu-desktop-items dropdown-button" href="#" data-activates="mai-dropdown-writer">{{maiFullname}}<i class="material-icons right">arrow_drop_down</i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 
-                <!-- Mobile -->
-                <ul class="side-nav" id="mai-menu-mobile">
-                    <li class="black-text center-align">{{maiFullname}}</li>
+        <!-- Mobile -->
+        <ul class="side-nav" id="mai-menu-mobile">
+            <li class="black-text center-align">{{maiFullname}}</li>
 
-                    <li class="divider"></li>
+            <li class="divider"></li>
 
-                    <li><a class="mai-menu-mobile-items" href="/">Home</a></li>
-                    <li class="green lighten-3"><a class="mai-menu-mobile-items" href="/upload-photos">Compose</a></li>
-                    <li><a class="mai-menu-mobile-items" href="/writers">Find Writers</a></li>
+            <li><a class="mai-menu-mobile-items" href="/">Home</a></li>
+            <li class="green lighten-3"><a class="mai-menu-mobile-items" href="/upload-photos">Compose</a></li>
+            <li><a class="mai-menu-mobile-items" href="/writers">Find Writers</a></li>
 
-                    <li class="divider"></li>
+            <li class="divider"></li>
 
-                    <li><a class="mai-menu-mobile-items" class="mai-menu-mobile-items" href="/meet-mai">Meet Mai</a></li>
-                    <li><a class="mai-menu-mobile-items" href="/meet-mai-team">Meet Mai Team</a></li>
+            <li><a class="mai-menu-mobile-items" class="mai-menu-mobile-items" href="/meet-mai">Meet Mai</a></li>
+            <li><a class="mai-menu-mobile-items" href="/meet-mai-team">Meet Mai Team</a></li>
 
-                    <li class="divider"></li>
+            <li class="divider"></li>
 
-                    <li><a class="mai-menu-mobile-items" href="/settings">Settings</a></li>
-                    <li><a class="mai-menu-mobile-items" href="/logout">Logout</a></li>
-                </ul>
-            </div>
-        </nav>
+            <li><a class="mai-menu-mobile-items" href="/settings">Settings</a></li>
+            <li><a class="mai-menu-mobile-items" href="/logout">Logout</a></li>
+        </ul>
         {{else}}
-        <nav>
-            <div class="nav-wrapper grey darken-4">
-                <a href="/" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
-                <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper grey darken-4">
+                    <a href="/" class="brand-logo"><img class="responsive-img" src="assets/images/mai_inverted.png" alt="Mai logo">Mai</a>
+                    <a href="#" data-activates="mai-menu-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 
-                <!-- Desktop -->
-                <ul class="right hide-on-med-and-down" id="mai-menu-desktop">
-                    <li><a class="mai-menu-desktop-items" href="/">Home</a></li>
-                    <li><a href="/meet-mai">Meet Mai</a></li>
-                    <li><a href="/meet-mai-team">Meet Mai Team</a></li>
-                </ul>
-
-                <!-- Mobile -->
-                <ul class="side-nav" id="mai-menu-mobile">
-                    <li><a class="mai-menu-mobile-items" href="/">Home</a></li>
-                    <li><a class="mai-menu-mobile-items" class="mai-menu-mobile-items" href="/meet-mai">Meet Mai</a></li>
-                    <li><a class="mai-menu-mobile-items" href="/meet-mai-team">Meet Mai Team</a></li>
-                </ul>
-            </div>
-        </nav>
+                    <!-- Desktop -->
+                    <ul class="right hide-on-med-and-down" id="mai-menu-desktop">
+                        <li><a class="mai-menu-desktop-items" href="/">Home</a></li>
+                        <li><a href="/meet-mai">Meet Mai</a></li>
+                        <li><a href="/meet-mai-team">Meet Mai Team</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile -->
+        <ul class="side-nav" id="mai-menu-mobile">
+            <li><a class="mai-menu-mobile-items" href="/">Home</a></li>
+            <li><a class="mai-menu-mobile-items" class="mai-menu-mobile-items" href="/meet-mai">Meet Mai</a></li>
+            <li><a class="mai-menu-mobile-items" href="/meet-mai-team">Meet Mai Team</a></li>
+        </ul>
         {{/if}}
 
         <div class="container">

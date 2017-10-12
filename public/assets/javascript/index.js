@@ -58,10 +58,10 @@ $(window).resize(debounce(detectDevice));
 
 $(document).ready(function() {
     displaySignup();
-
+    
     // Dropdown menu
     $(".dropdown-button").dropdown();
 
     // Navbar for mobile
-    $(".button-collapse").sideNav();
+    $(".button-collapse").sideNav({"closeOnClick": true});
 });

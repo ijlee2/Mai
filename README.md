@@ -16,15 +16,15 @@
 
 ## Technologies Used
 
-- [x] Materialize, ES7, jQuery, Handlebars, React + Redux (future)
+- [x] Materialize, Material-UI (Phase 2), SASS (Phase 2), ES7, jQuery, Handlebars, React + Redux (Phase 2)
 
 - [x] Node, Express, MySQL, Sequelize
 
 - [x] bcrypt, Cookies, Dropzone
 
-- [x] Amazon RDS (future), Amazon S3 (future)
+- [x] Amazon RDS (Phase 2), Amazon S3 (Phase 2)
 
-- [x] Google Cloud Vision (future), Google Cloud Natural Language (future)
+- [x] Google Cloud Vision (Phase 2), Google Cloud Natural Language (Phase 2)
 
 
 ## Sketches

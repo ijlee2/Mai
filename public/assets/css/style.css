@@ -284,7 +284,7 @@ h1.brand-logo img {
 
 /* Desktop */
 @media all and (max-width: 1200px), all and (max-device-width: 1200px) {
-    #ijl-device-detector {
+    #mai-device-detector {
         font-size: 3px;
     }
 
@@ -299,7 +299,7 @@ h1.brand-logo img {
 
 /* Tablet */
 @media all and (max-width: 992px), all and (max-device-width: 992px) {
-    #ijl-device-detector {
+    #mai-device-detector {
         font-size: 2px;
     }
 
@@ -352,7 +352,7 @@ h1.brand-logo img {
 
 /* Mobile */
 @media all and (max-width: 600px), all and (max-device-width: 600px) {
-    #ijl-device-detector {
+    #mai-device-detector {
         font-size: 1px;
     }
 

@@ -208,19 +208,19 @@ img.circle {
 
 *****************************************************************************/
 /* Signup, Login */
-.mai-index > col {
+#mai-signup > col, #mai-login > col {
     background-color: var(--color-white-transparent);
     border-radius   : 2px;
 }
 
-.mai-signup-wrapper {
+.mai-vertical-align-wrapper {
     height         : 100vh;
     display        : flex;
     justify-content: center;
     flex-direction : column;
 }
 
-.mai-signup-wrapper > col {
+.mai-vertical-align-wrapper > col {
     position: relative;
     top     : calc(-1.5 * var(--height-nav));
 }

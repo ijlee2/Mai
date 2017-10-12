@@ -1,11 +1,11 @@
 function displayLogin() {
-    $(".mai-index:nth-of-type(1)").fadeOut(200);
-    $(".mai-index:nth-of-type(2)").fadeIn(1000);
+    $("#mai-signup").fadeOut(200);
+    $("#mai-login").fadeIn(1000);
 }
 
 function displaySignup() {
-    $(".mai-index:nth-of-type(2)").fadeOut(200);
-    $(".mai-index:nth-of-type(1)").fadeIn(1000);
+    $("#mai-login").fadeOut(200);
+    $("#mai-signup").fadeIn(1000);
 }
 
 // Stop a function from running too many times
@@ -35,7 +35,7 @@ function detectDevice() {
         // Extra large, large
         case "4px":
         case "3px":
-            $(".mai-index").addClass("mai-signup-wrapper");
+            $(".mai-index").addClass("mai-vertical-align-wrapper");
             $(".mai-index").css({"margin": "0"});
 
             break;
@@ -43,7 +43,7 @@ function detectDevice() {
         // Medium, small
         case "2px":
         case "1px":
-            $(".mai-index").removeClass("mai-signup-wrapper");
+            $(".mai-index").removeClass("mai-vertical-align-wrapper");
             $(".mai-index").css({"margin": "1em 0 2.5em 0"});
 
             break;

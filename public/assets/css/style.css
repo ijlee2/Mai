@@ -222,7 +222,7 @@ img.circle {
 
 .mai-vertical-align-wrapper > .col {
     position: relative;
-    top     : calc(var(--height-nav));
+    top     : calc(-1 * var(--height-nav));
 }
 
 h1.brand-logo img {

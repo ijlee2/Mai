@@ -44,7 +44,7 @@ function detectDevice() {
         case "2px":
         case "1px":
             $(".mai-index").removeClass("mai-vertical-align-wrapper");
-            $(".mai-index").css({"margin": "1em 0 2.5em 0"});
+            $(".mai-index").css({"margin": "1.5em 0"});
 
             break;
 

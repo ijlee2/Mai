@@ -208,7 +208,7 @@ img.circle {
 
 *****************************************************************************/
 /* Signup, Login */
-#mai-signup > col, #mai-login > col {
+#mai-signup > .col, #mai-login > .col {
     background-color: var(--color-white-transparent);
     border-radius   : 2px;
 }
@@ -220,7 +220,7 @@ img.circle {
     flex-direction : column;
 }
 
-.mai-vertical-align-wrapper > col {
+.mai-vertical-align-wrapper > .col {
     position: relative;
     top     : calc(-1.5 * var(--height-nav));
 }

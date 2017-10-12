@@ -28,6 +28,12 @@ const maiTeam = [
         "biography"   : "Hand-delivered a bottle of Salt Lick BBQ sauce to the king of Norway."
     },
     {
+        "fullname"    : "Brian Ervin",
+        "url_photo"   : "assets/images/default_profile4.jpg",
+        "url_linkedin": "https://www.linkedin.com/in/brianervinmedia/",
+        "biography"   : "Bio coming soon!"
+    },
+    {
         "fullname"    : "David Gutierrez",
         "url_photo"   : "assets/images/david_gutierrez.jpg",
         "url_linkedin": "https://www.linkedin.com/in/david-gutierrez-979a4a148/",

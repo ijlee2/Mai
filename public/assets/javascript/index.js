@@ -1,11 +1,11 @@
 function displayLogin() {
-    $(".mai-signup-wrapper:nth-of-type(1)").fadeOut(200);
-    $(".mai-signup-wrapper:nth-of-type(2)").fadeIn(1000);
+    $(".mai-index:nth-of-type(1)").fadeOut(200);
+    $(".mai-index:nth-of-type(2)").fadeIn(1000);
 }
 
 function displaySignup() {
-    $(".mai-signup-wrapper:nth-of-type(2)").fadeOut(200);
-    $(".mai-signup-wrapper:nth-of-type(1)").fadeIn(1000);
+    $(".mai-index:nth-of-type(2)").fadeOut(200);
+    $(".mai-index:nth-of-type(1)").fadeIn(1000);
 }
 
 // Stop a function from running too many times

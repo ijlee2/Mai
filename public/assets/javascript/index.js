@@ -1,12 +1,60 @@
 function displayLogin() {
-    $(".mai-signup-wrapper").fadeOut(200);
-    $(".mai-login-wrapper").fadeIn(1000);
+    $(".mai-signup-wrapper:nth-of-type(1)").fadeOut(200);
+    $(".mai-signup-wrapper:nth-of-type(2)").fadeIn(1000);
 }
 
 function displaySignup() {
-    $(".mai-login-wrapper").fadeOut(200);
-    $(".mai-signup-wrapper").fadeIn(1000);
+    $(".mai-signup-wrapper:nth-of-type(2)").fadeOut(200);
+    $(".mai-signup-wrapper:nth-of-type(1)").fadeIn(1000);
 }
+
+// Stop a function from running too many times
+function debounce(func, wait = 10, immediate = true) {
+    let timeout;
+
+    return function() {
+        const context = this, args = arguments;
+
+        function later() {
+            timeout = null;
+
+            if (!immediate) func.apply(context, args);
+        };
+
+        const callNow = immediate && !timeout;
+        
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        
+        if (callNow) func.apply(context, args);
+    };
+}
+
+function detectDevice() {
+    switch ($("#mai-device-detector").css("font-size")) {
+        // Extra large, large
+        case "4px":
+        case "3px":
+            $(".mai-index").addClass("mai-signup-wrapper");
+            $(".mai-index").css({"margin": "0"});
+
+            break;
+
+        // Medium, small
+        case "2px":
+        case "1px":
+            $(".mai-index").removeClass("mai-signup-wrapper");
+            $(".mai-index").css({"margin": "1em 0 2.5em 0"});
+
+            break;
+
+    }
+}
+
+// Check device size before page loads and when window is resized
+detectDevice();
+
+$(window).resize(debounce(detectDevice));
 
 $(document).ready(function() {
     displaySignup();

@@ -247,12 +247,9 @@ h1.brand-logo img {
 }
 
 /* Meet Mai */
-.mai-about-mai-wrapper {
-    height: calc(100vh - 1.5*var(--height-nav));
-}
-
-.mai-about-mai-wrapper > * {
+#mai-about-mai > .col {
     background-color: var(--color-white-transparent);
+    border-radius   : 2px;
 }
 
 /* Meet Mai Team */

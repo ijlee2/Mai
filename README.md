@@ -16,7 +16,7 @@
 
 ## Technologies Used
 
-- [x] Materialize, Material-UI (Phase 2), SASS (Phase 2), ES7, jQuery, Handlebars, React + Redux (Phase 2)
+- [x] Materialize, Material-UI (Phase 2), Sass (Phase 2), ES7, jQuery, Handlebars, React + Redux (Phase 2)
 
 - [x] Node, Express, MySQL, Sequelize
 

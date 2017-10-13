@@ -76,17 +76,7 @@ strong {
 
 /* Navbar */
 /* Source: https://stackoverflow.com/questions/35552708/is-materialize-navbar-height-adjustment-possible */
-nav {
-    height     : var(--height-nav);
-    line-height: var(--height-nav);
-}
-
-nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
-    height     : var(--height-nav);
-    line-height: var(--height-nav);
-}
-
-nav .button-collapse i {
+nav, nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons, nav .button-collapse i {
     height     : var(--height-nav);
     line-height: var(--height-nav);
 }

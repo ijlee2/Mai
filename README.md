@@ -16,15 +16,20 @@
 
 ## Technologies Used
 
-- [x] Materialize, Material-UI (Phase 2), Sass (Phase 2), ES7, jQuery, Handlebars, React + Redux (Phase 2)
+- [x] Materialize, Material-UI (Phase 2), ES7, jQuery, Handlebars, React + Redux (Phase 2)
 
 - [x] Node, Express, MySQL, Sequelize
 
-- [x] bcrypt, Cookies, Dropzone
+- [x] bcrypt, JWT (Phase 2), Cookies, Dropzone
 
 - [x] Amazon RDS (Phase 2), Amazon S3 (Phase 2)
 
 - [x] Google Cloud Vision (Phase 2), Google Cloud Natural Language (Phase 2)
+
+
+## Demos
+- [Link to Phase 1 (Handlebars)](https://mai-app-hbs.herokuapp.com/)
+- [Link to Phase 2 (React + Redux)](https://mai-app.herokuapp.com/)
 
 
 ## Sketches
@@ -39,12 +44,20 @@
 
 ## Notes
 
+### Phase 1
+
 [Sequelize + Express Starter Guide](https://gist.github.com/JoeKarlsson/ebb1c714466ae3de88ae565fa9ba4779)
 
 [Models & Migrations](https://www.duringthedrive.com/2017/05/06/models-migrations-sequelize-node/)
 
-[Using AWS S3](https://devcenter.heroku.com/articles/s3)
-
 [Express Session](https://github.com/expressjs/session)
 
 [Production Best Practices: Security](https://expressjs.com/en/advanced/best-practice-security.html)
+
+[JSON Web Tokens](https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens)
+
+[S3 File Uploads in Node.js](https://devcenter.heroku.com/articles/s3-upload-node)
+
+[Uploading photos to AWS S3](https://medium.com/@pandeysoni/upload-files-to-aws-s3-in-node-js-f05b204ff686)
+
+[Another helpful article on S3-Node uploads](http://www.joshsgman.com/upload-to-and-get-images-from-amazon-s3-with-node-js/)

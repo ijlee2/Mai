@@ -29,9 +29,9 @@ const maiTeam = [
     },
     {
         "fullname"    : "Brian Ervin",
-        "url_photo"   : "assets/images/default_profile4.jpg",
+        "url_photo"   : "assets/images/brian_ervin.jpg",
         "url_linkedin": "https://www.linkedin.com/in/brianervinmedia/",
-        "biography"   : "Bio coming soon!"
+        "biography"   : "Hotrodder, designer, and turtle rescuer. Now building beautiful custom UI."
     },
     {
         "fullname"    : "David Gutierrez",

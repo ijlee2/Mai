@@ -12,7 +12,7 @@ const path           = require("path");
 const methodOverride = require("method-override");
 const bodyParser     = require("body-parser");
 const cookieParser   = require("cookie-parser");
-// const aws = require('aws-sdk'); //added by John for S3 functions
+// const aws = require("aws-sdk"); //added by John for S3 functions
 
 // Use express
 const app  = express();
@@ -59,7 +59,7 @@ app.engine(".hbs", exphbs({
 app.set("view engine", ".hbs");
 
 // Set ejs for S3 functions to run. Maybe unnecessary.
-// app.engine('html', require('ejs').renderFile); /* added by John per S3 tutorial, maybe unnecessary */
+// app.engine("html", require("ejs").renderFile); /* added by John per S3 tutorial, maybe unnecessary */
 
 // Set cookie
 app.use(cookieParser());

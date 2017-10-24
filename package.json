@@ -1,5 +1,6 @@
 {
     "//": [
+        "aws-sdk                    : Use AWS (S3, in particular)",
         "bcrypt                     : Hash user passwords",
         "body-parser                : Parse incoming request bodies in middlewares",
         "cookie-parser              : Create cookies in Express",
@@ -67,9 +68,12 @@
         "path": "^0.12.7",
         "sequelize": "^4.10.2"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "nodemon": "^1.12.1"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
+        "local": "nodemon server.js local",
         "start": "node server.js"
     },
     "repository": {

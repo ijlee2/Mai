@@ -22,9 +22,9 @@
 
 - [x] bcrypt, JWT (Phase 2), Cookies, Dropzone
 
-- [x] Amazon RDS (Phase 2), Amazon S3 (Phase 2)
+- [x] Amazon RDS (Phase 3), Amazon S3 (Phase 2)
 
-- [x] Google Cloud Vision (Phase 2), Google Cloud Natural Language (Phase 2)
+- [x] Google Cloud Vision (Phase 2), Google Cloud Natural Language (Phase 3)
 
 
 ## Demos
@@ -41,10 +41,19 @@
 - [Front End 4](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/front_end_page04.jpg)
 - [Back End 1](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/back_end_page01.jpg)
 
+### Phase 2
+
+- [Components 1](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/components01.jpg)
+- [Components 2](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/components02.jpg)
+- [Components 3](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/components03.jpg)
+- [Components 4](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/components04.jpg)
+- [Components 5](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/components05.jpg)
+- [Components 6](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/components06.jpg)
+- [Components 7](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/components07.jpg)
+- [Components 8](https://raw.githubusercontent.com/ijlee2/Mai/master/readme/components08.jpg)
+
 
 ## Notes
-
-### Phase 1
 
 [Sequelize + Express Starter Guide](https://gist.github.com/JoeKarlsson/ebb1c714466ae3de88ae565fa9ba4779)
 
